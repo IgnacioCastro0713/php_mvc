@@ -22,7 +22,7 @@ class Connection
     /**
      * @return PDO
      */
-    public static function get() {
+    public static function instance() {
         if (!self::$inst) {
             self::$inst = new Connection();
         }

@@ -1,4 +1,6 @@
 <?php
+namespace SweetAlert;
+
 class SweetAlert
 {
 
@@ -18,6 +20,5 @@ class SweetAlert
           setTimeout(\"location . href = '../$location'\", 0)
         });</script>";
     }
-
 
 }

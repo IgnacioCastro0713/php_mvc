@@ -1,7 +1,11 @@
 <?php
-require_once 'Connection.php';
+namespace User;
+include 'Connection.php';
+include'InterfaceModel.php';
+use Connection as Conn;
+use InterfaceModel\InterfaceModel as Model;
 
-class User
+class User implements Model
 {
     private $usuario, $nombre, $apaterno, $amaterno, $pass;
     /**
@@ -14,21 +18,33 @@ class User
      */
     public function __construct($usuario, $nombre, $apaterno, $amaterno, $pass)
     {
-        $this->usuario = $usuario;
-        $this->nombre = $nombre;
-        $this->apaterno = $apaterno;
-        $this->amaterno = $amaterno;
+        $this->usuario = (String)$usuario;
+        $this->nombre = (String)$nombre;
+        $this->apaterno = (String)$apaterno;
+        $this->amaterno = (String)$amaterno;
         $this->pass = (String) md5($pass);
     }
 
-
-    /**
-     * @return int
-     */
     public function save()
     {
         $sql = "INSERT INTO usuarios (usuario, pass, nombre, apaterno, amaterno) 
-        VALUES ('{$this->usuario}', '{$this->pass}', '{$this->nombre}', '{$this->apaterno}', '{$this->amaterno}')";
-        return Connection::get()->exec($sql);
+                VALUES ('{$this->usuario}', '{$this->pass}', '{$this->nombre}', '{$this->apaterno}', '{$this->amaterno}')";
+        return Conn::instance()->exec($sql);
+    }
+
+    public function update($id)
+    {
+    }
+
+    public function delete($id)
+    {
+    }
+
+    public function getAll()
+    {
+    }
+
+    public function getById($id)
+    {
     }
 }
