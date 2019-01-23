@@ -71,7 +71,9 @@
 </footer>
 </div>
 <!--   Core JS Files   -->
+<script src="../../assets/js/core/jquery.min.js" type="text/javascript"></script>
 <script src="../../assets/js/core/jquery-3.3.1.min.js" type="text/javascript"></script>
+<script src="../../assets/js/functions.js"></script>
 <script src="../../assets/js/core/popper.min.js" type="text/javascript"></script>
 <script src="../../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
 <script src="../../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
@@ -88,8 +90,8 @@
 <script src="../../assets/demo/demo.js"></script>
 <!-- Control Center for Black UI Kit: parallax effects, scripts for the example pages etc -->
 <script src="../../assets/js/blk-design-system.min.js?v=1.0.0" type="text/javascript"></script>
+</html>
 <?php
 require_once '../../model/Connection.php';
 Connection::destroy()
 ?>
-</html>

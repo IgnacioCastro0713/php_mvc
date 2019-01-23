@@ -36,17 +36,24 @@ class User implements Model
 
     public function update($id)
     {
+
     }
 
-    public function delete($id)
+    public static function delete($id)
     {
+
     }
 
-    public function getAll()
+    public static function search($search)
     {
+        $sql = "SELECT id, usuario, CONCAT(nombre, ' ', apaterno, ' ', amaterno) as nombreCompleto 
+                FROM usuarios WHERE usuario LIKE '%{$search}%' OR CONCAT(nombre, ' ', apaterno, ' ', amaterno) 
+                LIKE '%{$search}%'";
+        return Conn::instance()->query($sql);
     }
 
-    public function getById($id)
+    public static function getById($id)
     {
+
     }
 }

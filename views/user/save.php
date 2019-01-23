@@ -12,7 +12,7 @@
                 <div class="row row-grid justify-content-center align-items-center text-left">
                     <div class="col-lg-12 col-md-12 border-primary" style="border-radius: 10px; background-color: #242637">
                         <h1 class="text-secondary text-center">Agregar usuario</h1>
-                        <form method="post" onsubmit="form(event);" action="">
+                        <form method="post" id="form" action="">
                             <div class="form-row">
                                 <div class="col-md-4">
                                     <label for="nombre">Nombre</label>
@@ -39,7 +39,7 @@
                                 <input type="submit" class="btn btn-primary" onclick="" value="Guardar">
                             </div>
                         </form>
-                        <div id="form">
+                        <div id="response">
 
                         </div>
                     </div>
@@ -48,24 +48,17 @@
         </div>
     </div>
 </body>
-<script type="text/javascript">
-    function form (e) {
-        e.preventDefault();
-        $.ajax({
-            data:{
-                "nombre" : $('#nombre').val(),
-                "apaterno" : $('#apaterno').val(),
-                "amaterno" : $('#amaterno').val(),
-                "usuario" : $('#usuario').val(),
-                "pass" : $('#pass').val(),
-                "function" : 'save'
-            },
-            type : 'post',
-            url : '../../controllers/UserController.php',
-            success: function (response) {
-                $('#form').html(response)
-            }
-        });
-    }
-</script>
 <?php require_once '../layouts/footer.php'; ?>
+<script type="text/javascript">
+    $('#form').submit(function () {
+        event.preventDefault();
+        sendData({
+            "nombre" : $('#nombre').val(),
+            "apaterno" : $('#apaterno').val(),
+            "amaterno" : $('#amaterno').val(),
+            "usuario" : $('#usuario').val(),
+            "pass" : $('#pass').val(),
+            "function" : 'save'
+        }, 'UserController.php');
+    });
+</script>

@@ -9,7 +9,6 @@ use User\User; // TODO: Change according to the model.
 
 class UserController implements Controller
 {
-
     public static function newObj()
     {
         return new User($_POST['usuario'], $_POST['nombre'], $_POST['apaterno'], $_POST['amaterno'], $_POST['pass']);
@@ -33,6 +32,15 @@ class UserController implements Controller
     {
         //
     }
+
+    public static function table()
+    {
+        $res = User::getAll($_POST['search']);
+        $count = $res->rowCount();
+        echo $count;
+        require_once "../views/user/row.php";
+    }
 }
+
 $function = (String)$_POST['function'];
 UserController::$function();
