@@ -12,7 +12,7 @@
                 <div class="row row-grid justify-content-center align-items-center text-left">
                     <div class="col-lg-12 col-md-12 border-primary" style="border-radius: 10px; background-color: #242637">
                         <h1 class="text-secondary text-center">Agregar usuario</h1>
-                        <form method="post" onsubmit="form();" action="">
+                        <form method="post" onsubmit="form(event);" action="">
                             <div class="form-row">
                                 <div class="col-md-4">
                                     <label for="nombre">Nombre</label>
@@ -48,10 +48,9 @@
         </div>
     </div>
 </body>
-<?php require_once '../layouts/footer.php'; ?>
 <script type="text/javascript">
-    function form () {
-        event.preventDefault();
+    function form (e) {
+        e.preventDefault();
         $.ajax({
             data:{
                 "nombre" : $('#nombre').val(),
@@ -69,3 +68,4 @@
         });
     }
 </script>
+<?php require_once '../layouts/footer.php'; ?>

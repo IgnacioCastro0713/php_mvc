@@ -71,7 +71,7 @@
 </footer>
 </div>
 <!--   Core JS Files   -->
-<script src="../../assets/js/core/jquery.min.js" type="text/javascript"></script>
+<script src="../../assets/js/core/jquery-3.3.1.min.js" type="text/javascript"></script>
 <script src="../../assets/js/core/popper.min.js" type="text/javascript"></script>
 <script src="../../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
 <script src="../../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>

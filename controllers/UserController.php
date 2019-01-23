@@ -1,14 +1,15 @@
 <?php
-include '../model/SweetAlert.php';
-include '../model/User.php';
-include 'InterfaceController.php';
+include 'InterfaceController.php'; // TODO: Required, doesn't change.
+include '../model/SweetAlert.php'; // TODO: Required, doesn't change.
+include '../model/User.php'; // TODO: Change according to the model.
 
-use SweetAlert\SweetAlert;
-use InterfaceController\InterfaceController as Controller;
-use User\User;
+use InterfaceController\InterfaceController as Controller; //TODO: Required doesn't change.
+use SweetAlert\SweetAlert; // TODO: Required, doesn't change.
+use User\User; // TODO: Change according to the model.
 
 class UserController implements Controller
 {
+
     public static function newObj()
     {
         return new User($_POST['usuario'], $_POST['nombre'], $_POST['apaterno'], $_POST['amaterno'], $_POST['pass']);

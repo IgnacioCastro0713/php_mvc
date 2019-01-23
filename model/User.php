@@ -1,9 +1,11 @@
 <?php
-namespace User;
-include 'Connection.php';
-include'InterfaceModel.php';
-use Connection as Conn;
-use InterfaceModel\InterfaceModel as Model;
+namespace User; // TODO : Change according to the class.
+
+include 'Connection.php'; // TODO: Required, doesn't change.
+include'InterfaceModel.php'; // TODO: Required, doesn't change.
+
+use Connection as Conn; // TODO: Required, doesn't change.
+use InterfaceModel\InterfaceModel as Model; // TODO: Required, doesn't change.
 
 class User implements Model
 {
