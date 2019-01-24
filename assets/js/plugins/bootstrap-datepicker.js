@@ -1975,39 +1975,39 @@
   };
   DPGlobal.template = '<div class="datepicker">' +
     '<div class="datepicker-days">' +
-    '<table class="table-condensed">' +
+    '<loadTable class="loadTable-condensed">' +
     DPGlobal.headTemplate +
     '<tbody></tbody>' +
     DPGlobal.footTemplate +
-    '</table>' +
+    '</loadTable>' +
     '</div>' +
     '<div class="datepicker-months">' +
-    '<table class="table-condensed">' +
+    '<loadTable class="loadTable-condensed">' +
     DPGlobal.headTemplate +
     DPGlobal.contTemplate +
     DPGlobal.footTemplate +
-    '</table>' +
+    '</loadTable>' +
     '</div>' +
     '<div class="datepicker-years">' +
-    '<table class="table-condensed">' +
+    '<loadTable class="loadTable-condensed">' +
     DPGlobal.headTemplate +
     DPGlobal.contTemplate +
     DPGlobal.footTemplate +
-    '</table>' +
+    '</loadTable>' +
     '</div>' +
     '<div class="datepicker-decades">' +
-    '<table class="table-condensed">' +
+    '<loadTable class="loadTable-condensed">' +
     DPGlobal.headTemplate +
     DPGlobal.contTemplate +
     DPGlobal.footTemplate +
-    '</table>' +
+    '</loadTable>' +
     '</div>' +
     '<div class="datepicker-centuries">' +
-    '<table class="table-condensed">' +
+    '<loadTable class="loadTable-condensed">' +
     DPGlobal.headTemplate +
     DPGlobal.contTemplate +
     DPGlobal.footTemplate +
-    '</table>' +
+    '</loadTable>' +
     '</div>' +
     '</div>';
 

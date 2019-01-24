@@ -1,16 +1,72 @@
-function sendData(data, url) {
+const swalWithBootstrapButtons = Swal.mixin({
+    confirmButtonClass: 'btn btn-success',
+    cancelButtonClass: 'btn btn-danger',
+    buttonsStyling: false,
+});
+
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'top',
+    showConfirmButton: false,
+    timer: 3000
+});
+
+function toast(type, message) {
+    Toast.fire({
+        type: type,
+        title: message
+    })
+}
+
+function sendData(data, controller) {
     $.ajax({
         data: data,
         type: 'post',
-        url: '../../controllers/'+url,
+        url: '../../controllers/'+controller,
         success: function (response) {
             $('#response').html(response);
         }
     });
 }
 
-function table(url) {
-    sendData({"search" : $('#search').val(),"function" : "table"}, url);
+function loadTable(controller) {
+    sendData({
+        "search" : $('#search').val(),
+        "func" : `table`
+    }, controller);
+}
+
+function sendDataDelete(id, message, controller) {
+    $.ajax({
+        data: {
+            "id" : id,
+            "func" : "destroy"
+        },
+        type: 'post',
+        url: '../../controllers/'+controller,
+        success: function (response) {
+            if (response === '1') {
+                loadTable(controller);
+                toast('success', message);
+            }
+        }
+    });
+}
+
+function confirmDelete(name, id, controller) {
+    swalWithBootstrapButtons.fire({
+        title: '¿Desea eliminar a '+name,
+        text: "Esta apunto de eliminar este registro.",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Eliminar',
+        cancelButtonText: 'Cancelar',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.value) {
+            sendDataDelete(id, ' eliminado correctamente.', controller);
+        }
+    });
 }
 
 function emptyForm() {

@@ -25,7 +25,7 @@ class Connection
     }
 
     /**
-     * @return PDO
+     * @return PDO instance
      */
     public static function instance() {
         if (!self::$inst) {

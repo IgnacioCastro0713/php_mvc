@@ -1,8 +1,7 @@
 <?php
 if ($count != 0) {
     $rows = $res->fetchAll();
-    foreach ($rows as $row) {
-        ?>
+    foreach ($rows as $row) { ?>
         <tr>
             <td class="text-center"><?php echo $row['id']; ?></td>
             <td><?php echo $row['usuario']; ?></td>
@@ -14,7 +13,8 @@ if ($count != 0) {
                 <button type="button" rel="tooltip" class="btn btn-success btn-simple btn-icon btn-sm">
                     <i class="tim-icons icon-settings-gear-63"></i>
                 </button>
-                <button type="button" rel="tooltip" class="btn btn-danger btn-simple btn-icon btn-sm">
+                <button onclick="confirmDelete('<?php echo $row['usuario']?>', '<?php echo $row['id']; ?>', controller);"
+                        type="button" rel="tooltip" class="btn btn-danger btn-simple btn-icon btn-sm">
                     <i class="tim-icons icon-simple-remove"></i>
                 </button>
             </td>

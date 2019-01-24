@@ -7,22 +7,22 @@
             <div class="col-md-3">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a href="./index.html" class="nav-link">
+                        <a href="" class="nav-link">
                             Home
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="./examples/landing-page.html" class="nav-link">
+                        <a href="" class="nav-link">
                             Landing
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="./examples/register-page.html" class="nav-link">
+                        <a href="" class="nav-link">
                             Register
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="./examples/profile-page.html" class="nav-link">
+                        <a href="" class="nav-link">
                             Profile
                         </a>
                     </li>
@@ -71,10 +71,14 @@
 </footer>
 </div>
 <!--   Core JS Files   -->
-<script src="../../assets/js/functions.js"></script>
 <script src="../../assets/js/core/jquery.min.js" type="text/javascript"></script>
+<!-- SweetAlert2 -->
+<script type="text/javascript" src="../../assets/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+<!-- jquery-validation -->
 <script src="../../assets/node_modules/jquery-validation/dist/jquery.validate.min.js" type="text/javascript"></script>
 <script src="../../assets/node_modules/jquery-validation/dist/additional-methods.min.js" type="text/javascript"></script>
+<script src="../../assets/js/functions.js"></script>
+<!-- Others JS  -->
 <script src="../../assets/js/core/popper.min.js" type="text/javascript"></script>
 <script src="../../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
 <script src="../../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
@@ -94,5 +98,5 @@
 </html>
 <?php
 require_once '../../config/Connection.php';
-\Connection\Connection::destroy()
+\Connection\Connection::destroy();
 ?>

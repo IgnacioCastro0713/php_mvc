@@ -11,7 +11,7 @@
             <div class="content-center">
                 <div class="row row-grid justify-content-center align-items-center text-left">
                     <div id="response"></div>
-                    <div class="col-lg-12 col-md-12 border-primary" style="border-radius: 10px; background-color: #242637">
+                    <div class="col-lg-12 col-md-12 border-primary" style="border-radius: 10px; background-color: #1e1e26">
                         <br>
                         <h1 class="category-absolute text-info">Agregar usuario.</h1>
                         <form method="post" id="form" action="">
@@ -64,7 +64,7 @@
         errorClass: 'text-danger',
         rules: {
             usuario: {
-              minlength: 5
+                minlength: 5
             },
             pass: {
                 minlength: 5
@@ -101,7 +101,7 @@
                 "amaterno" : $('#amaterno').val(),
                 "usuario" : $('#usuario').val(),
                 "pass" : $('#pass').val(),
-                "function" : 'save'
+                "func" : 'save'
             }, 'UserController.php');
         },
         invalidHandler: function () {

@@ -37,9 +37,9 @@ var $html = $('html');
     // if we are on windows OS we activate the perfectScrollbar function
 
 
-    if ($('.tab-content .table-responsive').length != 0) {
+    if ($('.tab-content .loadTable-responsive').length != 0) {
 
-      $('.table-responsive').each(function() {
+      $('.loadTable-responsive').each(function() {
         var ps2 = new PerfectScrollbar($(this)[0]);
       });
     }

@@ -15,8 +15,6 @@
     <link href="../../assets/css/nucleo-icons.css" rel="stylesheet" />
     <!-- CSS Files -->
     <link href="../../assets/css/blk-design-system.css?v=1.0.0" rel="stylesheet" />
-    <!-- SweetAlert2 -->
-    <script type="text/javascript" src="../../assets/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
 
 </head>
 <!-- Navbar -->

@@ -36,5 +36,5 @@
 </body>
 <?php require_once '../layouts/footer.php'; ?>
 <script type="text/javascript">
-    $(document).ready(table(controller));
+    $(document).ready(loadTable(controller));
 </script>
