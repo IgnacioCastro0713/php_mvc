@@ -27,6 +27,10 @@ class User implements Model
         $this->pass = (String) md5($pass);
     }
 
+    /**
+     * TODO: Function to save a user, change the query according to the table.
+     * @return int
+     */
     public function save()
     {
         $sql = "INSERT INTO usuarios (usuario, pass, nombre, apaterno, amaterno) 
@@ -34,6 +38,10 @@ class User implements Model
         return Conn::instance()->exec($sql);
     }
 
+    /**
+     * TODO: Function to update a user, change the query according to the table.
+     * @return int
+     */
     public function update()
     {
         $sql = "UPDATE usuarios SET nombre = '{$this->nombre}', apaterno = '{$this->apaterno}', amaterno = '{$this->amaterno}'";
@@ -43,6 +51,11 @@ class User implements Model
         return Conn::instance()->exec($sql);
     }
 
+    /**
+     * TODO: Function to save a user, change the query according to the table.
+     * @param $id
+     * @return int
+     */
     public static function delete($id)
     {
         $sql = "DELETE FROM usuarios WHERE id = {$id}";

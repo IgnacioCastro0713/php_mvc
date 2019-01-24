@@ -8,7 +8,7 @@ const Toast = Swal.mixin({
     toast: true,
     position: 'top',
     showConfirmButton: false,
-    timer: 3000
+    timer: 2000
 });
 
 function toast(type, message) {
@@ -48,7 +48,8 @@ function sendDataDelete(id, message, controller) {
             if (response === '1') {
                 loadTable(controller);
                 toast('success', message);
-            }
+            }else
+                toast('error', 'Error al eliminar este registro.')
         }
     });
 }
