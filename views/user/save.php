@@ -65,9 +65,23 @@
 <script type="text/javascript">
     $("#form").validate({
         errorClass: 'text-danger',
+        rules: {
+            usuario: {
+              minlength: 5
+            },
+            pass: {
+                minlength: 5
+            }
+        },
         messages: {
-            usuario: "El usuario no puede quedar vacío",
-            pass: "La contraseña no puede quedar vacía.",
+            usuario: {
+                required: "El usuario no puede quedar vacío.",
+                minlength: "El usuario debe contener al menos 5 carácteres."
+            },
+            pass: {
+                required: "La contraseña no puede quedar vacía.",
+                minlength: "La contraseña debe contener al menos 5 carácteres."
+            },
             nombre: "El nombre no puede quedar vacío.",
             apaterno: "El apellido paterno no puede quedar vacío.",
             amaterno: "El apellido materno no puede quedar vacío."
