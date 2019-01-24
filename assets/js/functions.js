@@ -20,6 +20,6 @@ function emptyForm() {
                     '<i class="tim-icons icon-simple-remove"></i>' +
                 '</button>' +
             '<span data-notify="icon" class="tim-icons icon-alert-circle-exc"></span>' +
-            '<span><b> Invalido! - </b>Ha dejado campos vacíos.</span>'+
+            '<span><b> ¡Invalido! - </b>Favor de ingresar los datos correctamente.</span>'+
         '</div>');
 }

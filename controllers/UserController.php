@@ -19,7 +19,7 @@ class UserController implements Controller
         $user = self::newObj();
         if (!$user->find()) {
             if ($user->save()) {
-                Alert::toast("Guardado correctamente", "success", "user/index.php");
+                Alert::toast("Guardado correctamente!", "success", "user/index.php");
             } else
                 Alert::message('No se ha podido guardar el usuario.', 'alert alert-danger');
         } else
@@ -28,12 +28,16 @@ class UserController implements Controller
 
     public static function update()
     {
-        //
+        $user = self::newObj();
+        if ($user->update()) {
+            Alert::toast("Actualizado correctamente!", "success", "user/index.php");
+        } else
+            Alert::message('No se ha podido actualizar el usuario o no se han realizado cambios.', 'alert alert-danger');
     }
 
     public static function destroy()
     {
-        //
+        echo User::delete($_POST['id']);
     }
 
     public static function table()

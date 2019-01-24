@@ -34,14 +34,19 @@ class User implements Model
         return Conn::instance()->exec($sql);
     }
 
-    public function update($id)
+    public function update()
     {
-
+        $sql = "UPDATE usuarios SET nombre = '{$this->nombre}', apaterno = '{$this->apaterno}', amaterno = '{$this->amaterno}'";
+        if ($this->pass !== md5(""))
+            $sql .= ", pass = '{$this->pass}'";
+        $sql .= " WHERE usuario = '{$this->usuario}'";
+        return Conn::instance()->exec($sql);
     }
 
     public static function delete($id)
     {
-
+        $sql = "DELETE FROM usuarios WHERE id = {$id}";
+        return Conn::instance()->exec($sql);
     }
 
     public static function search($search)
@@ -54,7 +59,8 @@ class User implements Model
 
     public static function getById($id)
     {
-
+        $sql = "SELECT * FROM usuarios WHERE id = {$id}";
+        return Conn::instance()->query($sql)->fetchAll()[0];
     }
 
     public function find()

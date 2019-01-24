@@ -5,7 +5,7 @@ interface InterfaceModel
 {
     public function save();
 
-    public function update($id);
+    public function update();
 
     public static function delete($id);
 

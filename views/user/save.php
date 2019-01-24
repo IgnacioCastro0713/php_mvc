@@ -10,9 +10,10 @@
             <img src="../../assets/img/cercuri.png" class="shapes circle">
             <div class="content-center">
                 <div class="row row-grid justify-content-center align-items-center text-left">
+                    <div id="response"></div>
                     <div class="col-lg-12 col-md-12 border-primary" style="border-radius: 10px; background-color: #242637">
                         <br>
-                        <h1 class="category-absolute">Agregar usuario</h1>
+                        <h1 class="category-absolute text-info">Agregar usuario.</h1>
                         <form method="post" id="form" action="">
                             <div class="form-row">
                                 <div class="col-md-4 form-group">
@@ -48,13 +49,9 @@
                             </div>
                             <br>
                             <div class="text-center">
-                                <input type="submit" class="btn btn-primary" onclick="" value="Guardar"><br><br>
+                                <input type="submit" class="btn btn-success" onclick="" value="Guardar"><br><br>
                             </div>
                         </form>
-                        <div id="response">
-
-
-                        </div>
                     </div>
                 </div>
             </div>
@@ -86,6 +83,17 @@
             apaterno: "El apellido paterno no puede quedar vacío.",
             amaterno: "El apellido materno no puede quedar vacío."
         },
+        highlight: function(element){
+            $(element)
+                .closest('.form-group')
+                .addClass('has-danger');
+        },
+        unhighlight: function(element){
+            $(element)
+                .closest('.form-group')
+                .removeClass('has-danger')
+                .addClass('has-success');
+        },
         submitHandler: function () {
             sendData({
                 "nombre" : $('#nombre').val(),
@@ -98,17 +106,6 @@
         },
         invalidHandler: function () {
             emptyForm();
-        },
-        highlight: function(element){
-            $(element)
-                .closest('.form-group')
-                .addClass('has-danger');
-        },
-        unhighlight: function(element){
-            $(element)
-                .closest('.form-group')
-                .removeClass('has-danger')
-                .addClass('has-success');
         }
     });
 </script>
