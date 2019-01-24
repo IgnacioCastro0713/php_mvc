@@ -16,7 +16,7 @@
     <!-- CSS Files -->
     <link href="../../assets/css/blk-design-system.css?v=1.0.0" rel="stylesheet" />
     <!-- SweetAlert2 -->
-    <script type="text/javascript" src="../../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script type="text/javascript" src="../../assets/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
 
 </head>
 <!-- Navbar -->
@@ -71,7 +71,7 @@
                         <a href="" class="dropdown-item">
                             <i class="tim-icons icon-badge"></i> Perfil
                         </a>
-                        <a href="../user/index.php" class="dropdown-item">
+                        <a href="" class="dropdown-item">
                             <i class="tim-icons icon-simple-remove"></i>Salir
                         </a>
                     </div>

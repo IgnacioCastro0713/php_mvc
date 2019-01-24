@@ -1,10 +1,10 @@
 <?php
 namespace User; // TODO : Change according to the class.
 
-include 'Connection.php'; // TODO: Required, doesn't change.
-include'InterfaceModel.php'; // TODO: Required, doesn't change.
+include '../config/Connection.php'; // TODO: Required, doesn't change.
+include '../config/InterfaceModel.php'; // TODO: Required, doesn't change.
 
-use Connection as Conn; // TODO: Required, doesn't change.
+use Connection\Connection as Conn; // TODO: Required, doesn't change.
 use InterfaceModel\InterfaceModel as Model; // TODO: Required, doesn't change.
 
 class User implements Model
@@ -55,5 +55,11 @@ class User implements Model
     public static function getById($id)
     {
 
+    }
+
+    public function find()
+    {
+        $sql = "SELECT * FROM usuarios WHERE usuario = '{$this->usuario}'";
+        return Conn::instance()->query($sql)->rowCount();
     }
 }

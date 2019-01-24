@@ -10,7 +10,7 @@
             <img src="../../assets/img/cercuri.png" class="shapes circle">
             <div class="content-center">
                 <div class="row row-grid justify-content-center align-items-center text-left">
-                    <div class="col-lg-12 col-md-12 border-primary" style="border-radius: 10px; background-color: #242637">
+                    <div class="col-lg-12 col-md-12 border-primary" style="border-radius: 10px; background-color: #242637"><br>
                         <h1 class="text-secondary text-center">Agregar usuario</h1>
                         <form method="post" id="form" action="">
                             <div class="form-row">
@@ -36,10 +36,11 @@
                                 </div>
                             </div><br>
                             <div class="text-center">
-                                <input type="submit" class="btn btn-primary" onclick="" value="Guardar">
+                                <input type="submit" class="btn btn-primary" onclick="" value="Guardar"><br><br>
                             </div>
                         </form>
                         <div id="response">
+
 
                         </div>
                     </div>

@@ -73,6 +73,7 @@
 <!--   Core JS Files   -->
 <script src="../../assets/js/core/jquery.min.js" type="text/javascript"></script>
 <script src="../../assets/js/core/jquery-3.3.1.min.js" type="text/javascript"></script>
+<script src="../../assets/node_modules/jquery-validation/dist/jquery.validate.js" type="text/javascript"></script>
 <script src="../../assets/js/functions.js"></script>
 <script src="../../assets/js/core/popper.min.js" type="text/javascript"></script>
 <script src="../../assets/js/core/bootstrap.min.js" type="text/javascript"></script>
@@ -92,6 +93,6 @@
 <script src="../../assets/js/blk-design-system.min.js?v=1.0.0" type="text/javascript"></script>
 </html>
 <?php
-require_once '../../model/Connection.php';
-Connection::destroy()
+require_once '../../config/Connection.php';
+\Connection\Connection::destroy()
 ?>
