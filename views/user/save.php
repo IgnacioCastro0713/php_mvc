@@ -10,31 +10,43 @@
             <img src="../../assets/img/cercuri.png" class="shapes circle">
             <div class="content-center">
                 <div class="row row-grid justify-content-center align-items-center text-left">
-                    <div class="col-lg-12 col-md-12 border-primary" style="border-radius: 10px; background-color: #242637"><br>
-                        <h1 class="text-secondary text-center">Agregar usuario</h1>
+                    <div class="col-lg-12 col-md-12 border-primary" style="border-radius: 10px; background-color: #242637">
+                        <br>
+                        <h1 class="category-absolute">Agregar usuario</h1>
                         <form method="post" id="form" action="">
                             <div class="form-row">
-                                <div class="col-md-4">
+                                <div class="col-md-4 form-group">
                                     <label for="nombre">Nombre</label>
-                                    <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre">
+                                    <div class="form-group">
+                                        <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre" required>
+                                    </div>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="apaterno">Apellido Paterno</label>
-                                    <input id="apaterno" name="apaterno" type="text" class="form-control" placeholder="Apellido paterno">
+                                    <div class="form-group">
+                                        <input id="apaterno" name="apaterno" type="text" class="form-control" placeholder="Apellido paterno" required>
+                                    </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 form-group">
                                     <label for="amaterno">Apellido Materno</label>
-                                    <input id="amaterno" name="amaterno" type="text" class="form-control" placeholder="Apellido materno">
+                                    <div class="form-group">
+                                        <input id="amaterno" name="amaterno" type="text" class="form-control" placeholder="Apellido materno" required>
+                                    </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6 form-group">
                                     <label for="usuario">Usuario</label>
-                                    <input id="usuario" name="usuario" type="text" class="form-control" placeholder="usuario">
+                                    <div class="form-group">
+                                        <input id="usuario" name="usuario" type="text" class="form-control" placeholder="usuario" required>
+                                    </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6 form-group">
                                     <label for="pass">Contraseña</label>
-                                    <input id="pass" name="pass" type="password" class="form-control" placeholder="Contraseña">
+                                    <div class="form-group">
+                                        <input id="pass" name="pass" type="password" class="form-control" placeholder="Contraseña" required>
+                                    </div>
                                 </div>
-                            </div><br>
+                            </div>
+                            <br>
                             <div class="text-center">
                                 <input type="submit" class="btn btn-primary" onclick="" value="Guardar"><br><br>
                             </div>
@@ -51,15 +63,38 @@
 </body>
 <?php require_once '../layouts/footer.php'; ?>
 <script type="text/javascript">
-    $('#form').submit(function () {
-        event.preventDefault();
-        sendData({
-            "nombre" : $('#nombre').val(),
-            "apaterno" : $('#apaterno').val(),
-            "amaterno" : $('#amaterno').val(),
-            "usuario" : $('#usuario').val(),
-            "pass" : $('#pass').val(),
-            "function" : 'save'
-        }, 'UserController.php');
+    $("#form").validate({
+        errorClass: 'text-danger',
+        messages: {
+            usuario: "El usuario no puede quedar vacío",
+            pass: "La contraseña no puede quedar vacía.",
+            nombre: "El nombre no puede quedar vacío.",
+            apaterno: "El apellido paterno no puede quedar vacío.",
+            amaterno: "El apellido materno no puede quedar vacío."
+        },
+        submitHandler: function () {
+            sendData({
+                "nombre" : $('#nombre').val(),
+                "apaterno" : $('#apaterno').val(),
+                "amaterno" : $('#amaterno').val(),
+                "usuario" : $('#usuario').val(),
+                "pass" : $('#pass').val(),
+                "function" : 'save'
+            }, 'UserController.php');
+        },
+        invalidHandler: function () {
+            emptyForm();
+        },
+        highlight: function(element){
+            $(element)
+                .closest('.form-group')
+                .addClass('has-danger');
+        },
+        unhighlight: function(element){
+            $(element)
+                .closest('.form-group')
+                .removeClass('has-danger')
+                .addClass('has-success');
+        }
     });
 </script>
