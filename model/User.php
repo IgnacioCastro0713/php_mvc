@@ -70,12 +70,6 @@ class User implements Model
         return Conn::instance()->query($sql);
     }
 
-    public static function getById($id)
-    {
-        $sql = "SELECT * FROM usuarios WHERE id = {$id}";
-        return Conn::instance()->query($sql)->fetchAll()[0];
-    }
-
     public function find()
     {
         $sql = "SELECT * FROM usuarios WHERE usuario = '{$this->usuario}'";

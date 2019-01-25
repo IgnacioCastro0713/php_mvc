@@ -10,9 +10,9 @@ if ($count != 0) {
                 <button type="button" rel="tooltip" class="btn btn-info btn-simple btn-icon btn-sm">
                     <i class="tim-icons icon-single-02"></i>
                 </button>
-                <button type="button" rel="tooltip" class="btn btn-success btn-simple btn-icon btn-sm">
+                <a href="update.php?id=<?php echo $row['id']?>" rel="tooltip" class="btn btn-success btn-simple btn-icon btn-sm">
                     <i class="tim-icons icon-settings-gear-63"></i>
-                </button>
+                </a>
                 <button onclick="confirmDelete('<?php echo $row['usuario']?>', '<?php echo $row['id']; ?>', controller);"
                         type="button" rel="tooltip" class="btn btn-danger btn-simple btn-icon btn-sm">
                     <i class="tim-icons icon-simple-remove"></i>

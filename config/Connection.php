@@ -27,6 +27,7 @@ class Connection
     /**
      * @return PDO instance
      */
+
     public static function instance() {
         if (!self::$inst) {
             self::$inst = new Connection();
@@ -39,5 +40,16 @@ class Connection
      */
     public static function destroy() {
         self::$inst = null;
+    }
+
+    /**
+     * @param $table
+     * @param $id
+     * @return mixed
+     */
+    public static function getById($table, $id)
+    {
+        $sql = "SELECT * FROM {$table} WHERE id = {$id}";
+        return self::instance()->query($sql)->fetchAll()[0];
     }
 }

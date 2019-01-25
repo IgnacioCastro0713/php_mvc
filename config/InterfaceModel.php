@@ -10,6 +10,4 @@ interface InterfaceModel
     public static function delete($id);
 
     public static function search($search);
-
-    public static function getById($id);
 }
