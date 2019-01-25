@@ -1,11 +1,9 @@
 <?php
 namespace User; // TODO : Change according to the class.
-
+use Configuration\Configuration;
 use Connection\Connection as Conn; // TODO: Required, doesn't change.
 use InterfaceModel\InterfaceModel as Model; // TODO: Required, doesn't change.
-
-include '../config/Connection.php'; // TODO: Required, doesn't change.
-include '../config/InterfaceModel.php'; // TODO: Required, doesn't change.
+Configuration::model();
 
 class User implements Model
 {
