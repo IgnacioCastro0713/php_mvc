@@ -1,7 +1,5 @@
-<?php
-require_once '../home/auth.php';
-require_once '../layouts/head.php';
-?>
+<?php require_once '../layouts/head.php'; ?>
+<?php require_once '../home/auth.php'?>
 <script type="text/javascript">
     let controller = "UserController.php";
 </script>

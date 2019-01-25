@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -45,6 +46,8 @@
                     </div>
                 </div>
             </div>
+            <?php
+            if (isset($_SESSION['valid'])){ ?>
             <ul class="navbar-nav">
                 <li class="dropdown nav-item">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
@@ -67,7 +70,7 @@
                     </a>
                     <div class="dropdown-menu dropdown-with-icons">
                         <a href="" class="dropdown-item">
-                            <i class="tim-icons icon-badge"></i> Perfil
+                            <i class="tim-icons icon-badge"></i> <?php echo $_SESSION['user']?>
                         </a>
                         <a href="" class="dropdown-item" onclick="logout(event)">
                             <i class="tim-icons icon-simple-remove"></i>Salir
@@ -75,6 +78,15 @@
                     </div>
                 </li>
             </ul>
+            <?php } else { ?>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="../home/login.php" class="nav-link">
+                            <i class="tim-icons icon-tap-02"></i> Ingresar
+                        </a>
+                    </li>
+                </ul>
+            <?php } ?>
         </div>
     </div>
 </nav>

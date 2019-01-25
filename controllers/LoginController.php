@@ -19,7 +19,7 @@ class LoginController
             $_SESSION['valid'] = true;
             $_SESSION['id'] = $data['id'];
             $_SESSION['user'] = "{$data['nombre']} {$data['apaterno']} {$data['amaterno']}";
-            Alert::toast("¡Bienvenido {$data['nombre']}", "success", 'home/index.php');
+            Alert::toast("¡Bienvenido {$data['nombre']}!", "success", 'home/index.php');
         } else
             Alert::message('Credenciales incorrectas', 'alert alert-danger');
 

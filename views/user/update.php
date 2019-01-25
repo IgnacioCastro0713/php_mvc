@@ -1,10 +1,10 @@
 <?php
-require_once '../home/auth.php';
 require '../../config/Connection.php';
 if ($_GET['id'] !== "")
     $row = \Connection\Connection::getById('usuarios', $_GET['id']) ;
 require_once '../layouts/head.php';
 ?>
+<?php require_once '../home/auth.php'?>
 <body class="landing-page">
 <div class="wrapper">
     <div class="page-header">
