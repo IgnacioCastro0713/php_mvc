@@ -1,4 +1,5 @@
 <?php
+require_once '../home/auth.php';
 require '../../config/Connection.php';
 if ($_GET['id'] !== "")
     $row = \Connection\Connection::getById('usuarios', $_GET['id']) ;

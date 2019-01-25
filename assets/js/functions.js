@@ -8,7 +8,7 @@ const Toast = Swal.mixin({
     toast: true,
     position: 'top',
     showConfirmButton: false,
-    timer: 2000
+    timer: 1700
 });
 
 function toast(type, message) {

@@ -1,4 +1,7 @@
-<?php require_once '../layouts/head.php'?>
+<?php
+require_once '../home/auth.php';
+require_once '../layouts/head.php';
+?>
 <body class="landing-page">
     <div class="wrapper">
         <div class="page-header">

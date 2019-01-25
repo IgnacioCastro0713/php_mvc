@@ -1,7 +1,4 @@
 <?php
-/**
- * Created by IntelliJ IDEA.
- * User: ignac
- * Date: 24/01/2019
- * Time: 09:24 PM
- */
+session_start();
+if (!isset($_SESSION['valid']))
+    header("Location:../home/index.php");

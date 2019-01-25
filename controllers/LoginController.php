@@ -4,12 +4,12 @@ namespace LoginController;
 use Alert\Alert;
 use Auth\Auth;
 
-require '../config/Alert.php';
-require '../model/Auth.php';
+include '../config/Alert.php';
+include '../model/Auth.php';
 
 class LoginController
 {
-    public static function singin()
+    public static function signin()
     {
         $session = new Auth($_POST['user'], $_POST['pass']);
         if ($session->check())
@@ -17,9 +17,9 @@ class LoginController
             $data = $session->get();
             session_start();
             $_SESSION['valid'] = true;
-            $_SESSION['id'] = $data['idusuarios'];
+            $_SESSION['id'] = $data['id'];
             $_SESSION['user'] = "{$data['nombre']} {$data['apaterno']} {$data['amaterno']}";
-            Alert::toast("¡Bienvenido {$data['nombre']}", "success", 'layouts/index.php');
+            Alert::toast("¡Bienvenido {$data['nombre']}", "success", 'home/index.php');
         } else
             Alert::message('Credenciales incorrectas', 'alert alert-danger');
 
@@ -30,11 +30,10 @@ class LoginController
         session_start();
         $_SESSION = [];
         session_unset();
-
         if (session_destroy())
-            Alert::toast("¡Ha cerrado sesión!", 'success', '../layouts/index.php');
+            Alert::toast("¡Ha cerrado sesión!", 'success', '../views/home/index.php');
         else
-            Alert::toast("¡Ha cerrado sesión!", 'success', 'layouts/index.php');
+            Alert::toast("No se ha podido cerrar sesión", 'success', '../layouts/index.php');
     }
 }
 

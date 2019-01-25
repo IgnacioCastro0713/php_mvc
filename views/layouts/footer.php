@@ -95,6 +95,14 @@
 <script src="../../assets/demo/demo.js"></script>
 <!-- Control Center for Black UI Kit: parallax effects, scripts for the example pages etc -->
 <script src="../../assets/js/blk-design-system.min.js?v=1.0.0" type="text/javascript"></script>
+<script type="text/javascript">
+    function logout(event) {
+        event.preventDefault();
+        sendData({
+            'func' : 'logout'
+        }, 'LoginController.php');
+    }
+</script>
 </html>
 <?php
 require_once '../../config/Connection.php';

@@ -69,7 +69,7 @@
                         <a href="" class="dropdown-item">
                             <i class="tim-icons icon-badge"></i> Perfil
                         </a>
-                        <a href="" class="dropdown-item">
+                        <a href="" class="dropdown-item" onclick="logout(event)">
                             <i class="tim-icons icon-simple-remove"></i>Salir
                         </a>
                     </div>
