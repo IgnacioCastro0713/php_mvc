@@ -75,4 +75,10 @@ class User implements Model
         $sql = "SELECT * FROM usuarios WHERE usuario = '{$this->usuario}'";
         return Conn::instance()->query($sql)->rowCount();
     }
+
+    public function comparePassword($pass_conf)
+    {
+        return $this->pass == md5($pass_conf);
+    }
+
 }

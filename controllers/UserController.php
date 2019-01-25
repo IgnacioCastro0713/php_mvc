@@ -30,10 +30,13 @@ class UserController implements Controller
     public static function update()
     {
         $user = self::newObj();
-        if ($user->update()) {
-            Alert::toast("Actualizado correctamente!", "success", "user/index.php");
+        if ($user->comparePassword($_POST['pass_conf'])){
+            if ($user->update()) {
+                Alert::toast("Actualizado correctamente!", "success", "user/index.php");
+            } else
+                Alert::message('No se ha podido actualizar el usuario o no se han realizado cambios.', 'alert alert-danger');
         } else
-            Alert::message('No se ha podido actualizar el usuario o no se han realizado cambios.', 'alert alert-danger');
+            Alert::message("Las contraseñas no coinciden.","alert alert-danger");
     }
 
     public static function destroy()

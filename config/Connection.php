@@ -27,7 +27,6 @@ class Connection
     /**
      * @return PDO instance
      */
-
     public static function instance()
     {
         if (!self::$inst) {
@@ -56,6 +55,10 @@ class Connection
             ->fetchAll()[0];
     }
 
+    /**
+     * @param $table
+     * @return array
+     */
     public static function getAll($table)
     {
         return self::instance()

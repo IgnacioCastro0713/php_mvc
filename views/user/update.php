@@ -1,9 +1,7 @@
 <?php
-use Connection\Connection as Conn;
 require '../../config/Connection.php';
-
 if ($_GET['id'] !== "")
-    $row = Conn::getById('usuarios', $_GET['id']) ;
+    $row = \Connection\Connection::getById('usuarios', $_GET['id']) ;
 require_once '../layouts/head.php';
 ?>
 <body class="landing-page">
@@ -44,17 +42,23 @@ require_once '../layouts/head.php';
                                            value="<?php echo $row['amaterno']; ?>" required>
                                 </div>
                             </div>
-                            <div class="col-md-6 form-group">
+                            <div class="col-md-5 form-group">
                                 <label for="usuario">Usuario</label>
                                 <div class="form-group">
                                     <input id="usuario" name="usuario" type="text" class="form-control" placeholder="usuario"
                                            value="<?php echo $row['usuario']; ?>" required>
                                 </div>
                             </div>
-                            <div class="col-md-6 form-group">
-                                <label for="pass">Contraseña</label>
+                            <div class="col-md-4 form-group">
+                                <label for="pass">Nueva contraseña</label>
                                 <div class="form-group">
-                                    <input id="pass" name="pass" type="password" class="form-control" placeholder="Contraseña" required>
+                                    <input id="pass" name="pass" type="password" class="form-control" placeholder="Cueva contraseña" required>
+                                </div>
+                            </div>
+                            <div class="col-md-3 form-group">
+                                <label for="pass">Confirmar nueva contraseña</label>
+                                <div class="form-group">
+                                    <input id="pass_conf" name="pass_conf" type="password" class="form-control" placeholder="Confirmar contraseña" required>
                                 </div>
                             </div>
                         </div>
@@ -80,6 +84,10 @@ require_once '../layouts/head.php';
             },
             pass: {
                 minlength: 5
+            },
+            pass_conf:{
+                minlength: 5,
+                equalTo: "#pass"
             }
         },
         messages: {
@@ -90,6 +98,10 @@ require_once '../layouts/head.php';
             pass: {
                 required: "La contraseña no puede quedar vacía.",
                 minlength: "La contraseña debe contener al menos 5 carácteres."
+            },
+            pass_conf:{
+                required: "Debe confimar contraseña.",
+                equalTo: "Las contraseñas no coiciden."
             },
             nombre: "El nombre no puede quedar vacío.",
             apaterno: "El apellido paterno no puede quedar vacío.",
@@ -113,6 +125,7 @@ require_once '../layouts/head.php';
                 "amaterno" : $('#amaterno').val(),
                 "usuario" : $('#usuario').val(),
                 "pass" : $('#pass').val(),
+                "pass_conf": $('#pass_conf').val(),
                 "func" : 'update'
             }, 'UserController.php');
         },

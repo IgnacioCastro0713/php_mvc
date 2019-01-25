@@ -40,10 +40,16 @@
                                         <input id="usuario" name="usuario" type="text" class="form-control" placeholder="usuario" required>
                                     </div>
                                 </div>
-                                <div class="col-md-6 form-group">
+                                <div class="col-md-3 form-group">
                                     <label for="pass">Contraseña</label>
                                     <div class="form-group">
                                         <input id="pass" name="pass" type="password" class="form-control" placeholder="Contraseña" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <label for="pass">Confirmar contraseña</label>
+                                    <div class="form-group">
+                                        <input id="pass_conf" name="pass_conf" type="password" class="form-control" placeholder="Confimar contraseña" required>
                                     </div>
                                 </div>
                             </div>
@@ -68,6 +74,10 @@
             },
             pass: {
                 minlength: 5
+            },
+            pass_conf:{
+                minlength: 5,
+                equalTo: '#pass'
             }
         },
         messages: {
@@ -78,6 +88,11 @@
             pass: {
                 required: "La contraseña no puede quedar vacía.",
                 minlength: "La contraseña debe contener al menos 5 carácteres."
+            },
+            pass_conf:{
+                required: "Debe confimar su contraseña.",
+                minlength: "La contraseña debe contener al menos 5 carácteres.",
+                equalTo: "Las contraseñas no coinciden."
             },
             nombre: "El nombre no puede quedar vacío.",
             apaterno: "El apellido paterno no puede quedar vacío.",
