@@ -1,4 +1,4 @@
-<?php require_once 'head.php'; ?>
+<?php require_once '../layouts/head.php'; ?>
 <body class="index-page">
 <div class="wrapper">
     <div class="page-header header-filter">
@@ -17,4 +17,4 @@
         </div>
     </div>
 </body>
-<?php require_once 'footer.php';
+<?php require_once '../layouts/footer.php';
