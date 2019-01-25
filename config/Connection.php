@@ -28,7 +28,8 @@ class Connection
      * @return PDO instance
      */
 
-    public static function instance() {
+    public static function instance()
+    {
         if (!self::$inst) {
             self::$inst = new Connection();
         }
@@ -38,7 +39,8 @@ class Connection
     /**
      *  destroy connection
      */
-    public static function destroy() {
+    public static function destroy()
+    {
         self::$inst = null;
     }
 
@@ -49,7 +51,15 @@ class Connection
      */
     public static function getById($table, $id)
     {
-        $sql = "SELECT * FROM {$table} WHERE id = {$id}";
-        return self::instance()->query($sql)->fetchAll()[0];
+        return self::instance()
+            ->query("SELECT * FROM {$table} WHERE id = {$id}")
+            ->fetchAll()[0];
+    }
+
+    public static function getAll($table)
+    {
+        return self::instance()
+            ->query("SELECT * FROM {$table}")
+            ->fetchAll();
     }
 }

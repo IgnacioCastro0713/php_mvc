@@ -4,7 +4,6 @@ require '../../config/Connection.php';
 
 if ($_GET['id'] !== "")
     $row = Conn::getById('usuarios', $_GET['id']) ;
-
 require_once '../layouts/head.php';
 ?>
 <body class="landing-page">
