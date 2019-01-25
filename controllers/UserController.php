@@ -1,11 +1,12 @@
 <?php
-include '../config/InterfaceController.php'; // TODO: Required, doesn't change.
-include '../config/Alert.php'; // TODO: Required, doesn't change.
-include '../model/User.php'; // TODO: Change according to the model.
 
 use InterfaceModel\InterfaceController as Controller; //TODO: Required doesn't change.
 use Alert\Alert; // TODO: Required, doesn't change.
 use User\User; // TODO: Change according to the model.
+
+include '../config/InterfaceController.php'; // TODO: Required, doesn't change.
+include '../config/Alert.php'; // TODO: Required, doesn't change.
+include '../model/User.php'; // TODO: Change according to the model.
 
 class UserController implements Controller
 {
