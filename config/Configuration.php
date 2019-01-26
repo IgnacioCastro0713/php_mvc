@@ -13,6 +13,6 @@ class Configuration
     {
         include '../config/InterfaceController.php'; // TODO: Required, doesn't change.
         include '../config/Alert.php'; // TODO: Required, doesn't change.
-        include '../model/'.$model.'.php'; // TODO: Change according to the model.
+        include '../model/'.ucfirst(strtolower($model)).'.php'; // TODO: Change according to the model.
     }
 }

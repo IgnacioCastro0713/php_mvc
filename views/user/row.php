@@ -7,14 +7,15 @@ if ($count != 0) {
             <td><?php echo $row['usuario']; ?></td>
             <td><?php echo $row['nombreCompleto']; ?></td>
             <td class="td-actions text-center">
-                <button type="button" rel="tooltip" class="btn btn-info btn-simple btn-icon btn-sm">
+                <!--button type="button" rel="tooltip" class="btn btn-info btn-simple btn-icon btn-sm">
                     <i class="tim-icons icon-single-02"></i>
-                </button>
-                <a href="update.php?id=<?php echo $row['id']?>" rel="tooltip" class="btn btn-success btn-simple btn-icon btn-sm">
+                </button-->
+                <a href="update.php?id=<?php echo $row['id']?>" rel="tooltip"
+                   class="btn btn-success btn-simple btn-icon btn-sm" title="Editar">
                     <i class="tim-icons icon-settings-gear-63"></i>
                 </a>
                 <button onclick="confirmDelete('<?php echo $row['usuario']?>', '<?php echo $row['id']; ?>', controller);"
-                        type="button" rel="tooltip" class="btn btn-danger btn-simple btn-icon btn-sm">
+                        class="btn btn-danger btn-simple btn-icon btn-sm" title="Eliminar">
                     <i class="tim-icons icon-simple-remove"></i>
                 </button>
             </td>
