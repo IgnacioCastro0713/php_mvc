@@ -37,7 +37,7 @@ class User implements Model
     }
 
     /**
-     * TODO: Function to update a user, change the query according to the table.
+     * TODO: Function to update a record, change the query according to the table.
      * @return int
      */
     public function update()
@@ -50,7 +50,7 @@ class User implements Model
     }
 
     /**
-     * TODO: Function to save a user, change the query according to the table.
+     * TODO: Function to delete a record, change the query according to the table.
      * @param $id
      * @return int
      */
@@ -60,6 +60,11 @@ class User implements Model
         return Conn::instance()->exec($sql);
     }
 
+    /**
+     * TODO: Function to search a record, change the query according to the table.
+     * @param $search
+     * @return false|\PDOStatement
+     */
     public static function search($search)
     {
         $sql = "SELECT id, usuario, CONCAT(nombre, ' ', apaterno, ' ', amaterno) as nombreCompleto 
