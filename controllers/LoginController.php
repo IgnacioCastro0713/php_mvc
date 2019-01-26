@@ -1,10 +1,10 @@
 <?php
 namespace LoginController;
 
-use Alert\Alert;
+use Utilities\Utilities;
 use Auth\Auth;
 
-include '../config/Alert.php';
+include '../config/Utilities.php';
 include '../model/Auth.php';
 
 class LoginController
@@ -19,9 +19,9 @@ class LoginController
             $_SESSION['valid'] = true;
             $_SESSION['id'] = $data['id'];
             $_SESSION['user'] = "{$data['nombre']} {$data['apaterno']} {$data['amaterno']}";
-            Alert::toast("¡Bienvenido {$data['nombre']}!", "success", 'home/index.php');
+            Utilities::messageToast("¡Bienvenido {$data['nombre']}!", "success", 'home/index.php');
         } else
-            Alert::message('Credenciales incorrectas', 'alert alert-danger');
+            Utilities::message('Credenciales incorrectas', 'alert alert-danger');
 
     }
 
@@ -31,9 +31,9 @@ class LoginController
         $_SESSION = [];
         session_unset();
         if (session_destroy())
-            Alert::toast("¡Ha cerrado sesión!", 'success', '../views/home/index.php');
+            Utilities::messageToast("¡Ha cerrado sesión!", 'success', '../views/home/index.php');
         else
-            Alert::toast("No se ha podido cerrar sesión", 'success', '../layouts/index.php');
+            Utilities::messageToast("No se ha podido cerrar sesión", 'success', '../layouts/index.php');
     }
 }
 

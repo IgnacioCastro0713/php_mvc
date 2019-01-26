@@ -42,27 +42,4 @@ class Connection
     {
         self::$inst = null;
     }
-
-    /**
-     * @param $table
-     * @param $id
-     * @return mixed
-     */
-    public static function getById($table, $id)
-    {
-        return self::instance()
-            ->query("SELECT * FROM {$table} WHERE id = {$id}")
-            ->fetchAll()[0];
-    }
-
-    /**
-     * @param $table
-     * @return array
-     */
-    public static function getAll($table)
-    {
-        return self::instance()
-            ->query("SELECT * FROM {$table}")
-            ->fetchAll();
-    }
 }

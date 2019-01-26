@@ -1,10 +1,12 @@
 <?php
-namespace Alert;
+namespace Utilities;
 
-class Alert
+use Connection\Connection as Conn;
+
+class Utilities
 {
 
-    public static function toast($message, $type, $location)
+    public static function messageToast($message, $type, $location)
     {
         echo "<script type='text/javascript'>
         Toast.fire({
@@ -27,4 +29,21 @@ class Alert
           </div>";
     }
 
+    public static function getById($table, $id)
+    {
+        return Conn::instance()
+            ->query("SELECT * FROM {$table} WHERE id = {$id}")
+            ->fetchAll()[0];
+    }
+
+    /**
+     * @param $table
+     * @return array
+     */
+    public static function getAll($table)
+    {
+        return Conn::instance()
+            ->query("SELECT * FROM {$table}")
+            ->fetchAll();
+    }
 }

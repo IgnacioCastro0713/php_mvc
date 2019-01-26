@@ -12,7 +12,7 @@ class Configuration
     public static function controller($model)
     {
         include '../config/InterfaceController.php'; // TODO: Required, doesn't change.
-        include '../config/Alert.php'; // TODO: Required, doesn't change.
+        include '../config/Utilities.php'; // TODO: Required, doesn't change.
         include '../model/'.ucfirst(strtolower($model)).'.php'; // TODO: Change according to the model.
     }
 }
