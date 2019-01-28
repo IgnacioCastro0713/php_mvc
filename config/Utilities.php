@@ -46,4 +46,9 @@ class Utilities
             ->query("SELECT * FROM {$table}")
             ->fetchAll();
     }
+
+    public static function select()
+    {
+
+    }
 }

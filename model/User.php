@@ -22,7 +22,7 @@ class User implements Model
         $this->nombre = (String)$nombre;
         $this->apaterno = (String)$apaterno;
         $this->amaterno = (String)$amaterno;
-        $this->pass = (String) md5($pass);
+        $this->pass = (String)md5($pass);
     }
 
     /**
