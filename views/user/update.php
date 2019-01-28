@@ -131,7 +131,7 @@ require_once '../home/auth.php'
                 "pass" : $('#pass').val(),
                 "pass_conf": $('#pass_conf').val(),
                 "func" : 'update'
-            }, 'UserController.php');
+            }, 'UserController');
         },
         invalidHandler: function () {
             emptyForm();

@@ -118,7 +118,7 @@
                 "usuario" : $('#usuario').val(),
                 "pass" : $('#pass').val(),
                 "func" : 'save'
-            }, 'UserController.php');
+            }, 'UserController');
         },
         invalidHandler: function () {
             emptyForm();

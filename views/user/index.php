@@ -1,7 +1,7 @@
 <?php require_once '../layouts/head.php'; ?>
 <?php require_once '../home/auth.php'?>
 <script type="text/javascript">
-    let controller = "UserController.php";
+    let controller = "UserController";
 </script>
 <body class="landing-page">
     <div class="wrapper">

@@ -70,7 +70,7 @@
                 "user" : $("#user").val(),
                 "pass" : $("#pass").val(),
                 "func" : "signin"
-            }, 'LoginController.php');
+            }, 'LoginController');
         },
         invalidHandler: function () {
             emptyForm();

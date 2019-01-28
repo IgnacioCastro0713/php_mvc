@@ -22,7 +22,7 @@ function sendData(data, controller) {
     $.ajax({
         data: data,
         type: 'post',
-        url: '../../controllers/'+controller,
+        url: '../../controllers/'+controller+'.php',
         success: function (response) {
             $('#response').html(response);
         }
@@ -43,7 +43,7 @@ function sendDataDelete(id, message, controller) {
             "func" : "destroy"
         },
         type: 'post',
-        url: '../../controllers/'+controller,
+        url: '../../controllers/'+controller+'.php',
         success: function (response) {
             if (response === '1') {
                 loadTable(controller);
