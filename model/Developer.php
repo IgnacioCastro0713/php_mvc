@@ -3,10 +3,10 @@
  * Created by IntelliJ IDEA.
  * User: ignac
  * Date: 10/02/2019
- * Time: 01:51 PM
+ * Time: 01:58 PM
  */
 
-namespace Studio;
+namespace Developer;
 
 use Configuration\Configuration;
 use Connection\Connection as Conn;
@@ -14,7 +14,7 @@ use InterfaceModel\InterfaceModel as Model;
 Configuration::model();
 
 
-class Studio implements Model
+class Developer implements Model
 {
 
     public function save()

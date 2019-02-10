@@ -1,15 +1,15 @@
 <?php
 
-namespace GameController;
+namespace DeveloperController;
 
 include '../config/Configuration.php';
 use Configuration\Configuration;
 use InterfaceModel\InterfaceController as Controller;
 use Utilities\Utilities;
-use Game\Game;
-Configuration::controller('Game');
+use Developer\Developer;
+Configuration::controller('Developer');
 
-class GameController implements Controller
+class DeveloperController implements Controller
 {
 
     public static function instanceModel()
@@ -38,4 +38,4 @@ class GameController implements Controller
     }
 }
 $function = (String)$_POST['func'];
-GameController::$function();
+DeveloperController::$function();
