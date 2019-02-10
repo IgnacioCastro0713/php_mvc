@@ -50,7 +50,7 @@ class UserController implements Controller
     }
 
     /**
-     *
+     * TODO: Delete to record.
      */
     public static function destroy()
     {
@@ -68,5 +68,5 @@ class UserController implements Controller
         require_once "../views/user/row.php";
     }
 }
-$function = (String)$_POST['func'];
+$function = (String)$_POST['func']; //TODO: it does not change in any controller
 UserController::$function();

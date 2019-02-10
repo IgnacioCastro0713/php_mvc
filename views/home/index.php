@@ -1,6 +1,4 @@
-<?php
-require_once '../layouts/head.php';
-?>
+<?php require_once '../layouts/head.php'; ?>
 <body class="index-page">
 <div class="wrapper" id="response">
     <div class="page-header header-filter">
