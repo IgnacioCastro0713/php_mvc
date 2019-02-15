@@ -8,24 +8,46 @@ Configuration::model();
 
 class Platform implements Model
 {
+    private $nombre, $propietario, $website;
+
+    /**
+     * Platform constructor.
+     * @param $nombre
+     * @param $propietario
+     * @param $website
+     */
+    public function __construct($nombre, $propietario, $website)
+    {
+        $this->nombre = (String)$nombre;
+        $this->propietario = (String)$propietario;
+        $this->website = (String)$website;
+    }
 
     public function save()
     {
-        // TODO: Implement save() method.
+        $sql = "INSERT INTO plataforma (nombre, propietario, website) 
+                VALUES ('{$this->nombre}', '{$this->propietario}', '{$this->website}')";
+        return Conn::instance()->exec($sql);
     }
 
-    public function update()
+    public function update($id)
     {
-        // TODO: Implement update() method.
+        $sql = "UPDATE plataforma SET nombre = '{$this->nombre}', propietario = '{$this->propietario}', website = '{$this->website}'
+                WHERE id = {$id}";
+        return Conn::instance()->exec($sql);
     }
 
     public static function delete($id)
     {
-        // TODO: Implement delete() method.
+        $sql = "DELETE FROM plataforma WHERE id = {$id}";
+        return Conn::instance()->exec($sql);
     }
 
     public static function search($search)
     {
-        // TODO: Implement search() method.
+        $sql = "SELECT id, nombre, propietario, website 
+                FROM plataforma WHERE nombre 
+                LIKE '%{$search}%' OR  propietario LIKE '%{$search}%'";
+        return Conn::instance()->query($sql);
     }
 }

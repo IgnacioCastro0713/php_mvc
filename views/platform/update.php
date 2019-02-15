@@ -88,6 +88,7 @@ require_once '../home/auth.php';
         },
         submitHandler: function () {
             sendData({
+                "id" :<?php echo $_GET['id']; ?>,
                 "nombre" : $('#nombre').val(),
                 "propietario" : $('#propietario').val(),
                 "website" : $('#website').val(),

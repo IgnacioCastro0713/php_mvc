@@ -41,7 +41,7 @@ class UserController implements Controller
     {
         $user = self::instance();
         if ($user->comparePassword($_POST['pass_conf'])){
-            if ($user->update()){
+            if ($user->update($_POST['id'])){
                 Utilities::messageToast("Actualizado correctamente!", "success", "user/index.php");
             } else
                 Utilities::message('No se ha podido actualizar el usuario o no ha realizado cambios.', 'alert alert-danger');
@@ -68,5 +68,5 @@ class UserController implements Controller
         require_once "../views/user/row.php";
     }
 }
-$function = (String)$_POST['func']; //TODO: it does not change in any controller
+$function = (String)$_POST['func'];
 UserController::$function();

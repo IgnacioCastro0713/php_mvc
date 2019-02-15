@@ -26,7 +26,6 @@ class User implements Model
     }
 
     /**
-     * TODO: Function to save a user, change the query according to the table.
      * @return int
      */
     public function save()
@@ -37,20 +36,18 @@ class User implements Model
     }
 
     /**
-     * TODO: Function to update a record, change the query according to the table.
+     * @param $id
      * @return int
      */
-    public function update()
+    public function update($id)
     {
-        $sql = "UPDATE usuario SET nombre = '{$this->nombre}', apaterno = '{$this->apaterno}', amaterno = '{$this->amaterno}'";
-        if ($this->pass !== md5(""))
-            $sql .= ", pass = '{$this->pass}'";
-        $sql .= " WHERE usuario = '{$this->usuario}'";
+        $sql = "UPDATE usuario SET nombre = '{$this->nombre}', apaterno = '{$this->apaterno}', amaterno = '{$this->amaterno}', 
+                usuario = '{$this->usuario}', pass = '{$this->pass}'
+                WHERE id = '{$id}'";
         return Conn::instance()->exec($sql);
     }
 
     /**
-     * TODO: Function to delete a record, change the query according to the table.
      * @param $id
      * @return int
      */
