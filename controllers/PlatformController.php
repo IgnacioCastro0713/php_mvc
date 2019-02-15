@@ -21,7 +21,7 @@ class PlatformController implements Controller
     {
         $platform = self::instance();
         if ($platform->save())
-            Utilities::messageToast("Guardado correctamente", "success", "platform/index.php");
+            Utilities::messageToast("Guardado correctamente!", "success", "platform/index.php");
         else
             Utilities::message('No se ha podido guardar el usuario.', 'alert alert-danger');
     }
