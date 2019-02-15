@@ -48,21 +48,36 @@
             </div>
             <?php
             if (isset($_SESSION['valid'])){ ?>
-            <ul class="navbar-nav">
-                <li class="dropdown nav-item">
-                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                        <i class="tim-icons icon-single-02"></i>Usuarios
-                    </a>
-                    <div class="dropdown-menu dropdown-with-icons">
-                        <a href="../user/save.php" class="dropdown-item">
-                            <i class="tim-icons icon-simple-add"></i> Agregar
+                <ul class="navbar-nav">
+                    <li class="dropdown nav-item">
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                            <i class="tim-icons icon-planet"></i>Plataforma
                         </a>
-                        <a href="../user/index.php" class="dropdown-item">
-                            <i class="tim-icons icon-bullet-list-67"></i>Consultar
+                        <div class="dropdown-menu dropdown-with-icons">
+                            <a href="../platform/save.php" class="dropdown-item">
+                                <i class="tim-icons icon-simple-add"></i> Agregar
+                            </a>
+                            <a href="../platform/index.php" class="dropdown-item">
+                                <i class="tim-icons icon-bullet-list-67"></i>Consultar
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="dropdown nav-item">
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                            <i class="tim-icons icon-single-02"></i>Usuarios
                         </a>
-                    </div>
-                </li>
-            </ul>
+                        <div class="dropdown-menu dropdown-with-icons">
+                            <a href="../user/save.php" class="dropdown-item">
+                                <i class="tim-icons icon-simple-add"></i> Agregar
+                            </a>
+                            <a href="../user/index.php" class="dropdown-item">
+                                <i class="tim-icons icon-bullet-list-67"></i>Consultar
+                            </a>
+                        </div>
+                    </li>
+                </ul>
             <ul class="navbar-nav">
                 <li class="dropdown nav-item">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">

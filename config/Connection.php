@@ -7,7 +7,7 @@ use PDOException;
 class Connection
 {
     private static $inst = null;
-    private $host = 'localhost', $username = 'root', $password = '', $database = 'db_music';
+    private $host = 'localhost', $username = 'root', $password = '', $database = 'db_videogame';
     private $conn;
 
     /**

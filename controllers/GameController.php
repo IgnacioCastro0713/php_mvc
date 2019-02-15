@@ -12,7 +12,7 @@ Configuration::controller('Game');
 class GameController implements Controller
 {
 
-    public static function instanceModel()
+    public static function instance()
     {
         // TODO: Implement instanceModel() method.
     }

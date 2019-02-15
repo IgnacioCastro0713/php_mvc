@@ -31,7 +31,7 @@ class User implements Model
      */
     public function save()
     {
-        $sql = "INSERT INTO usuarios (usuario, pass, nombre, apaterno, amaterno) 
+        $sql = "INSERT INTO usuario (usuario, pass, nombre, apaterno, amaterno) 
                 VALUES ('{$this->usuario}', '{$this->pass}', '{$this->nombre}', '{$this->apaterno}', '{$this->amaterno}')";
         return Conn::instance()->exec($sql);
     }
@@ -42,7 +42,7 @@ class User implements Model
      */
     public function update()
     {
-        $sql = "UPDATE usuarios SET nombre = '{$this->nombre}', apaterno = '{$this->apaterno}', amaterno = '{$this->amaterno}'";
+        $sql = "UPDATE usuario SET nombre = '{$this->nombre}', apaterno = '{$this->apaterno}', amaterno = '{$this->amaterno}'";
         if ($this->pass !== md5(""))
             $sql .= ", pass = '{$this->pass}'";
         $sql .= " WHERE usuario = '{$this->usuario}'";
@@ -56,7 +56,7 @@ class User implements Model
      */
     public static function delete($id)
     {
-        $sql = "DELETE FROM usuarios WHERE id = {$id}";
+        $sql = "DELETE FROM usuario WHERE id = {$id}";
         return Conn::instance()->exec($sql);
     }
 
@@ -68,14 +68,14 @@ class User implements Model
     public static function search($search)
     {
         $sql = "SELECT id, usuario, CONCAT(nombre, ' ', apaterno, ' ', amaterno) as nombreCompleto 
-                FROM usuarios WHERE usuario LIKE '%{$search}%' OR CONCAT(nombre, ' ', apaterno, ' ', amaterno) 
+                FROM usuario WHERE usuario LIKE '%{$search}%' OR CONCAT(nombre, ' ', apaterno, ' ', amaterno) 
                 LIKE '%{$search}%'";
         return Conn::instance()->query($sql);
     }
 
     public function find()
     {
-        $sql = "SELECT * FROM usuarios WHERE usuario = '{$this->usuario}'";
+        $sql = "SELECT * FROM usuario WHERE usuario = '{$this->usuario}'";
         return Conn::instance()->query($sql)->rowCount();
     }
 

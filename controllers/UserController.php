@@ -14,7 +14,7 @@ class UserController implements Controller
      * TODO: Function to return a instance from model reference.
      * @return Object
      */
-    public static function instanceModel()
+    public static function instance()
     {
         return new User($_POST['usuario'], $_POST['nombre'], $_POST['apaterno'], $_POST['amaterno'], $_POST['pass']);
     }
@@ -24,7 +24,7 @@ class UserController implements Controller
      */
     public static function save()
     {
-        $user = self::instanceModel();
+        $user = self::instance();
         if (!$user->find()){
             if ($user->save()){
                 Utilities::messageToast("Guardado correctamente!", "success", "user/index.php");
@@ -39,7 +39,7 @@ class UserController implements Controller
      */
     public static function update()
     {
-        $user = self::instanceModel();
+        $user = self::instance();
         if ($user->comparePassword($_POST['pass_conf'])){
             if ($user->update()){
                 Utilities::messageToast("Actualizado correctamente!", "success", "user/index.php");

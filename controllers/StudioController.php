@@ -13,7 +13,7 @@ Configuration::controller('Studio');
 class StudioController implements Controller
 {
 
-    public static function instanceModel()
+    public static function instance()
     {
         // TODO: Implement instanceModel() method.
     }

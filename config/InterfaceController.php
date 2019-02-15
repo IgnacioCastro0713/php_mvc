@@ -3,7 +3,7 @@ namespace InterfaceModel;
 
 interface InterfaceController
 {
-    public static function instanceModel();
+    public static function instance();
 
     public static function save();
 

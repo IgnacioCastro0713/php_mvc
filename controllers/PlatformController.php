@@ -12,7 +12,7 @@ Configuration::controller('Platform');
 class PlatformController implements Controller
 {
 
-    public static function instanceModel()
+    public static function instance()
     {
         // TODO: Implement instanceModel() method.
     }

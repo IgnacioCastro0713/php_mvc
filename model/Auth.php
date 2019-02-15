@@ -32,7 +32,7 @@ class Auth
 
     private function query()
     {
-        $sql = "SELECT * FROM usuarios WHERE pass = '{$this->password}' AND usuario = '{$this->user}'";
+        $sql = "SELECT * FROM usuario WHERE pass = '{$this->password}' AND usuario = '{$this->user}'";
         return Conn::instance()->query($sql);
     }
 

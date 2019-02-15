@@ -12,7 +12,7 @@ Configuration::controller('Developer');
 class DeveloperController implements Controller
 {
 
-    public static function instanceModel()
+    public static function instance()
     {
         // TODO: Implement instanceModel() method.
     }
