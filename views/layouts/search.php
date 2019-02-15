@@ -1,4 +1,4 @@
-<form>
+<form action="">
     <br>
     <label for="search">Buscar</label>
     <div class="input-group">
