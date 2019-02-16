@@ -1,3 +1,6 @@
+<?php
+/** Buscador generico se usa en todas las vistas que son index */
+?>
 <form action="">
     <br>
     <label for="search">Buscar</label>
