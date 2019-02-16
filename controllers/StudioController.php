@@ -15,27 +15,38 @@ class StudioController implements Controller
 
     public static function instance()
     {
-        // TODO: Implement instanceModel() method.
+        return new Studio($_POST['nombre'], $_POST['propietario'], $_POST['sede'], $_POST['fundacion']);
     }
 
     public static function save()
     {
-        // TODO: Implement save() method.
+        $studio = self::instance();
+        if ($studio->save())
+            Utilities::messageToast("Guardado correctamente!", "success", "studio/index.php");
+        else
+            Utilities::message('No se ha podido guardar el usuario.', 'alert alert-danger');
     }
 
     public static function update()
     {
-        // TODO: Implement update() method.
+        $studio = self::instance();
+        if ($studio->update($_POST['id']))
+            Utilities::messageToast("Guardado correctamente!", "success", "studio/index.php");
+        else
+            Utilities::message('No se ha podido guardar el usuario.', 'alert alert-danger');
     }
 
     public static function destroy()
     {
-        // TODO: Implement destroy() method.
+        echo Studio::delete($_POST['id']);
     }
 
     public static function table()
     {
-        // TODO: Implement table() method.
+        $res = Studio::search($_POST['search']);
+        $count = $res->rowCount();
+        echo $count;
+        require_once "../views/studio/row.php";
     }
 }
 $function = (String)$_POST['func'];

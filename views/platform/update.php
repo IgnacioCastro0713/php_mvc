@@ -78,7 +78,7 @@ require_once '../home/auth.php';
         highlight: function (element) {
             $(element)
                 .closest('.form-group')
-                .addClass('has.danger');
+                .addClass('has-danger');
         },
         unhighlight: function (element) {
             $(element)

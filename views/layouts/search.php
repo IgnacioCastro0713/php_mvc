@@ -1,5 +1,5 @@
 <?php
-/** Buscador generico se usa en todas las vistas que son index */
+/** Buscador genérico se usa en todas las vistas que son index. */
 ?>
 <form action="">
     <br>
