@@ -1,7 +1,67 @@
 <?php
-/**
- * Created by IntelliJ IDEA.
- * User: ignac
- * Date: 10/02/2019
- * Time: 01:59 PM
- */
+require '../../config/Connection.php';
+require '../../config/Utilities.php';
+use Utilities\Utilities;
+require_once '../layouts/head.php';
+require_once '../home/auth.php';
+?>
+    <body class="landing-page">
+        <div class="wrapper">
+            <div class="page-header">
+                <img src="../../assets/img/blob.png" class="path">
+                <img src="../../assets/img/path2.png" class="path2">
+                <img src="../../assets/img/triunghiuri.png" class="shapes triangle">
+                <img src="../../assets/img/waves.png" class="shapes wave">
+                <img src="../../assets/img/patrat.png" class="shapes squares">
+                <img src="../../assets/img/cercuri.png" class="shapes circle">
+                <div class="content-center">
+                    <div class="row row-grid justify-content-center align-items-center text-left">
+                        <div id="response"></div>
+                        <div class="col-lg-12 col-md-12 border-primary" style="border-radius: 10px; background-color: #1e1e26">
+                            <br>
+                            <h1 class="category-absolute text-info">Agregar desarrollador.</h1>
+                            <form method="post" id="form" action="">
+                                <div class="form-row">
+                                    <div class="col-md-4 form-group">
+                                        <label for="nombre">Nombre</label>
+                                        <div class="form-group">
+                                            <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="apaterno">Apellido Paterno</label>
+                                        <div class="form-group">
+                                            <input id="apaterno" name="apaterno" type="text" class="form-control" placeholder="Apellido paterno" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 form-group">
+                                        <label for="amaterno">Apellido Materno</label>
+                                        <div class="form-group">
+                                            <input id="amaterno" name="amaterno" type="text" class="form-control" placeholder="Apellido materno" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label for="ciudad">Cuidad</label>
+                                        <div class="form-group">
+                                            <input id="ciudad" name="ciudad" type="text" class="form-control" placeholder="Ciudad" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label for="estudio">Estudio</label>
+                                        <div class="form-group">
+                                            <?php Utilities::select('estudio', 'estudio', null); ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="text-center">
+                                    <input type="submit" class="btn btn-success" onclick="" value="Guardar"><br><br>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </body>
+<?php require_once '../layouts/footer.php'; ?>

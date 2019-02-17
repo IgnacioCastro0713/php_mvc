@@ -1,10 +1,8 @@
 <?php
 require '../../config/Connection.php';
 require '../../config/Utilities.php';
-
 if ($_GET['id'] !== "")
     $row = \Utilities\Utilities::getById('usuario', $_GET['id']) ;
-
 require_once '../layouts/head.php';
 require_once '../home/auth.php'
 ?>
