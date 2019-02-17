@@ -10,18 +10,12 @@ Configuration::controller('User'); // TODO: Required, Change according to the mo
 
 class UserController implements Controller
 {
-    /**
-     * TODO: Function to return a instance from model reference.
-     * @return Object
-     */
+
     public static function instance()
     {
         return new User($_POST['usuario'], $_POST['nombre'], $_POST['apaterno'], $_POST['amaterno'], $_POST['pass']);
     }
 
-    /**
-     *
-     */
     public static function save()
     {
         $user = self::instance();
@@ -34,9 +28,6 @@ class UserController implements Controller
             Utilities::message('¡Nombre de usuario ya ha sido utilizado!', 'alert alert-danger');
     }
 
-    /**
-     *
-     */
     public static function update()
     {
         $user = self::instance();
@@ -49,17 +40,11 @@ class UserController implements Controller
             Utilities::message("Las contraseñas no coinciden.","alert alert-danger");
     }
 
-    /**
-     * TODO: Delete to record.
-     */
     public static function destroy()
     {
         echo User::delete($_POST['id']);
     }
 
-    /**
-     *
-     */
     public static function table()
     {
         $res = User::search($_POST['search']);

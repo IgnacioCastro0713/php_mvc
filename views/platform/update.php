@@ -63,6 +63,7 @@ require_once '../home/auth.php';
     $('#form').validate({
         errorElement: 'small',
         errorClass: 'text-danger',
+
         rules: {
             website:{
                 url: true

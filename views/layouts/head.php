@@ -5,9 +5,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="apple-touch-icon" sizes="76x76" href="../../assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="../../assets/img/favicon.png">
+    <link rel="icon" type="image/png" href="../../assets/img/codigo-fuente.png">
     <title>
-        Blk• Design System by Creative Tim
+        Video Games - Proyect Web
     </title>
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
@@ -48,6 +48,21 @@
             </div>
             <?php
             if (isset($_SESSION['valid'])){ ?>
+                <ul class="navbar-nav">
+                    <li class="dropdown nav-item">
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                            <i class="tim-icons icon-atom"></i>Estudio
+                        </a>
+                        <div class="dropdown-menu dropdown-with-icons">
+                            <a href="../studio/save.php" class="dropdown-item">
+                                <i class="tim-icons icon-simple-add"></i> Agregar
+                            </a>
+                            <a href="../studio/index.php" class="dropdown-item">
+                                <i class="tim-icons icon-bullet-list-67"></i>Consultar
+                            </a>
+                        </div>
+                    </li>
+                </ul>
                 <ul class="navbar-nav">
                     <li class="dropdown nav-item">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">

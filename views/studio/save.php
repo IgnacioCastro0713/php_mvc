@@ -16,7 +16,7 @@ require_once '../home/auth.php';
                     <div id="response"></div>
                     <div class="col-lg-12 col-md-12 border-primary" style="border-radius: 10px; background-color: #1e1e26">
                         <br>
-                        <h1 class="category-absolute text-info">Agregar plataforma.</h1>
+                        <h1 class="category-absolute text-info">Agregar Estudio.</h1>
                         <form method="post" id="form" action="">
                             <div class="form-row">
                                 <div class="col-md-6 form-group">
@@ -66,6 +66,7 @@ require_once '../home/auth.php';
     $('#form').validate({
         errorClass:'text-danger',
         errorElement: 'small',
+
         messages: {
             nombre:'El nombre no puede quedar vacío.',
             propietario:'El propietario no puede quedar vacío.',
@@ -84,7 +85,13 @@ require_once '../home/auth.php';
                 .addClass('has-success');
         },
         submitHandler: function () {
-            sendData({},'StudioController');
+            sendData({
+                "nombre": $('#nombre').val(),
+                "propietario": $('#propietario').val(),
+                "sede": $('#sede').val(),
+                "fundacion": $('#fundacion').val(),
+                "func": 'save'
+            },'StudioController');
         },
         invalidHandler: function () {
             emptyForm();
@@ -92,8 +99,5 @@ require_once '../home/auth.php';
     });
 </script>
 <style type="text/css" rel="stylesheet">
-    #fundacion-error{
-        position: absolute;
-        top: 50px;
-    }
+    #fundacion-error{position: absolute; top: 50px;}
 </style>

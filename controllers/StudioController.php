@@ -31,7 +31,7 @@ class StudioController implements Controller
     {
         $studio = self::instance();
         if ($studio->update($_POST['id']))
-            Utilities::messageToast("Guardado correctamente!", "success", "studio/index.php");
+            Utilities::messageToast("Actualizado correctamente!", "success", "studio/index.php");
         else
             Utilities::message('No se ha podido guardar el estudio.', 'alert alert-danger');
     }
