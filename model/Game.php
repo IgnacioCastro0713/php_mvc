@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by IntelliJ IDEA.
- * User: ignac
- * Date: 10/02/2019
- * Time: 01:50 PM
- */
 
 namespace Game;
 
@@ -22,7 +16,7 @@ class Game implements Model
         // TODO: Implement save() method.
     }
 
-    public function update()
+    public function update($id)
     {
         // TODO: Implement update() method.
     }

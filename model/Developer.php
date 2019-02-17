@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by IntelliJ IDEA.
- * User: ignac
- * Date: 10/02/2019
- * Time: 01:58 PM
- */
-
 namespace Developer;
 
 use Configuration\Configuration;
@@ -60,8 +53,8 @@ class Developer implements Model
     {
         $sql = "SELECT d.id, CONCAT(d.nombre, ' ', d.apaterno, ' ', d.amaterno) as nombreCompleto, d.ciudad, d.estudio_id , e.nombre 
                 FROM desarrollador d INNER JOIN estudio e on d.estudio_id = e.id 
-                WHERE CONCAT(d.nombre, ' ', d.apaterno, ' ', d.amaterno) LIKE '%{$search}%' OR 
-                e.nombre LIKE '%{$search}%'";
+                WHERE CONCAT(d.nombre, ' ', d.apaterno, ' ', d.amaterno) LIKE '%{$search}%' 
+                OR e.nombre LIKE '%{$search}%'";
         return Conn::instance()->query($sql);
     }
 }
