@@ -32,7 +32,7 @@ class PlatformController implements Controller
         if ($platform->update($_POST['id']))
             Utilities::messageToast("Actualizado correctamente!", "success", "platform/index.php");
         else
-            Utilities::message('No se ha podido guardar la plataforma.', 'alert alert-danger');
+            Utilities::message('No se ha podido actualizar la plataforma.', 'alert alert-danger');
     }
 
     public static function destroy()

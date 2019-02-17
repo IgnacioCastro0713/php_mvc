@@ -16,24 +16,52 @@ Configuration::model();
 
 class Developer implements Model
 {
+    private $nombre, $apaterno, $amaterno, $ciudad, $estudio;
+    /**
+     * Developer constructor.
+     * @param $nombre
+     * @param $apaterno
+     * @param $amaterno
+     * @param $ciudad
+     * @param $estudio
+     */
+    public function __construct($nombre, $apaterno, $amaterno, $ciudad, $estudio)
+    {
+        $this->nombre = (String)$nombre;
+        $this->apaterno = (String)$apaterno;
+        $this->amaterno = (String)$amaterno;
+        $this->ciudad = (String)$ciudad;
+        $this->estudio = (int)$estudio;
+    }
+
 
     public function save()
     {
-        // TODO: Implement save() method.
+        $sql = "INSERT INTO desarrollador(nombre, apaterno, amaterno, ciudad, estudio_id) 
+                VALUES ('{$this->nombre}', '{$this->apaterno}', '{$this->amaterno}', '{$this->ciudad}', '{$this->estudio}')";
+        return Conn::instance()->exec($sql);
     }
 
-    public function update()
+    public function update($id)
     {
-        // TODO: Implement update() method.
+        $sql = "UPDATE desarrollador SET nombre = '{$this->nombre}', apaterno = '{$this->apaterno}', amaterno = '{$this->amaterno}',
+                ciudad = '{$this->ciudad}', estudio_id = '{$this->estudio}'
+                WHERE id = {$id}";
+        return Conn::instance()->exec($sql);
     }
 
     public static function delete($id)
     {
-        // TODO: Implement delete() method.
+        $sql = "DELETE FROM desarrollador WHERE id = {$id}";
+        return Conn::instance()->exec($sql);
     }
 
     public static function search($search)
     {
-        // TODO: Implement search() method.
+        $sql = "SELECT d.id, CONCAT(d.nombre, ' ', d.apaterno, ' ', d.amaterno) as nombreCompleto, d.ciudad, d.estudio_id , e.nombre 
+                FROM desarrollador d INNER JOIN estudio e on d.estudio_id = e.id 
+                WHERE CONCAT(d.nombre, ' ', d.apaterno, ' ', d.amaterno) LIKE '%{$search}%' OR 
+                e.nombre LIKE '%{$search}%'";
+        return Conn::instance()->query($sql);
     }
 }

@@ -43,7 +43,7 @@ class User implements Model
     {
         $sql = "UPDATE usuario SET nombre = '{$this->nombre}', apaterno = '{$this->apaterno}', amaterno = '{$this->amaterno}', 
                 usuario = '{$this->usuario}', pass = '{$this->pass}'
-                WHERE id = '{$id}'";
+                WHERE id = {$id}";
         return Conn::instance()->exec($sql);
     }
 
