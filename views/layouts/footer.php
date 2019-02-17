@@ -77,6 +77,9 @@
 <!-- jquery-validation -->
 <script src="../../assets/node_modules/jquery-validation/dist/jquery.validate.min.js" type="text/javascript"></script>
 <script src="../../assets/node_modules/jquery-validation/dist/additional-methods.min.js" type="text/javascript"></script>
+<script src="../../assets/node_modules/gijgo/js/gijgo.min.js" type="text/javascript"></script>
+<link href="../../assets/node_modules/gijgo/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+<!-- generic functions -->
 <script src="../../assets/js/functions.js"></script>
 <!-- Others JS  -->
 <script src="../../assets/js/core/popper.min.js" type="text/javascript"></script>
@@ -90,7 +93,7 @@
 <script src="../../assets/js/plugins/chartjs.min.js"></script>
 <!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
 <script src="../../assets/js/plugins/moment.min.js"></script>
-<script src="../../assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
+<!--<script src="../../assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>-->
 <!-- Control Center for Black UI Kit: parallax effects, scripts for the example pages etc -->
 <script src="../../assets/js/blk-design-system.min.js?v=1.0.0" type="text/javascript"></script>
 <script type="text/javascript">

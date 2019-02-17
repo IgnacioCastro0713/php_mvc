@@ -24,7 +24,7 @@ class StudioController implements Controller
         if ($studio->save())
             Utilities::messageToast("Guardado correctamente!", "success", "studio/index.php");
         else
-            Utilities::message('No se ha podido guardar el usuario.', 'alert alert-danger');
+            Utilities::message('No se ha podido guardar el estudio.', 'alert alert-danger');
     }
 
     public static function update()
@@ -33,7 +33,7 @@ class StudioController implements Controller
         if ($studio->update($_POST['id']))
             Utilities::messageToast("Guardado correctamente!", "success", "studio/index.php");
         else
-            Utilities::message('No se ha podido guardar el usuario.', 'alert alert-danger');
+            Utilities::message('No se ha podido guardar el estudio.', 'alert alert-danger');
     }
 
     public static function destroy()

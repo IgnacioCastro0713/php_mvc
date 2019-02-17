@@ -22,7 +22,7 @@ require_once '../home/auth.php';
                 <div id="response"></div>
                 <div class="col-lg-12 col-md-12 border-primary" style="border-radius: 10px; background-color: #1e1e26">
                     <br>
-                    <h1 class="category-absolute text-info">Agregar plataforma.</h1>
+                    <h1 class="category-absolute text-info">Editar plataforma.</h1>
                     <form method="post" id="form" action="">
                         <div class="form-row">
                             <div class="col-md-6 form-group">
@@ -49,7 +49,7 @@ require_once '../home/auth.php';
                         </div>
                         <br>
                         <div class="text-center">
-                            <input type="submit" class="btn btn-success" onclick="" value="Guardar"><br><br>
+                            <input type="submit" class="btn btn-success" onclick="" value="Editar"><br><br>
                         </div>
                     </form>
                 </div>
