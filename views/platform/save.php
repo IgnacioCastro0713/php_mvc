@@ -52,7 +52,8 @@ require_once '../home/auth.php';
 <?php require_once '../layouts/footer.php'; ?>
 <script type="text/javascript">
     $('#form').validate({
-       errorClass: 'text-danger',
+        errorElement: 'small',
+        errorClass: 'text-danger',
         rules: {
            website:{
                url: true

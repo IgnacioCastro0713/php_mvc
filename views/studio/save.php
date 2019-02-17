@@ -40,7 +40,7 @@ require_once '../home/auth.php';
                                 <div class="col-md-6 form-group">
                                     <label for="fundacion">Fecha de fundación</label>
                                     <div class="form-group">
-                                        <input id="fundacion" name="fundacion" type="text" class="form-control datepicker" placeholder="Fecha de fundación.." required>
+                                        <input id="fundacion" name="fundacion" type="text" class="form-control" placeholder="yyyy-mm-dd" required/>
                                     </div>
                                 </div>
                             </div><br>
@@ -56,9 +56,44 @@ require_once '../home/auth.php';
     </body>
 <?php require_once '../layouts/footer.php'; ?>
 <script type="text/javascript">
-    $('.datepicker').datepicker({
+    $('#fundacion').datepicker({
         format: 'yyyy-mm-dd',
         uiLibrary: 'bootstrap4',
-        showRightIcon: false
+        showRightIcon: false,
+        orientation: 'bottom auto'
+    });
+
+    $('#form').validate({
+        errorClass:'text-danger',
+        errorElement: 'small',
+        messages: {
+            nombre:'El nombre no puede quedar vacío.',
+            propietario:'El propietario no puede quedar vacío.',
+            sede:'La sede no puede quedar vacío.',
+            fundacion:'Debe especificar la fecha.'
+        },
+        highlight: function (element) {
+            $(element)
+                .closest('.form-group')
+                .addClass('has-danger');
+        },
+        unhighlight: function (element) {
+            $(element)
+                .closest('.form-group')
+                .removeClass('has-danger')
+                .addClass('has-success');
+        },
+        submitHandler: function () {
+            sendData({},'StudioController');
+        },
+        invalidHandler: function () {
+            emptyForm();
+        }
     });
 </script>
+<style type="text/css" rel="stylesheet">
+    #fundacion-error{
+        position: absolute;
+        top: 50px;
+    }
+</style>

@@ -77,6 +77,7 @@
 <!-- jquery-validation -->
 <script src="../../assets/node_modules/jquery-validation/dist/jquery.validate.min.js" type="text/javascript"></script>
 <script src="../../assets/node_modules/jquery-validation/dist/additional-methods.min.js" type="text/javascript"></script>
+<!--datepicker-->
 <script src="../../assets/node_modules/gijgo/js/gijgo.min.js" type="text/javascript"></script>
 <link href="../../assets/node_modules/gijgo/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 <!-- generic functions -->
