@@ -19,7 +19,7 @@ class LoginController
             $_SESSION['valid'] = true;
             $_SESSION['id'] = $data['id'];
             $_SESSION['user'] = "{$data['nombre']} {$data['apaterno']} {$data['amaterno']}";
-            Utilities::messageToast("¡Bienvenido {$data['nombre']}!", "success", 'home/index.php');
+            Utilities::messageToast("¡Bienvenido {$data['nombre']}!", "info", 'home/index.php');
         } else
             Utilities::message('Credenciales incorrectas', 'alert alert-danger');
 
@@ -31,7 +31,7 @@ class LoginController
         $_SESSION = [];
         session_unset();
         if (session_destroy())
-            Utilities::messageToast("¡Ha cerrado sesión!", 'success', '../views/home/index.php');
+            Utilities::messageToast("¡Ha cerrado sesión!", 'info', '../views/home/index.php');
         else
             Utilities::messageToast("No se ha podido cerrar sesión", 'success', '../layouts/index.php');
     }

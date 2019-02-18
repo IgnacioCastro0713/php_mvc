@@ -23,7 +23,7 @@ function sendData(data, controller) {
         data: data,
         type: 'post',
         url: `../../controllers/${controller}.php`,
-        success: function (response) {
+        success: response => {
             $('#response').html(response);
         }
     });
@@ -44,7 +44,7 @@ function sendDataDelete(id, message, controller) {
         },
         type: 'post',
         url: `../../controllers/${controller}.php`,
-        success: function (response) {
+        success: response => {
             if (response === '1') {
                 loadTable(controller);
                 toast('success', message);
@@ -78,5 +78,30 @@ function emptyForm() {
                 '</button>' +
             '<span data-notify="icon" class="tim-icons icon-alert-circle-exc"></span>' +
             '<span><b> ¡Invalido! - </b>Favor de ingresar los datos correctamente.</span>'+
-        '</div>');
+        '</div>'
+        );
+}
+
+function setOrUnSetFavorite(id, controller, action, event) {
+    event.preventDefault();
+    let func = 'unSetFavorite';
+    if (action)
+        func = 'setFavorite';
+    $.ajax({
+        data: {
+            "id": id,
+            "func": func
+        },
+        type: 'post',
+        url: `../../controllers/${controller}.php`,
+        success: response => {
+            if (response === "1"){
+                loadTable(controller);
+                if (action)
+                    toast('info', 'Agregado a favoritos!');
+                else
+                    toast('info', 'Eliminado de favoritos!');
+            }
+        }
+    });
 }
