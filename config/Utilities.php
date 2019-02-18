@@ -51,4 +51,23 @@ class Utilities
         }
         echo "</select>";
     }
+
+    public static function checkbox($checked)
+    {
+        $sql = "SELECT * FROM plataforma";
+        $res = Conn::instance()->query($sql);
+        $rows = $res->fetchAll();
+        foreach ($rows as $row){
+            echo "
+            <label class=\"form-check-label\" id='plataforma-parent'>
+                <input type='checkbox' class='form-check-input' id='plataforma' name='plataforma' value='{$row['id']}' required";
+                if ($row['id'] === $checked)
+                    echo "checked";
+                echo ">{$row['nombre']} &nbsp;";
+                echo "<span class=\"form-check-sign\">
+                            <span class=\"check\"></span>
+                      </span>
+            </label>";
+        }
+    }
 }

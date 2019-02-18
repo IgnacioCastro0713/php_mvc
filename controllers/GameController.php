@@ -14,12 +14,24 @@ class GameController implements Controller
 
     public static function instance()
     {
-        // TODO: Implement instanceModel() method.
+        return new Game($_POST['nombre'], $_POST['genero'], $_POST['descripcion'], $_POST['lanzamiento'], $_POST['estudio']);
     }
 
     public static function save()
     {
-        // TODO: Implement save() method.
+        $continue = true;
+        $game = self::instance();
+        if ($game->save()) {
+            foreach ($_POST['plataformas'] as $platform) {
+                if (!$game->setPlatform($platform)) {
+                    $continue = false;
+                    Utilities::message('No se ha podido relacionar el autor: ' . $platform, 'alert alert-danger');
+                }
+            }
+            if ($continue)
+                Utilities::messageToast('Guardado correctamente','success', 'game/index.php');
+        } else
+            Utilities::message('No se ha podido guardar el juego', 'alert alert-danger');
     }
 
     public static function update()

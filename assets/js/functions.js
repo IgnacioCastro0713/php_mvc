@@ -1,4 +1,4 @@
-const swalWithBootstrapButtons = Swal.mixin({
+const swal = Swal.mixin({
     confirmButtonClass: 'btn btn-success',
     cancelButtonClass: 'btn btn-danger',
     buttonsStyling: false,
@@ -55,7 +55,7 @@ function sendDataDelete(id, message, controller) {
 }
 
 function confirmDelete(name, id, controller) {
-    swalWithBootstrapButtons.fire({
+    swal.fire({
         title: '¿Desea eliminar a '+name,
         text: "Esta apunto de eliminar este registro.",
         type: 'warning',
