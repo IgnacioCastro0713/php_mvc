@@ -51,7 +51,22 @@
                 <ul class="navbar-nav">
                     <li class="dropdown nav-item">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                            <i class="tim-icons icon-atom"></i>Estudio
+                            <i class="tim-icons icon-atom"></i>Desarrollador
+                        </a>
+                        <div class="dropdown-menu dropdown-with-icons">
+                            <a href="../developer/save.php" class="dropdown-item">
+                                <i class="tim-icons icon-simple-add"></i> Agregar
+                            </a>
+                            <a href="../developer/index.php" class="dropdown-item">
+                                <i class="tim-icons icon-bullet-list-67"></i>Consultar
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="dropdown nav-item">
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                            <i class="tim-icons icon-molecule-40"></i>Estudio
                         </a>
                         <div class="dropdown-menu dropdown-with-icons">
                             <a href="../studio/save.php" class="dropdown-item">
@@ -66,7 +81,7 @@
                 <ul class="navbar-nav">
                     <li class="dropdown nav-item">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                            <i class="tim-icons icon-planet"></i>Plataforma
+                            <i class="tim-icons icon-app"></i>Plataforma
                         </a>
                         <div class="dropdown-menu dropdown-with-icons">
                             <a href="../platform/save.php" class="dropdown-item">

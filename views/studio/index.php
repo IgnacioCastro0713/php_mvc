@@ -1,5 +1,5 @@
 <?php
-require_once '../layouts/head.php';
+require_once '../layouts/header.php';
 require_once '../home/auth.php';
 ?>
 <script type="text/javascript">

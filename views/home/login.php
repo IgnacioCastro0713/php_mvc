@@ -1,4 +1,4 @@
-<?php require_once '../layouts/head.php'; ?>
+<?php require_once '../layouts/header.php'; ?>
 <!--login-->
 <body class="register-page">
 <div class="wrapper">

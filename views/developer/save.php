@@ -2,7 +2,7 @@
 require '../../config/Connection.php';
 require '../../config/Utilities.php';
 use Utilities\Utilities;
-require_once '../layouts/head.php';
+require_once '../layouts/header.php';
 require_once '../home/auth.php';
 ?>
     <body class="landing-page">
@@ -65,3 +65,41 @@ require_once '../home/auth.php';
         </div>
         </body>
 <?php require_once '../layouts/footer.php'; ?>
+<script type="text/javascript">
+    $('#form').validate({
+       errorClass:'text-danger',
+       errorElement:'small',
+
+       messages:{
+           nombre: "El nombre no puede quedar vacío.",
+           apaterno: "El apellido paterno no puede quedar vacío.",
+           amaterno: "El apellido materno no puede quedar vacío.",
+           ciudad: "EL nombre de la ciudad no puede quedar vacío.",
+           estudio: "Debe selecionar el estudio al que pertenece."
+       },
+        highlight: function(element){
+            $(element)
+                .closest('.form-group')
+                .addClass('has-danger');
+        },
+        unhighlight: function(element){
+            $(element)
+                .closest('.form-group')
+                .removeClass('has-danger')
+                .addClass('has-success');
+        },
+        submitHandler: function () {
+            sendData({
+                "nombre": $('#nombre').val(),
+                "apaterno": $('#apaterno').val(),
+                "amaterno": $('#amaterno').val(),
+                "ciudad": $('#ciudad').val(),
+                "estudio": $('#estudio').val(),
+                "func": 'save'
+            }, 'DeveloperController');
+        },
+        invalidHandler: function () {
+            emptyForm();
+        }
+    });
+</script>

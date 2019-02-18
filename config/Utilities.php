@@ -36,13 +36,13 @@ class Utilities
             ->fetchAll()[0];
     }
 
-    public static function select($table, $id, $default)
+    public static function select($table, $identifier, $default)
     {
         $sql = "SELECT * FROM {$table}";
         $res = Conn::instance()->query($sql);
         $rows = $res->fetchAll();
-        echo "<select id=\"{$id}\" name='{$id}' class=\"form-control\" required>";
-        echo "<option style='color: #0a0c0d' value=''>Seleccione una opción</option>";
+        echo "<select id=\"{$identifier}\" name='{$identifier}' class=\"form-control\" required>";
+        echo "<option style='color: #0a0c0d' value=\"\">Seleccione una opción</option>";
         foreach ($rows as $row){
             echo "<option  style='color: #0a0c0d' value='{$row['id']}'";
             if ($row['id'] === $default)
