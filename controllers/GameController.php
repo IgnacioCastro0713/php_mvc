@@ -4,6 +4,7 @@ namespace GameController;
 
 include '../config/Configuration.php';
 use Configuration\Configuration;
+use Connection\Connection;
 use InterfaceModel\InterfaceController as Controller;
 use Utilities\Utilities;
 use Game\Game;
@@ -46,7 +47,10 @@ class GameController implements Controller
 
     public static function table()
     {
-        // TODO: Implement table() method.
+        $res = Game::search($_POST['search']);
+        $count = $res->rowCount();
+        echo $count;
+        require_once "../views/game/row.php";
     }
 }
 $function = (String)$_POST['func'];
