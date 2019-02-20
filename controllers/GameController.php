@@ -4,7 +4,6 @@ namespace GameController;
 
 include '../config/Configuration.php';
 use Configuration\Configuration;
-use Connection\Connection;
 use InterfaceModel\InterfaceController as Controller;
 use Utilities\Utilities;
 use Game\Game;
@@ -20,8 +19,8 @@ class GameController implements Controller
 
     public static function save()
     {
-        $continue = true;
         $game = self::instance();
+        $continue = true;
         if ($game->save()) {
             foreach ($_POST['plataformas'] as $platform) {
                 if (!$game->setPlatform($platform)) {
@@ -37,12 +36,28 @@ class GameController implements Controller
 
     public static function update()
     {
-        // TODO: Implement update() method.
+        $game = self::instance();
+        $continue = true;
+        if ($game->update($_POST['id'])){
+            if ($game->unSetPlatform($_POST['id'])){
+                $game->setId($_POST['id']);
+                foreach ($_POST['plataformas'] as $platform){
+                    if (!$game->setPlatform($platform)) {
+                        $continue = false;
+                        Utilities::message('No se ha podido relacionar el autor: ' . $platform, 'alert alert-danger');
+                    }
+                }
+                if ($continue)
+                    Utilities::messageToast('Guardado correctamente','success', 'game/index.php');
+            } else
+                Utilities::message('No se ha podido eliminar las relaciones de autor', 'alert alert-danger');
+        } else
+            Utilities::message('No se ha podido guardar la canción o no se han realizado cambios.', 'alert alert-danger');
     }
 
     public static function destroy()
     {
-        // TODO: Implement destroy() method.
+        echo Game::delete($_POST['id']);
     }
 
     public static function table()

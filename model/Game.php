@@ -22,11 +22,11 @@ class Game implements Model
      */
     public function __construct($nombre, $genero, $descripcion, $lanzamiento, $estudio)
     {
-        $this->nombre = $nombre;
-        $this->genero = $genero;
-        $this->descripcion = $descripcion;
-        $this->lanzamiento = $lanzamiento;
-        $this->estudio = $estudio;
+        $this->nombre = (String)$nombre;
+        $this->genero = (String)$genero;
+        $this->descripcion = (String)$descripcion;
+        $this->lanzamiento = (String)$lanzamiento;
+        $this->estudio = (int)$estudio;
     }
 
 
@@ -41,35 +41,57 @@ class Game implements Model
 
     public function update($id)
     {
-        // TODO: Implement update() method.
+        $sql = "UPDATE juego SET nombre = '{$_POST['nombre']}', genero = '{$this->genero}', descripcion = '{$this->descripcion}', 
+                 lanzamiento = '{$this->lanzamiento}' estudio_id = {$this->estudio} WHERE id = {$id}";
+        return Conn::instance()->exec($sql);
     }
 
     public static function delete($id)
     {
-        // TODO: Implement delete() method.
+        $sql = "DELETE FROM juego WHERE id = {$id}";
+        return Conn::instance()->exec($sql);
     }
 
     public static function search($search)
     {
-        $sql = "SELECT * FROM juego j INNER JOIN entorno e on j.id = e.juego_id INNER JOIN estudio e2 on j.estudio_id = e2.id
-                INNER JOIN desarrollador d on e2.id = d.estudio_id INNER JOIN plataforma p on e.plataforma_id = p.id
-                WHERE j.nombre LIKE '{$search}' OR j.genero LIKE '{$search}' OR e2.nombre LIKE '{$search}'";
+        $sql = "SELECT j.*, e.nombre AS estudio FROM juego j INNER JOIN estudio e on j.estudio_id = e.id
+                WHERE j.nombre LIKE '%{$search}%' OR j.genero LIKE '%{$search}%'";
         return Conn::instance()->query($sql);
     }
 
     public function setPlatform($platform)
     {
         $sql = "SELECT * FROM entorno WHERE juego_id = '{$this->getId()}' AND plataforma_id = '{$platform}'";
-        if (!Conn::instance() -> query($sql) -> rowCount()) {
+        if (!Conn::instance() -> query($sql) -> rowCount()){
             $sql = "INSERT INTO entorno (plataforma_id, juego_id) VALUES ('{$platform}', '{$this->getId()}')";
             return Conn::instance()->exec($sql);
         } else
             return true;
     }
 
-    public function unSetPlatform()
+    public function unSetPlatform($id)
     {
+        $sql = "SELECT * FROM entorno WHERE juego_id {$id}";
+        if (Conn::instance()->query($sql)->rowCount()){
+            $sql = "DELETE FROM entorno WHERE juego_id = {$id}";
+            return Conn::instance()->exec($sql);
+        } else
+            return true;
 
+    }
+
+    public static function getPlatform($id, $text)
+    {
+        $sql = "SELECT p.nombre FROM entorno e INNER JOIN plataforma p on e.plataforma_id = p.id WHERE juego_id = {$id}";
+        $platforms = Conn::instance()->query($sql)->fetchAll();
+        if ($text){
+            $response = "";
+            foreach ($platforms as $platform){
+                $response.= $platform['nombre']."<br>";
+            }
+            return $response;
+        }else
+            return $platforms;
     }
 
     /**

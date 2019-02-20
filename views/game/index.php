@@ -27,7 +27,7 @@ require_once '../home/auth.php';
                             <th>descripcion</th>
                             <th>Fecha de lanzamiento</th>
                             <th>Estudio</th>
-                            <th>Plataforma</th>
+                            <th>Plataformas</th>
                             <th class="text-center">Acciones</th>
                         </tr>
                         </thead>

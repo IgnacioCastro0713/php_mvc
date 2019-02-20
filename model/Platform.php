@@ -1,6 +1,7 @@
 <?php
 
 namespace Platform;
+
 use Configuration\Configuration;
 use Connection\Connection as Conn;
 use InterfaceModel\InterfaceModel as Model;

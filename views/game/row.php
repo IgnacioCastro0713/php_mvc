@@ -8,8 +8,8 @@ if ($count != 0) {
             <td><?php echo $row['genero']; ?></td>
             <td><?php echo $row['descripcion']; ?></td>
             <td><?php echo $row['lanzamiento']; ?></td>
-            <td><?php echo $row['nombre']; ?></td>
-            <td><?php echo $row['nombre']; ?></td>
+            <td><?php echo $row['estudio']; ?></td>
+            <td><?php echo \Game\Game::getPlatform($row['id'], true) ?></td>
             <td class="td-actions text-center">
                 <!--button type="button" rel="tooltip" class="btn btn-info btn-simple btn-icon btn-sm">
                     <i class="tim-icons icon-single-02"></i>

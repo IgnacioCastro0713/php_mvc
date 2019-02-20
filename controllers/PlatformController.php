@@ -37,7 +37,7 @@ class PlatformController implements Controller
 
     public static function destroy()
     {
-        echo  Platform::delete($_POST['id']);
+        echo Platform::delete($_POST['id']);
     }
 
     public static function table()
