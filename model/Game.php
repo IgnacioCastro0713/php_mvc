@@ -41,8 +41,8 @@ class Game implements Model
 
     public function update($id)
     {
-        $sql = "UPDATE juego SET nombre = '{$_POST['nombre']}', genero = '{$this->genero}', descripcion = '{$this->descripcion}', 
-                 lanzamiento = '{$this->lanzamiento}' estudio_id = {$this->estudio} WHERE id = {$id}";
+        $sql = "UPDATE juego SET nombre = '{$this->nombre}', genero = '{$this->genero}', descripcion = '{$this->descripcion}', 
+                 lanzamiento = '{$this->lanzamiento}', estudio_id = {$this->estudio} WHERE id = {$id}";
         return Conn::instance()->exec($sql);
     }
 
@@ -59,6 +59,11 @@ class Game implements Model
         return Conn::instance()->query($sql);
     }
 
+    /**
+     * @función: Agrega las relaciones relaciones de la tabla intermedia.
+     * @param $platform
+     * @return bool|int
+     */
     public function setPlatform($platform)
     {
         $sql = "SELECT * FROM entorno WHERE juego_id = '{$this->getId()}' AND plataforma_id = '{$platform}'";
@@ -69,6 +74,11 @@ class Game implements Model
             return true;
     }
 
+    /**
+     * @función: Elimina las relaciones anterioemente viculadas y agrega las nuevas.
+     * @param $id
+     * @return bool|int
+     */
     public function unSetPlatform($id)
     {
         $sql = "SELECT * FROM entorno WHERE juego_id {$id}";
@@ -80,6 +90,12 @@ class Game implements Model
 
     }
 
+    /**
+     * @función Obtiene las plataformas vinculadas al videojuego.
+     * @param $id
+     * @param $text
+     * @return array|string
+     */
     public static function getPlatform($id, $text)
     {
         $sql = "SELECT p.nombre FROM entorno e INNER JOIN plataforma p on e.plataforma_id = p.id WHERE juego_id = {$id}";

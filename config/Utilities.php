@@ -60,9 +60,16 @@ class Utilities
         foreach ($rows as $row){
             echo "
             <label class=\"form-check-label\" id='plataforma-parent'>
-                <input type='checkbox' class='form-check-input' id='plataforma' name='plataforma' value='{$row['id']}' required";
-                if ($row['id'] === $checked)
-                    echo "checked";
+                <input type='checkbox' class='form-check-input' id='plataforma' name='plataforma' value='{$row['id']}' required ";
+                if ($checked) {
+                    $sqlcheck = "SELECT e.plataforma_id FROM entorno e INNER JOIN plataforma p on e.plataforma_id = p.id where e.juego_id = {$checked}";
+                    $response = Conn::instance()->query($sqlcheck);
+                    $checks = $response->fetchAll();
+                    foreach ($checks as $check){
+                        if ($row['id'] == $check['plataforma_id'])
+                            echo "checked";
+                    }
+                }
                 echo ">{$row['nombre']} &nbsp;";
                 echo "<span class=\"form-check-sign\">
                             <span class=\"check\"></span>
