@@ -60,7 +60,7 @@ class Game implements Model
     }
 
     /**
-     * @función Obtiene las plataformas vinculadas al videojuego.
+     * @description Obtiene las plataformas vinculadas al videojuego.
      * @param $id
      * @param $text
      * @return array|string
@@ -80,7 +80,7 @@ class Game implements Model
     }
 
     /**
-     * @función: Agrega las relaciones relaciones de la tabla intermedia.
+     * @description: Agrega las relaciones relaciones de la tabla intermedia 'entorno'.
      * @param $platform
      * @return bool|int
      */
@@ -95,7 +95,7 @@ class Game implements Model
     }
 
     /**
-     * @función: Elimina las relaciones anterioemente viculadas y agrega las nuevas.
+     * @description: Elimina las relaciones anteriormente viculadas y agrega las nuevas.
      * @param $id
      * @return bool|int
      */
@@ -111,6 +111,7 @@ class Game implements Model
     }
 
     /**
+     * @description valida si es favorito
      * @param $game
      * @param $user
      * @return int
@@ -122,6 +123,7 @@ class Game implements Model
     }
 
     /**
+     * @description elimina las relaciones con los usuario en caso de que se elimine el registro
      * @param $id
      * @return bool|int
      */
