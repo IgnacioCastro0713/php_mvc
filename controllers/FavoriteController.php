@@ -36,4 +36,24 @@ class FavoriteController implements Controller
     {
         // TODO: Implement table() method.
     }
+
+    public static function setFavorite() {
+        session_start();
+        $favorite = new Favorite($_POST['id'], $_SESSION['id']);
+        if ($favorite -> save())
+            echo "setted";
+        else
+            echo "failed";
+    }
+
+    public static function unsetFavorite() {
+        session_start();
+        $favorite = new Favorite($_POST['id'], $_SESSION['id']);
+        if ($favorite -> delete($_POST['id']))
+            echo "unsetted";
+        else
+            echo "failed";
+    }
 }
+$function = (String)$_POST['func'];
+FavoriteController::$function();

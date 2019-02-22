@@ -23,7 +23,7 @@ class GameController implements Controller
         $continue = true;
         if ($game->save()) {
             foreach ($_POST['plataformas'] as $platform) {
-                if (!$game->setPlatform($platform)) {
+                if (!$game->setEnvironment($platform)) {
                     $continue = false;
                     Utilities::message('No se ha podido relacionar el autor: ' . $platform, 'alert alert-danger');
                 }
@@ -39,12 +39,12 @@ class GameController implements Controller
         $game = self::instance();
         $continue = true;
         if ($game->update($_POST['id'])){
-            if (Game::unSetPlatform($_POST['id'])){
+            if (Game::unSetEnvironment($_POST['id'])){
                 $game->setId($_POST['id']);
                 foreach ($_POST['plataformas'] as $platform){
                     if ($platform === "")
                         continue;
-                    if (!$game->setPlatform($platform)) {
+                    if (!$game->setEnvironment($platform)) {
                         $continue = false;
                         Utilities::message('No se ha podido relacionar el autor: ' . $platform, 'alert alert-danger');
                     }
@@ -59,7 +59,7 @@ class GameController implements Controller
 
     public static function destroy()
     {
-        if (Game::unSetPlatform($_POST['id'])) {
+        if (Game::unSetEnvironment($_POST['id'])) {
             echo Game::delete($_POST['id']);
         } else
             echo "false";

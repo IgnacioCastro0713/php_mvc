@@ -72,10 +72,4 @@ class Favorite implements Model
         } else
             return true;
     }
-
-    public function isFavorite()
-    {
-        $sql = "SELECT * FROM favoritos WHERE juego_id = {$this->getGame()} AND usuario_id = {$this->getUsuario()}";
-        return Conn::get()->query($sql)->rowCount();
-    }
 }

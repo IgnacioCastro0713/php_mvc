@@ -10,6 +10,7 @@ class Configuration
     {
         include '../config/Connection.php';// TODO: Required, doesn't change.
         include '../config/InterfaceModel.php';// TODO: Required, doesn't change.
+        //include '../models/Favorite.php';
     }
 
     /**

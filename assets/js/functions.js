@@ -93,14 +93,14 @@ function setOrUnSetFavorite(id, controller, action, event) {
             "func": func
         },
         type: 'post',
-        url: `../../controllers/${controller}.php`,
+        url: `../../controllers/FavoriteController.php`,
         success: response => {
-            if (response === "1"){
+            if (response === "setted") {
                 loadTable(controller);
-                if (action)
-                    toast('info', 'Agregado a favoritos!');
-                else
-                    toast('info', 'Eliminado de favoritos!');
+                toast('info', 'Agregado a favoritos!');
+            } else {
+                toast('info', 'Eliminado de favoritos!');
+                loadTable('GameController');
             }
         }
     });

@@ -1,4 +1,5 @@
 <?php
+session_start();
 if ($count != 0) {
     $rows = $res->fetchAll();
     foreach ($rows as $row) { ?>
@@ -11,9 +12,11 @@ if ($count != 0) {
             <td><?php echo $row['estudio']; ?></td>
             <td><?php echo \Game\Game::getPlatform($row['id'], true) ?></td>
             <td class="td-actions text-center">
-                <!--button type="button" rel="tooltip" class="btn btn-info btn-simple btn-icon btn-sm">
-                    <i class="tim-icons icon-single-02"></i>
-                </button-->
+                <button type="button" rel="tooltip" class="btn
+                <?php if (\Game\Game::isFavorite($row['id'], $_SESSION['id'])) echo "btn-info"; else echo "btn-default"; ?> btn-simple btn-icon btn-sm"
+                onclick="setOrUnSetFavorite(<?php echo $row['id']?>, controller, <?php if (!\Game\Game::isFavorite($row['id'], $_SESSION['id'])) echo "true"; else echo "false"; ?>, event)">
+                    <i class="tim-icons icon-heart-2"></i>
+                </button>
                 <a href="update.php?id=<?php echo $row['id']?>" rel="tooltip"
                    class="btn btn-success btn-simple btn-icon btn-sm" title="Editar">
                     <i class="tim-icons icon-settings-gear-63"></i>

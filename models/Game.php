@@ -64,7 +64,7 @@ class Game implements Model
      * @param $platform
      * @return bool|int
      */
-    public function setPlatform($platform)
+    public function setEnvironment($platform)
     {
         $sql = "SELECT * FROM entorno WHERE juego_id = '{$this->getId()}' AND plataforma_id = '{$platform}'";
         if (!Conn::get() -> query($sql) -> rowCount()){
@@ -79,7 +79,7 @@ class Game implements Model
      * @param $id
      * @return bool|int
      */
-    public static function unSetPlatform($id)
+    public static function unSetEnvironment($id)
     {
         $sql = "SELECT * FROM entorno WHERE juego_id = {$id}";
         if (Conn::get()->query($sql)->rowCount()){
@@ -108,6 +108,12 @@ class Game implements Model
             return $response;
         }else
             return $platforms;
+    }
+
+    public static function isFavorite($game, $user)
+    {
+        $sql = "SELECT * FROM favoritos WHERE juego_id = {$game} AND usuario_id = {$user}";
+        return Conn::get()->query($sql)->rowCount();
     }
 
     /**
