@@ -73,13 +73,13 @@
 <!--   Core JS Files   -->
 <script src="../../assets/js/core/jquery.min.js" type="text/javascript"></script>
 <!-- SweetAlert2 -->
-<script type="text/javascript" src="../../assets/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+<script type="text/javascript" src="../../assets/js/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
 <!-- jquery-validation -->
-<script src="../../assets/node_modules/jquery-validation/dist/jquery.validate.min.js" type="text/javascript"></script>
-<script src="../../assets/node_modules/jquery-validation/dist/additional-methods.min.js" type="text/javascript"></script>
+<script src="../../assets/js/node_modules/jquery-validation/dist/jquery.validate.min.js" type="text/javascript"></script>
+<script src="../../assets/js/node_modules/jquery-validation/dist/additional-methods.min.js" type="text/javascript"></script>
 <!--datepicker-->
-<script src="../../assets/node_modules/gijgo/js/gijgo.min.js" type="text/javascript"></script>
-<link href="../../assets/node_modules/gijgo/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+<script src="../../assets/js/node_modules/gijgo/js/gijgo.min.js" type="text/javascript"></script>
+<link href="../../assets/js/node_modules/gijgo/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 <!-- generic functions -->
 <script src="../../assets/js/functions.js"></script>
 <!-- Others JS  -->
