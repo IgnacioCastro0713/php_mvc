@@ -32,7 +32,7 @@ class Developer implements Model
     {
         $sql = "INSERT INTO desarrollador(nombre, apaterno, amaterno, ciudad, estudio_id) 
                 VALUES ('{$this->nombre}', '{$this->apaterno}', '{$this->amaterno}', '{$this->ciudad}', '{$this->estudio}')";
-        return Conn::instance()->exec($sql);
+        return Conn::get()->exec($sql);
     }
 
     public function update($id)
@@ -40,13 +40,13 @@ class Developer implements Model
         $sql = "UPDATE desarrollador SET nombre = '{$this->nombre}', apaterno = '{$this->apaterno}', amaterno = '{$this->amaterno}',
                 ciudad = '{$this->ciudad}', estudio_id = '{$this->estudio}'
                 WHERE id = {$id}";
-        return Conn::instance()->exec($sql);
+        return Conn::get()->exec($sql);
     }
 
     public static function delete($id)
     {
         $sql = "DELETE FROM desarrollador WHERE id = {$id}";
-        return Conn::instance()->exec($sql);
+        return Conn::get()->exec($sql);
     }
 
     public static function search($search)
@@ -55,6 +55,6 @@ class Developer implements Model
                 FROM desarrollador d INNER JOIN estudio e on d.estudio_id = e.id 
                 WHERE CONCAT(d.nombre, ' ', d.apaterno, ' ', d.amaterno) LIKE '%{$search}%' 
                 OR e.nombre LIKE '%{$search}%'";
-        return Conn::instance()->query($sql);
+        return Conn::get()->query($sql);
     }
 }

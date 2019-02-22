@@ -28,20 +28,20 @@ class Platform implements Model
     {
         $sql = "INSERT INTO plataforma (nombre, propietario, website) 
                 VALUES ('{$this->nombre}', '{$this->propietario}', '{$this->website}')";
-        return Conn::instance()->exec($sql);
+        return Conn::get()->exec($sql);
     }
 
     public function update($id)
     {
         $sql = "UPDATE plataforma SET nombre = '{$this->nombre}', propietario = '{$this->propietario}', website = '{$this->website}'
                 WHERE id = {$id}";
-        return Conn::instance()->exec($sql);
+        return Conn::get()->exec($sql);
     }
 
     public static function delete($id)
     {
         $sql = "DELETE FROM plataforma WHERE id = {$id}";
-        return Conn::instance()->exec($sql);
+        return Conn::get()->exec($sql);
     }
 
     public static function search($search)
@@ -49,6 +49,6 @@ class Platform implements Model
         $sql = "SELECT id, nombre, propietario, website 
                 FROM plataforma WHERE nombre 
                 LIKE '%{$search}%' OR  propietario LIKE '%{$search}%'";
-        return Conn::instance()->query($sql);
+        return Conn::get()->query($sql);
     }
 }

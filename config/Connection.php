@@ -16,8 +16,8 @@ class Connection
     private function __construct()
     {
         try {
-            $this->conn = new PDO("mysql:host={$this->host};dbname={$this->database}", $this->username, $this->password);
-            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->setConn(new PDO("mysql:host={$this->getHost()};dbname={$this->getDatabase()}", $this->getUsername(), $this->getPassword()));
+            $this->getConn()->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $exception) {
             echo "Conexión fallida.";
             die();
@@ -27,7 +27,7 @@ class Connection
     /**
      * @return PDO instance
      */
-    public static function instance()
+    public static function get()
     {
         if (!self::$inst) {
             self::$inst = new Connection();
@@ -41,5 +41,53 @@ class Connection
     public static function destroy()
     {
         self::$inst = null;
+    }
+
+    /**
+     * @param PDO $conn
+     */
+    public function setConn($conn)
+    {
+        $this->conn = $conn;
+    }
+
+    /**
+     * @return PDO
+     */
+    public function getConn()
+    {
+        return $this->conn;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHost()
+    {
+        return $this->host;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDatabase()
+    {
+        return $this->database;
     }
 }

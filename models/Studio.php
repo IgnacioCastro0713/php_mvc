@@ -32,7 +32,7 @@ class Studio implements Model
     {
         $sql = "INSERT INTO estudio (nombre, propietario, sede, fundacion) 
                 VALUES ('{$this->nombre}', '{$this->propietario}', '{$this->sede}', '{$this->fundacion}')";
-        return Conn::instance()->exec($sql);
+        return Conn::get()->exec($sql);
     }
 
     public function update($id)
@@ -40,19 +40,19 @@ class Studio implements Model
         $sql = "UPDATE estudio SET 
                 nombre = '{$this->nombre}', propietario = '{$this->propietario}', sede = '{$this->sede}', fundacion = '{$this->fundacion}'
                 WHERE id = {$id}";
-        return Conn::instance()->exec($sql);
+        return Conn::get()->exec($sql);
     }
 
     public static function delete($id)
     {
         $sql = "DELETE FROM estudio WHERE id = {$id}";
-        return Conn::instance()->exec($sql);
+        return Conn::get()->exec($sql);
     }
 
     public static function search($search)
     {
         $sql = "SELECT * FROM estudio WHERE nombre LIKE '%{$search}%' OR propietario LIKE '%{$search}%'
                 OR sede LIKE '%{$search}%'";
-        return Conn::instance()->query($sql);
+        return Conn::get()->query($sql);
     }
 }

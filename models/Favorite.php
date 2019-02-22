@@ -43,7 +43,7 @@ class Favorite implements Model
     public function save()
     {
         $sql = "INSERT INTO favoritos(usuario_id, juego_id) VALUES ({$this->getUsuario()}, {$this->getGame()})";
-        return Conn::instance()->exec($sql);
+        return Conn::get()->exec($sql);
     }
 
     public function update($id)
@@ -54,7 +54,7 @@ class Favorite implements Model
     public static function delete($id)
     {
         $sql = "DELETE FROM favoritos where usuario_id = {$_SESSION['id']} AND juego_id = {$id}";
-        return Conn::instance()->exec($sql);
+        return Conn::get()->exec($sql);
 
     }
 
@@ -66,9 +66,9 @@ class Favorite implements Model
     public static function deleteByGameId($id)
     {
         $sql = "SELECT * FROM favoritos WHERE juego_id = {$id}";
-        if (Conn::instance()->query($sql)->rowCount()) {
+        if (Conn::get()->query($sql)->rowCount()) {
             $sql = "DELETE FROM favoritos WHERE juego_id = {$id}";
-            return Conn::instance()->exec($sql);
+            return Conn::get()->exec($sql);
         } else
             return true;
     }
@@ -76,6 +76,6 @@ class Favorite implements Model
     public function isFavorite()
     {
         $sql = "SELECT * FROM favoritos WHERE juego_id = {$this->getGame()} AND usuario_id = {$this->getUsuario()}";
-        return Conn::instance()->query($sql)->rowCount();
+        return Conn::get()->query($sql)->rowCount();
     }
 }

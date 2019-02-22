@@ -123,21 +123,21 @@
                         </div>
                     </li>
                 </ul>
-            <ul class="navbar-nav">
-                <li class="dropdown nav-item">
-                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                        <i class="tim-icons icon-settings-gear-63"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-with-icons">
-                        <a href="" class="dropdown-item">
-                            <i class="tim-icons icon-badge"></i> <?php echo $_SESSION['user']?>
+                <ul class="navbar-nav">
+                    <li class="dropdown nav-item">
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                            <i class="tim-icons icon-settings-gear-63"></i>
                         </a>
-                        <a href="" class="dropdown-item" onclick="logout(event)">
-                            <i class="tim-icons icon-simple-remove"></i>Salir
-                        </a>
-                    </div>
-                </li>
-            </ul>
+                        <div class="dropdown-menu dropdown-with-icons">
+                            <a href="../user/detail.php" class="dropdown-item">
+                                <i class="tim-icons icon-badge"></i> <?php echo $_SESSION['user']?>
+                            </a>
+                            <a href="" class="dropdown-item" onclick="logout(event)">
+                                <i class="tim-icons icon-simple-remove"></i>Salir
+                            </a>
+                        </div>
+                    </li>
+                </ul>
             <?php } else { ?>
                 <ul class="navbar-nav">
                     <li class="nav-item">

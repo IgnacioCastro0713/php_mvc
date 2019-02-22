@@ -31,7 +31,7 @@ class Utilities
 
     public static function getById($table, $id)
     {
-        return Conn::instance()
+        return Conn::get()
             ->query("SELECT * FROM {$table} WHERE id = {$id}")
             ->fetchAll()[0];
     }
@@ -39,7 +39,7 @@ class Utilities
     public static function select($table, $identifier, $default)
     {
         $sql = "SELECT * FROM {$table}";
-        $res = Conn::instance()->query($sql);
+        $res = Conn::get()->query($sql);
         $rows = $res->fetchAll();
         echo "<select id=\"{$identifier}\" name='{$identifier}' class=\"form-control\" required>";
         echo "<option style='color: #0a0c0d' value=\"\">Seleccione una opción</option>";
@@ -55,7 +55,7 @@ class Utilities
     public static function checkbox($checked)
     {
         $sql = "SELECT * FROM plataforma";
-        $res = Conn::instance()->query($sql);
+        $res = Conn::get()->query($sql);
         $rows = $res->fetchAll();
         foreach ($rows as $row){
             echo "
@@ -63,7 +63,7 @@ class Utilities
                 <input type='checkbox' class='form-check-input' id='plataforma' name='plataforma' value='{$row['id']}' required ";
                 if ($checked) {
                     $sqlcheck = "SELECT e.plataforma_id FROM entorno e INNER JOIN plataforma p on e.plataforma_id = p.id where e.juego_id = {$checked}";
-                    $response = Conn::instance()->query($sqlcheck);
+                    $response = Conn::get()->query($sqlcheck);
                     $checks = $response->fetchAll();
                     foreach ($checks as $check){
                         if ($row['id'] == $check['plataforma_id'])
