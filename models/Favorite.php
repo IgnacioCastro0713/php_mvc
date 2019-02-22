@@ -62,14 +62,4 @@ class Favorite implements Model
     {
         // TODO: Implement search() method.
     }
-
-    public static function deleteByGameId($id)
-    {
-        $sql = "SELECT * FROM favoritos WHERE juego_id = {$id}";
-        if (Conn::get()->query($sql)->rowCount()) {
-            $sql = "DELETE FROM favoritos WHERE juego_id = {$id}";
-            return Conn::get()->exec($sql);
-        } else
-            return true;
-    }
 }

@@ -60,6 +60,26 @@ class Game implements Model
     }
 
     /**
+     * @función Obtiene las plataformas vinculadas al videojuego.
+     * @param $id
+     * @param $text
+     * @return array|string
+     */
+    public static function getPlatform($id, $text)
+    {
+        $sql = "SELECT p.nombre FROM entorno e INNER JOIN plataforma p on e.plataforma_id = p.id WHERE juego_id = {$id}";
+        $platforms = Conn::get()->query($sql)->fetchAll();
+        if ($text){
+            $response = "";
+            foreach ($platforms as $platform){
+                $response.= $platform['nombre']."<br>";
+            }
+            return $response;
+        }else
+            return $platforms;
+    }
+
+    /**
      * @función: Agrega las relaciones relaciones de la tabla intermedia.
      * @param $platform
      * @return bool|int
@@ -91,29 +111,28 @@ class Game implements Model
     }
 
     /**
-     * @función Obtiene las plataformas vinculadas al videojuego.
-     * @param $id
-     * @param $text
-     * @return array|string
+     * @param $game
+     * @param $user
+     * @return int
      */
-    public static function getPlatform($id, $text)
-    {
-        $sql = "SELECT p.nombre FROM entorno e INNER JOIN plataforma p on e.plataforma_id = p.id WHERE juego_id = {$id}";
-        $platforms = Conn::get()->query($sql)->fetchAll();
-        if ($text){
-            $response = "";
-            foreach ($platforms as $platform){
-                $response.= $platform['nombre']."<br>";
-            }
-            return $response;
-        }else
-            return $platforms;
-    }
-
     public static function isFavorite($game, $user)
     {
         $sql = "SELECT * FROM favoritos WHERE juego_id = {$game} AND usuario_id = {$user}";
         return Conn::get()->query($sql)->rowCount();
+    }
+
+    /**
+     * @param $id
+     * @return bool|int
+     */
+    public static function unSetFavorite($id)
+    {
+        $sql = "SELECT * FROM favoritos WHERE juego_id = {$id}";
+        if (Conn::get()->query($sql)->rowCount()) {
+            $sql = "DELETE FROM favoritos WHERE juego_id = {$id}";
+            return Conn::get()->exec($sql);
+        } else
+            return true;
     }
 
     /**

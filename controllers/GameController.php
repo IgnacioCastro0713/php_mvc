@@ -59,10 +59,13 @@ class GameController implements Controller
 
     public static function destroy()
     {
-        if (Game::unSetEnvironment($_POST['id'])) {
-            echo Game::delete($_POST['id']);
+        if (Game::unSetFavorite($_POST['id'])){
+            if (Game::unSetEnvironment($_POST['id'])) {
+                echo Game::delete($_POST['id']);
+            } else
+                echo "false2";
         } else
-            echo "false";
+            echo "false1";
     }
 
     public static function table()
