@@ -19,6 +19,24 @@ class Auth
         $this->password = (String)md5($password);
     }
 
+    /**
+     * @return string
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+
+
     public function check()
     {
         return ($this->query()->rowCount())!==0;
@@ -32,7 +50,7 @@ class Auth
 
     private function query()
     {
-        $sql = "SELECT * FROM usuario WHERE pass = '{$this->password}' AND usuario = '{$this->user}'";
+        $sql = "SELECT * FROM usuario WHERE pass = '{$this->getPassword()}' AND usuario = '{$this->getUser()}'";
         return Conn::instance()->query($sql);
     }
 

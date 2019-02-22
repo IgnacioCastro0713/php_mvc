@@ -51,6 +51,21 @@
                 <ul class="navbar-nav">
                     <li class="dropdown nav-item">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                            <i class="tim-icons icon-controller"></i>videojuego
+                        </a>
+                        <div class="dropdown-menu dropdown-with-icons">
+                            <a href="../game/save.php" class="dropdown-item">
+                                <i class="tim-icons icon-simple-add"></i> Agregar
+                            </a>
+                            <a href="../game/index.php" class="dropdown-item">
+                                <i class="tim-icons icon-bullet-list-67"></i>Consultar
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="dropdown nav-item">
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                             <i class="tim-icons icon-atom"></i>Desarrollador
                         </a>
                         <div class="dropdown-menu dropdown-with-icons">

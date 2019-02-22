@@ -22,7 +22,6 @@ class LoginController
             Utilities::messageToast("¡Bienvenido {$data['nombre']}!", "info", 'home/index.php');
         } else
             Utilities::message('Credenciales incorrectas', 'alert alert-danger');
-
     }
 
     public static function logout()
