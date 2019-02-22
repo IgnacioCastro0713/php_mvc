@@ -79,9 +79,9 @@ class Game implements Model
      * @param $id
      * @return bool|int
      */
-    public function unSetPlatform($id)
+    public static function unSetPlatform($id)
     {
-        $sql = "SELECT * FROM entorno WHERE juego_id {$id}";
+        $sql = "SELECT * FROM entorno WHERE juego_id = {$id}";
         if (Conn::instance()->query($sql)->rowCount()){
             $sql = "DELETE FROM entorno WHERE juego_id = {$id}";
             return Conn::instance()->exec($sql);

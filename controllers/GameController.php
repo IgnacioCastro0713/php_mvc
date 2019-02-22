@@ -39,9 +39,11 @@ class GameController implements Controller
         $game = self::instance();
         $continue = true;
         if ($game->update($_POST['id'])){
-            if ($game->unSetPlatform($_POST['id'])){
+            if (Game::unSetPlatform($_POST['id'])){
                 $game->setId($_POST['id']);
                 foreach ($_POST['plataformas'] as $platform){
+                    if ($platform === "")
+                        continue;
                     if (!$game->setPlatform($platform)) {
                         $continue = false;
                         Utilities::message('No se ha podido relacionar el autor: ' . $platform, 'alert alert-danger');
@@ -57,7 +59,10 @@ class GameController implements Controller
 
     public static function destroy()
     {
-        echo Game::delete($_POST['id']);
+        if (Game::unSetPlatform($_POST['id'])) {
+            echo Game::delete($_POST['id']);
+        } else
+            echo "false";
     }
 
     public static function table()

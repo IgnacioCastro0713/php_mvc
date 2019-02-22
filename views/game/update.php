@@ -132,7 +132,7 @@ require_once '../home/auth.php';
                 "lanzamiento": $('#lazamiento').val(),
                 "estudio": $('#estudio').val(),
                 "plataformas": platforms,
-                "func": 'save'
+                "func": 'update'
             }, 'GameController');
         },
         invalidHandler: function () {
