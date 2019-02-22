@@ -41,7 +41,7 @@ class GameController implements Controller
         if ($game->update($_POST['id'])){
             if (Game::unSetEnvironment($_POST['id'])){
                 $game->setId($_POST['id']);
-                foreach ($_POST['plataformas'] as $platform){
+                foreach ($_POST['plataformas'] as $platform) {
                     if ($platform === "")
                         continue;
                     if (!$game->setEnvironment($platform)) {
