@@ -35,8 +35,6 @@ class Auth
         return $this->password;
     }
 
-
-
     public function check()
     {
         return ($this->query()->rowCount())!==0;
@@ -46,7 +44,6 @@ class Auth
     {
         return ($this->query()->fetchAll())[0];
     }
-
 
     private function query()
     {

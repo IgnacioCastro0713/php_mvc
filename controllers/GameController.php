@@ -46,13 +46,13 @@ class GameController implements Controller
                         continue;
                     if (!$game->setEnvironment($platform)) {
                         $continue = false;
-                        Utilities::message('No se ha podido relacionar el autor: ' . $platform, 'alert alert-danger');
+                        Utilities::message('No se ha podido relacionar la plataforma: ' . $platform, 'alert alert-danger');
                     }
                 }
                 if ($continue)
                     Utilities::messageToast('Guardado correctamente','success', 'game/index.php');
             } else
-                Utilities::message('No se ha podido eliminar las relaciones de autor', 'alert alert-danger');
+                Utilities::message('No se ha podido eliminar las relaciones de la plataforma', 'alert alert-danger');
         } else
             Utilities::message('No se ha podido guardar la canción o no se han realizado cambios.', 'alert alert-danger');
     }
