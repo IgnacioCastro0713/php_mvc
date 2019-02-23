@@ -38,12 +38,15 @@ class Favorite implements Model
         return $this->game;
     }
 
-
+    public function fillable()
+    {
+        return [$this->getUsuario(), $this->getGame()];
+    }
 
     public function save()
     {
-        $sql = "INSERT INTO favoritos(usuario_id, juego_id) VALUES ({$this->getUsuario()}, {$this->getGame()})";
-        return Conn::get()->exec($sql);
+        $sql = "INSERT INTO favoritos(usuario_id, juego_id) VALUES (?, ?)";
+        return Conn::get()->prepare($sql)->execute($this->fillable());
     }
 
     public function update($id)
@@ -53,8 +56,8 @@ class Favorite implements Model
 
     public static function delete($id)
     {
-        $sql = "DELETE FROM favoritos where usuario_id = {$_SESSION['id']} AND juego_id = {$id}";
-        return Conn::get()->exec($sql);
+        $sql = "DELETE FROM favoritos where usuario_id = ? AND juego_id = ?";
+        return Conn::get()->prepare($sql)->execute([$_SESSION['id'], $id]);
 
     }
 

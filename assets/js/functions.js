@@ -77,7 +77,7 @@ function emptyForm() {
                     '<i class="tim-icons icon-simple-remove"></i>' +
                 '</button>' +
             '<span data-notify="icon" class="tim-icons icon-alert-circle-exc"></span>' +
-            '<span><b> ¡Invalido! - </b>Favor de ingresar los datos correctamente.</span>'+
+            '<span><b> ¡Error! - </b>Favor de ingresar los datos correctamente.</span>'+
         '</div>'
         );
 }
@@ -99,8 +99,8 @@ function setOrUnSetFavorite(id, controller, action, event) {
                 loadTable(controller);
                 toast('info', 'Agregado a favoritos!');
             } else {
+                loadTable(controller);
                 toast('info', 'Eliminado de favoritos!');
-                loadTable('GameController');
             }
         }
     });

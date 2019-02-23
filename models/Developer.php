@@ -27,26 +27,27 @@ class Developer implements Model
         $this->estudio = (int)$estudio;
     }
 
+    public function fillable()
+    {
+        return [$this->nombre, $this->apaterno, $this->amaterno, $this->ciudad, $this->estudio];
+    }
 
     public function save()
     {
-        $sql = "INSERT INTO desarrollador(nombre, apaterno, amaterno, ciudad, estudio_id) 
-                VALUES ('{$this->nombre}', '{$this->apaterno}', '{$this->amaterno}', '{$this->ciudad}', '{$this->estudio}')";
-        return Conn::get()->exec($sql);
+        $sql = "INSERT INTO desarrollador(nombre, apaterno, amaterno, ciudad, estudio_id) VALUES (?, ?, ?, ?, ?)";
+        return Conn::get()->prepare($sql)->execute($this->fillable());
     }
 
     public function update($id)
     {
-        $sql = "UPDATE desarrollador SET nombre = '{$this->nombre}', apaterno = '{$this->apaterno}', amaterno = '{$this->amaterno}',
-                ciudad = '{$this->ciudad}', estudio_id = '{$this->estudio}'
-                WHERE id = {$id}";
-        return Conn::get()->exec($sql);
+        $sql = "UPDATE desarrollador SET nombre = ?, apaterno = ?, amaterno = ?, ciudad = ?, estudio_id = ? WHERE id = {$id}";
+        return Conn::get()->prepare($sql)->execute($this->fillable());
     }
 
     public static function delete($id)
     {
-        $sql = "DELETE FROM desarrollador WHERE id = {$id}";
-        return Conn::get()->exec($sql);
+        $sql = "DELETE FROM desarrollador WHERE id = ?";
+        return Conn::get()->prepare($sql)->execute([$id]);
     }
 
     public static function search($search)

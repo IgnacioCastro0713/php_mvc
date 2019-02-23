@@ -24,24 +24,27 @@ class Platform implements Model
         $this->website = (String)$website;
     }
 
+    public function fillable()
+    {
+        return [$this->nombre, $this->propietario, $this->website];
+    }
+
     public function save()
     {
-        $sql = "INSERT INTO plataforma (nombre, propietario, website) 
-                VALUES ('{$this->nombre}', '{$this->propietario}', '{$this->website}')";
-        return Conn::get()->exec($sql);
+        $sql = "INSERT INTO plataforma (nombre, propietario, website) VALUES (?, ?, ?)";
+        return Conn::get()->prepare($sql)->execute($this->fillable());
     }
 
     public function update($id)
     {
-        $sql = "UPDATE plataforma SET nombre = '{$this->nombre}', propietario = '{$this->propietario}', website = '{$this->website}'
-                WHERE id = {$id}";
-        return Conn::get()->exec($sql);
+        $sql = "UPDATE plataforma SET nombre = ?, propietario = ?, website = ? WHERE id = {$id}";
+        return Conn::get()->prepare($sql)->execute($this->fillable());
     }
 
     public static function delete($id)
     {
-        $sql = "DELETE FROM plataforma WHERE id = {$id}";
-        return Conn::get()->exec($sql);
+        $sql = "DELETE FROM plataforma WHERE id = ?";
+        return Conn::get()->prepare($sql)->execute([$id]);
     }
 
     public static function search($search)

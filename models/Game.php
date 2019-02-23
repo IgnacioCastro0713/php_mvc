@@ -29,27 +29,29 @@ class Game implements Model
         $this->estudio = (int)$estudio;
     }
 
+    public function fillable()
+    {
+        return [$this->nombre, $this->genero, $this->descripcion, $this->lanzamiento, $this->estudio];
+    }
 
     public function save()
     {
-        $sql = "INSERT INTO juego (nombre, genero, descripcion, lanzamiento, estudio_id) 
-                VALUES ('{$this->nombre}', '{$this->genero}', '{$this->descripcion}', '{$this->lanzamiento}', '{$this->estudio}')";
-        $response = Conn::get()->exec($sql);
+        $sql = "INSERT INTO juego (nombre, genero, descripcion, lanzamiento, estudio_id) VALUES (?, ?, ?, ?, ?)";
+        $response = Conn::get()->prepare($sql)->execute($this->fillable());
         $this->setId(Conn::get()->lastInsertId());
         return $response;
     }
 
     public function update($id)
     {
-        $sql = "UPDATE juego SET nombre = '{$this->nombre}', genero = '{$this->genero}', descripcion = '{$this->descripcion}', 
-                 lanzamiento = '{$this->lanzamiento}', estudio_id = {$this->estudio} WHERE id = {$id}";
-        return Conn::get()->exec($sql);
+        $sql = "UPDATE juego SET nombre = ?, genero = ?, descripcion = ?, lanzamiento = ?, estudio_id = ? WHERE id = {$id}";
+        return Conn::get()->prepare($sql)->execute($this->fillable());
     }
 
     public static function delete($id)
     {
-        $sql = "DELETE FROM juego WHERE id = {$id}";
-        return Conn::get()->exec($sql);
+        $sql = "DELETE FROM juego WHERE id = ?";
+        return Conn::get()->prepare($sql)->execute([$id]);
     }
 
     public static function search($search)
@@ -87,9 +89,9 @@ class Game implements Model
     public function setEnvironment($platform)
     {
         $sql = "SELECT * FROM entorno WHERE juego_id = '{$this->getId()}' AND plataforma_id = '{$platform}'";
-        if (!Conn::get() -> query($sql) -> rowCount()){
-            $sql = "INSERT INTO entorno (plataforma_id, juego_id) VALUES ('{$platform}', '{$this->getId()}')";
-            return Conn::get()->exec($sql);
+        if (!Conn::get()->query($sql)->rowCount()){
+            $sql = "INSERT INTO entorno (plataforma_id, juego_id) VALUES (?, ?)";
+            return Conn::get()->prepare($sql)->execute([$platform, $this->getId()]);
         } else
             return true;
     }
@@ -103,11 +105,10 @@ class Game implements Model
     {
         $sql = "SELECT * FROM entorno WHERE juego_id = {$id}";
         if (Conn::get()->query($sql)->rowCount()){
-            $sql = "DELETE FROM entorno WHERE juego_id = {$id}";
-            return Conn::get()->exec($sql);
+            $sql = "DELETE FROM entorno WHERE juego_id = ?";
+            return Conn::get()->prepare($sql)->execute([$id]);
         } else
             return true;
-
     }
 
     /**
@@ -131,8 +132,8 @@ class Game implements Model
     {
         $sql = "SELECT * FROM favoritos WHERE juego_id = {$id}";
         if (Conn::get()->query($sql)->rowCount()) {
-            $sql = "DELETE FROM favoritos WHERE juego_id = {$id}";
-            return Conn::get()->exec($sql);
+            $sql = "DELETE FROM favoritos WHERE juego_id = ?";
+            return Conn::get()->prepare($sql)->execute([$id]);
         } else
             return true;
     }

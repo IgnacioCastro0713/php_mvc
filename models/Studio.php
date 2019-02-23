@@ -28,25 +28,27 @@ class Studio implements Model
         $this->fundacion = (String)$fundacion;
     }
 
+    public function fillable()
+    {
+        return [$this->nombre, $this->propietario, $this->sede, $this->fundacion];
+    }
+
     public function save()
     {
-        $sql = "INSERT INTO estudio (nombre, propietario, sede, fundacion) 
-                VALUES ('{$this->nombre}', '{$this->propietario}', '{$this->sede}', '{$this->fundacion}')";
-        return Conn::get()->exec($sql);
+        $sql = "INSERT INTO estudio (nombre, propietario, sede, fundacion) VALUES (?, ?, ?, ?)";
+        return Conn::get()->prepare($sql)->execute($this->fillable());
     }
 
     public function update($id)
     {
-        $sql = "UPDATE estudio SET 
-                nombre = '{$this->nombre}', propietario = '{$this->propietario}', sede = '{$this->sede}', fundacion = '{$this->fundacion}'
-                WHERE id = {$id}";
-        return Conn::get()->exec($sql);
+        $sql = "UPDATE estudio SET nombre = ?, propietario = ?, sede = ?, fundacion = ? WHERE id = {$id}";
+        return Conn::get()->prepare($sql)->execute($this->fillable());
     }
 
     public static function delete($id)
     {
-        $sql = "DELETE FROM estudio WHERE id = {$id}";
-        return Conn::get()->exec($sql);
+        $sql = "DELETE FROM estudio WHERE id = ?";
+        return Conn::get()->prepare($sql)->execute([$id]);
     }
 
     public static function search($search)
