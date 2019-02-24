@@ -15,6 +15,7 @@ class User implements Model
      * @param $apaterno
      * @param $amaterno
      * @param $pass
+     * @param $admin
      */
     public function __construct($usuario, $nombre, $apaterno, $amaterno, $pass, $admin)
     {
