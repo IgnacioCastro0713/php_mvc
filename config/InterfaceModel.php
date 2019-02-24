@@ -3,7 +3,7 @@ namespace InterfaceModel;
 
 interface InterfaceModel
 {
-    public function fillable();
+    public function fillable():array;
 
     public function save();
 

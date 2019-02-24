@@ -27,7 +27,10 @@ class User implements Model
         $this->admin = (int)$admin;
     }
 
-    public function fillable()
+    /**
+     * @return array
+     */
+    public function fillable():array
     {
         return [$this->usuario, $this->pass, $this->nombre, $this->apaterno, $this->amaterno, $this->admin];
     }

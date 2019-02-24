@@ -29,7 +29,7 @@ class Game implements Model
         $this->estudio = (int)$estudio;
     }
 
-    public function fillable()
+    public function fillable():array
     {
         return [$this->nombre, $this->genero, $this->descripcion, $this->lanzamiento, $this->estudio];
     }

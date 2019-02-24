@@ -17,10 +17,10 @@ class LoginController
             $data = $session->get();
             session_start();
             $_SESSION['valid'] = true;
-            $_SESSION['id'] = $data['id'];
-            $_SESSION['admin'] = $data['admin'];
-            $_SESSION['user'] = "{$data['nombre']} {$data['apaterno']} {$data['amaterno']}";
-            Utilities::messageToast("¡Bienvenido {$data['nombre']}!", "info", 'home/index.php');
+            $_SESSION['id'] = $data->id;
+            $_SESSION['admin'] = $data->admin;
+            $_SESSION['user'] = "{$data->nombre} {$data->apaterno} {$data->amaterno}";
+            Utilities::messageToast("¡Bienvenido {$data->nombre}!", "info", 'home/index.php');
         } else
             Utilities::message('Credenciales incorrectas', 'alert alert-danger');
     }

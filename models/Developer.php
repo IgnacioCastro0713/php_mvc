@@ -27,7 +27,7 @@ class Developer implements Model
         $this->estudio = (int)$estudio;
     }
 
-    public function fillable()
+    public function fillable():array
     {
         return [$this->nombre, $this->apaterno, $this->amaterno, $this->ciudad, $this->estudio];
     }

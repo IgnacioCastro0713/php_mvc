@@ -24,7 +24,7 @@ class Platform implements Model
         $this->website = (String)$website;
     }
 
-    public function fillable()
+    public function fillable():array
     {
         return [$this->nombre, $this->propietario, $this->website];
     }

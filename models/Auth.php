@@ -42,7 +42,7 @@ class Auth
 
     public function get()
     {
-        return ($this->query()->fetchAll())[0];
+        return ($this->query()->fetchAll(\PDO::FETCH_OBJ))[0];
     }
 
     private function query()

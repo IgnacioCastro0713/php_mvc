@@ -38,7 +38,7 @@ class Favorite implements Model
         return $this->game;
     }
 
-    public function fillable()
+    public function fillable():array
     {
         return [$this->getUsuario(), $this->getGame()];
     }

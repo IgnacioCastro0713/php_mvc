@@ -28,7 +28,7 @@ class Studio implements Model
         $this->fundacion = (String)$fundacion;
     }
 
-    public function fillable()
+    public function fillable():array
     {
         return [$this->nombre, $this->propietario, $this->sede, $this->fundacion];
     }
