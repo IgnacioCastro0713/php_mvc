@@ -1,4 +1,4 @@
 * linguist-vendored
 *.js linguist-vendored=false
 *.php linguist-vendored=false
-assets/css/* linguist-vendored=false
+assets/css/nucleo-icons.css linguist-vendored=false
