@@ -7,7 +7,7 @@ Configuration::model();// TODO: Required, doesn't change.
 
 class User implements Model
 {
-    private $usuario, $nombre, $apaterno, $amaterno, $pass;
+    private $usuario, $nombre, $apaterno, $amaterno, $pass, $admin;
     /**
      * User constructor.
      * @param $usuario
@@ -16,18 +16,19 @@ class User implements Model
      * @param $amaterno
      * @param $pass
      */
-    public function __construct($usuario, $nombre, $apaterno, $amaterno, $pass)
+    public function __construct($usuario, $nombre, $apaterno, $amaterno, $pass, $admin)
     {
         $this->usuario = (String)$usuario;
         $this->nombre = (String)$nombre;
         $this->apaterno = (String)$apaterno;
         $this->amaterno = (String)$amaterno;
         $this->pass = (String)md5($pass);
+        $this->admin = (int)$admin;
     }
 
     public function fillable()
     {
-        return [$this->usuario, $this->pass, $this->nombre, $this->apaterno, $this->amaterno];
+        return [$this->usuario, $this->pass, $this->nombre, $this->apaterno, $this->amaterno, $this->admin];
     }
 
     /**
@@ -35,7 +36,7 @@ class User implements Model
      */
     public function save()
     {
-        $sql = "INSERT INTO usuario (usuario, pass, nombre, apaterno, amaterno) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO usuario (usuario, pass, nombre, apaterno, amaterno, admin) VALUES (?, ?, ?, ?, ?, ?)";
         return Conn::get()->prepare($sql)->execute($this->fillable());
     }
 
@@ -45,7 +46,7 @@ class User implements Model
      */
     public function update($id)
     {
-        $sql = "UPDATE usuario SET usuario = ?, pass = ?, nombre = ?, apaterno = ?, amaterno = ? WHERE id = {$id}";
+        $sql = "UPDATE usuario SET usuario = ?, pass = ?, nombre = ?, apaterno = ?, amaterno = ?, admin = ? WHERE id = {$id}";
         return Conn::get()->prepare($sql)->execute($this->fillable());
     }
 
@@ -66,7 +67,7 @@ class User implements Model
      */
     public static function search($search)
     {
-        $sql = "SELECT id, usuario, CONCAT(nombre, ' ', apaterno, ' ', amaterno) as nombreCompleto 
+        $sql = "SELECT id, usuario, CONCAT(nombre, ' ', apaterno, ' ', amaterno) as nombreCompleto, admin 
                 FROM usuario WHERE usuario LIKE '%{$search}%' OR CONCAT(nombre, ' ', apaterno, ' ', amaterno) 
                 LIKE '%{$search}%'";
         return Conn::get()->query($sql);

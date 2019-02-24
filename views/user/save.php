@@ -55,6 +55,13 @@ require_once '../home/auth.php';
                                         <input id="pass_conf" name="pass_conf" type="password" class="form-control" placeholder="Confimar contraseña" required>
                                     </div>
                                 </div>
+                                <div class="col-md-4">
+                                    <label for="admin">Administrador</label>
+                                    <input type="checkbox" name="admin" id="admin" class="bootstrap-switch"
+                                           data-on-label="Sí"
+                                           data-off-label="No"
+                                    />
+                                </div>
                             </div>
                             <br>
                             <div class="text-center">
@@ -114,12 +121,18 @@ require_once '../home/auth.php';
                 .addClass('has-success');
         },
         submitHandler: function () {
+            let admin;
+            if($("#admin").is(":checked"))
+                admin = 1;
+            else
+                admin = 0;
             sendData({
                 "nombre" : $('#nombre').val(),
                 "apaterno" : $('#apaterno').val(),
                 "amaterno" : $('#amaterno').val(),
                 "usuario" : $('#usuario').val(),
                 "pass" : $('#pass').val(),
+                "admin": admin,
                 "func" : 'save'
             }, 'UserController');
         },

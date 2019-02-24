@@ -13,7 +13,7 @@ class UserController implements Controller
 
     public static function instance()
     {
-        return new User($_POST['usuario'], $_POST['nombre'], $_POST['apaterno'], $_POST['amaterno'], $_POST['pass']);
+        return new User($_POST['usuario'], $_POST['nombre'], $_POST['apaterno'], $_POST['amaterno'], $_POST['pass'], $_POST['admin']);
     }
 
     public static function save()

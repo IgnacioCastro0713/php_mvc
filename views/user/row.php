@@ -6,6 +6,14 @@ if ($count != 0) {
             <td class="text-center"><?php echo $row['id']; ?></td>
             <td><?php echo $row['usuario']; ?></td>
             <td><?php echo $row['nombreCompleto']; ?></td>
+            <td>
+                <?php
+                if ($row['admin'])
+                    echo "<i class=\"tim-icons text-success icon-check-2\"></i>";
+                else
+                    echo "<i class=\"tim-icons text-danger icon-simple-remove\"></i>";
+                ?>
+            </td>
             <td class="td-actions text-center">
                 <!--button type="button" rel="tooltip" class="btn btn-info btn-simple btn-icon btn-sm">
                     <i class="tim-icons icon-single-02"></i>
