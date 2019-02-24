@@ -1,1 +1,3 @@
-assets/css/blk-design-system.css  linguist-vendored
+* linguist-vendored
+*.js linguist-vendored=false
+*.php linguist-vendored=false
