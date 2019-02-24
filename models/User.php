@@ -85,4 +85,13 @@ class User implements Model
         return $this->pass == md5($pass_conf);
     }
 
+    public static function unSetFavorite($id)
+    {
+        $sql = "SELECT * FROM favoritos WHERE usuario_id = {$id}";
+        if (Conn::get()->query($sql)->rowCount()) {
+            $sql = "DELETE FROM favoritos WHERE usuario_id = ?";
+            return Conn::get()->prepare($sql)->execute([$id]);
+        } else
+            return true;
+    }
 }

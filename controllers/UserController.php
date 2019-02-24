@@ -42,7 +42,10 @@ class UserController implements Controller
 
     public static function destroy()
     {
-        echo User::delete($_POST['id']);
+        if (User::unSetFavorite($_POST['id']))
+            echo User::delete($_POST['id']);
+        else
+            echo "false";
     }
 
     public static function table()
