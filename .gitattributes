@@ -1,4 +1,4 @@
 * linguist-vendored
 *.php linguist-vendored=false
 *.js linguist-vendored=false
-assets/node_modules/*.css linguist-vendored=false
+assets/node_modules/*/.css linguist-vendored=false
