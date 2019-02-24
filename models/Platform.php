@@ -54,4 +54,14 @@ class Platform implements Model
                 LIKE '%{$search}%' OR  propietario LIKE '%{$search}%'";
         return Conn::get()->query($sql);
     }
+
+    public static function unSetEnviroment($id)
+    {
+        $sql = "SELECT * FROM entorno WHERE plataforma_id = {$id}";
+        if (Conn::get()->query($sql)->rowCount()){
+            $sql = "DELETE FROM entorno WHERE plataforma_id = ?";
+            return Conn::get()->prepare($sql)->execute([$id]);
+        } else
+            return true;
+    }
 }

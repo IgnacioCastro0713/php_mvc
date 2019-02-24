@@ -37,7 +37,10 @@ class PlatformController implements Controller
 
     public static function destroy()
     {
-        echo Platform::delete($_POST['id']);
+        if (Platform::unSetEnviroment($_POST['id']))
+            echo Platform::delete($_POST['id']);
+        else
+            echo "false";
     }
 
     public static function table()
