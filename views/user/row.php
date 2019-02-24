@@ -6,7 +6,7 @@ if ($count != 0) {
             <td class="text-center"><?php echo $row['id']; ?></td>
             <td><?php echo $row['usuario']; ?></td>
             <td><?php echo $row['nombreCompleto']; ?></td>
-            <td>
+            <td class="text-center">
                 <?php
                 if ($row['admin'])
                     echo "<i class=\"tim-icons text-success icon-check-2\"></i>";

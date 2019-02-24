@@ -24,7 +24,7 @@ require_once '../home/auth.php';
                                 <th class="text-center">id</th>
                                 <th>Usuario</th>
                                 <th>Nombre completo</th>
-                                <th>Administrador</th>
+                                <th class="text-center">Administrador</th>
                                 <th class="text-center">Acciones</th>
                             </tr>
                             </thead>
