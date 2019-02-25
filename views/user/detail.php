@@ -1,6 +1,9 @@
 <?php
+require '../../config/Connection.php';
+require '../../config/Utilities.php';
 include_once "../layouts/header.php";
 require_once '../home/auth.php';
+$row = \Utilities\Utilities::getById('usuario', $_GET['id'] ?? $_SESSION['id']);
 ?>
 <body class="profile-page">
 <div class="wrapper">
@@ -10,8 +13,8 @@ require_once '../home/auth.php';
         <div class="container align-items-center">
             <div class="row">
                 <div class="col-lg-6 col-md-6">
-                    <h1 class="profile-title text-left">Mike Scheinder</h1>
-                    <h5 class="text-on-back">01</h5>
+                    <h1 class="profile-title text-left"><?php echo "{$row->nombre} {$row->apaterno} {$row->amaterno}"; ?></h1>
+                    <h5 class="text-on-back"><i class="tim-icons icon-single-02"></i></h5>
                     <p class="profile-description">Offices parties lasting outward nothing age few resolve. Impression to discretion understood to we interested he excellence. Him remarkably use projection collecting. Going about eat forty world has round miles.</p>
                     <div class="btn-wrapper profile pt-3">
                         <a target="_blank" href="https://twitter.com/creativetim" class="btn btn-icon btn-twitter btn-round" data-toggle="tooltip" data-original-title="Follow us">
@@ -29,7 +32,7 @@ require_once '../home/auth.php';
                     <div class="card card-coin card-plain">
                         <div class="card-header">
                             <img src="../../assets/img/mike.jpg" class="img-center img-fluid rounded-circle">
-                            <h4 class="title">Transactions</h4>
+                            <h4 class="title"><?php echo $row->admin ? "Administrador" : "Normal"; ?></h4>
                         </div>
                         <div class="card-body">
                             <ul class="nav nav-tabs nav-tabs-primary justify-content-center">

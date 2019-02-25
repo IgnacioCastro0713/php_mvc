@@ -129,7 +129,7 @@
                             <i class="tim-icons icon-settings-gear-63"></i>
                         </a>
                         <div class="dropdown-menu dropdown-with-icons">
-                            <a href="../user/detail.php" class="dropdown-item">
+                            <a href="../user/detail.php?id=<?php echo $_SESSION['id']?>" class="dropdown-item">
                                 <i class="tim-icons icon-badge"></i> <?php echo $_SESSION['user']?>
                             </a>
                             <a href="" class="dropdown-item" onclick="logout(event)">

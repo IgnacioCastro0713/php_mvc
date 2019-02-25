@@ -20,10 +20,7 @@ class FavoriteController implements Controller
     public static function save()
     {
         $favorite = self::instance();
-        if ($favorite -> save())
-            echo "setted";
-        else
-            echo "failed";
+        echo $favorite->save() ? "setted" : "failed";
     }
 
     public static function update()
@@ -34,10 +31,7 @@ class FavoriteController implements Controller
     public static function destroy()
     {
         $favorite = self::instance();
-        if ($favorite -> delete($_POST['id']))
-            echo "unsetted";
-        else
-            echo "failed";
+        echo $favorite->delete($_POST['id']) ? "unsetted" : "failed";
     }
 
     public static function table()

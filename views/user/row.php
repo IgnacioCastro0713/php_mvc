@@ -7,12 +7,7 @@ if ($count != 0) {
             <td><?php echo $row->usuario; ?></td>
             <td><?php echo $row->nombreCompleto; ?></td>
             <td class="text-center">
-                <?php
-                if ($row->admin)
-                    echo "<i class=\"tim-icons text-success icon-check-2\"></i>";
-                else
-                    echo "<i class=\"tim-icons text-danger icon-simple-remove\"></i>";
-                ?>
+                <?php echo $row->admin ? "<i class=\"tim-icons text-success icon-check-2\"></i>" : "<i class=\"tim-icons text-danger icon-simple-remove\"></i>"; ?>
             </td>
             <td class="td-actions text-center">
                 <!--button type="button" rel="tooltip" class="btn btn-info btn-simple btn-icon btn-sm">
