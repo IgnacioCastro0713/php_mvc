@@ -121,18 +121,13 @@ require_once '../home/auth.php';
                 .addClass('has-success');
         },
         submitHandler: function () {
-            let admin;
-            if($("#admin").is(":checked"))
-                admin = 1;
-            else
-                admin = 0;
             sendData({
                 "nombre" : $('#nombre').val(),
                 "apaterno" : $('#apaterno').val(),
                 "amaterno" : $('#amaterno').val(),
                 "usuario" : $('#usuario').val(),
                 "pass" : $('#pass').val(),
-                "admin": admin,
+                "admin": $('#admin').is(":checked") ? 1 : 0,
                 "func" : 'save'
             }, 'UserController');
         },
