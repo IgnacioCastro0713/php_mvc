@@ -13,8 +13,8 @@ if ($count != 0) {
             <td><?php echo \Game\Game::getPlatform($row->id, true) ?></td>
             <td class="td-actions text-center">
                 <button type="button" rel="tooltip"
-                        class="btn <?php if (\Game\Game::isFavorite($row->id, $_SESSION['id'])) echo "btn-primary"; else echo "btn-default"; ?> btn-icon btn-sm"
-                        onclick="setOrUnSetFavorite(<?php echo $row->id?>, controller, <?php if (!\Game\Game::isFavorite($row->id, $_SESSION['id'])) echo "true"; else echo "false"; ?>, event)">
+                        class="btn <?php echo \Game\Game::isFavorite($row->id, $_SESSION['id']) ? "btn-primary" : "btn-default"; ?> btn-icon btn-sm"
+                        onclick="setOrUnSetFavorite(<?php echo $row->id?>, controller, <?php echo !\Game\Game::isFavorite($row->id, $_SESSION['id']) ? "true" : "false"; ?>, event)">
                     <i class="tim-icons icon-heart-2"></i>
                 </button>
                 <a href="update.php?id=<?php echo $row->id?>" rel="tooltip"

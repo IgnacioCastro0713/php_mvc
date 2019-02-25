@@ -84,9 +84,7 @@ function emptyForm() {
 
 function setOrUnSetFavorite(id, controller, action, event) {
     event.preventDefault();
-    let func = 'destroy';
-    if (action)
-        func = 'save';
+    let func = action ? 'save' : 'destroy';
     $.ajax({
         data: {
             "id": id,
