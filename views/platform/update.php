@@ -29,21 +29,21 @@ require_once '../home/auth.php';
                                 <label for="nombre">Nombre</label>
                                 <div class="form-group">
                                     <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre"
-                                           value="<?php echo $row['nombre'];?>" required>
+                                           value="<?php echo $row->nombre;?>" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <label for="propietario">Propietario</label>
                                 <div class="form-group">
                                     <input id="propietario" name="propietario" type="text" class="form-control" placeholder="Propietario"
-                                           value="<?php echo $row['propietario'];?>" required>
+                                           value="<?php echo $row->propietario;?>" required>
                                 </div>
                             </div>
                             <div class="col-md-12 form-group">
                                 <label for="website">Sitio Web</label>
                                 <div class="form-group">
                                     <input id="website" name="website" type="text" class="form-control" placeholder="https://example.com"
-                                           value="<?php echo $row['website'];?>" required>
+                                           value="<?php echo $row->website;?>" required>
                                 </div>
                             </div>
                         </div>

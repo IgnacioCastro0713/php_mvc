@@ -33,7 +33,7 @@ class Utilities
     {
         return Conn::get()
             ->query("SELECT * FROM {$table} WHERE id = {$id}")
-            ->fetchAll()[0];
+            ->fetchAll(\PDO::FETCH_OBJ)[0];
     }
 
     public static function select($table, $identifier, $default)

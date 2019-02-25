@@ -27,28 +27,28 @@ require_once '../home/auth.php'
                                 <label for="nombre">Nombre</label>
                                 <div class="form-group">
                                     <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre"
-                                           value="<?php echo $row['nombre']; ?>" required>
+                                           value="<?php echo $row->nombre; ?>" required>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <label for="apaterno">Apellido Paterno</label>
                                 <div class="form-group">
                                     <input id="apaterno" name="apaterno" type="text" class="form-control" placeholder="Apellido paterno"
-                                           value="<?php echo $row['apaterno']; ?>" required>
+                                           value="<?php echo $row->apaterno; ?>" required>
                                 </div>
                             </div>
                             <div class="col-md-4 form-group">
                                 <label for="amaterno">Apellido Materno</label>
                                 <div class="form-group">
                                     <input id="amaterno" name="amaterno" type="text" class="form-control" placeholder="Apellido materno"
-                                           value="<?php echo $row['amaterno']; ?>" required>
+                                           value="<?php echo $row->amaterno; ?>" required>
                                 </div>
                             </div>
                             <div class="col-md-5 form-group">
                                 <label for="usuario">Usuario</label>
                                 <div class="form-group">
                                     <input id="usuario" name="usuario" type="text" class="form-control" placeholder="usuario"
-                                           value="<?php echo $row['usuario']; ?>" required>
+                                           value="<?php echo $row->usuario; ?>" required>
                                 </div>
                             </div>
                             <div class="col-md-4 form-group">
@@ -66,7 +66,7 @@ require_once '../home/auth.php'
                             <div class="col-md-4">
                                 <label for="admin">Administrador</label>
                                 <input type="checkbox" name="checkbox" value="1" id="admin" class="bootstrap-switch"
-                                       <?php if ($row['admin']) echo "checked";?>
+                                       <?php if ($row->admin) echo "checked";?>
                                        data-on-label="Sí"
                                        data-off-label="No"
                                 />

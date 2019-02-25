@@ -29,28 +29,28 @@ require_once '../home/auth.php';
                                 <label for="nombre">Nombre</label>
                                 <div class="form-group">
                                     <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre"
-                                           value="<?php echo $row['nombre']?>" required>
+                                           value="<?php echo $row->nombre;?>" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <label for="propietario">Propietario</label>
                                 <div class="form-group">
                                     <input id="propietario" name="propietario" type="text" class="form-control" placeholder="Propietario"
-                                           value="<?php echo $row['propietario']?>" required>
+                                           value="<?php echo $row->propietario;?>" required>
                                 </div>
                             </div>
                             <div class="col-md-6 form-group">
                                 <label for="sede">Sede</label>
                                 <div class="form-group">
                                     <input id="sede" name="sede" type="text" class="form-control" placeholder="sede..."
-                                           value="<?php echo $row['sede']?>" required>
+                                           value="<?php echo $row->sede;?>" required>
                                 </div>
                             </div>
                             <div class="col-md-6 form-group">
                                 <label for="fundacion">Fecha de fundación</label>
                                 <div class="form-group">
                                     <input id="fundacion" name="fundacion" type="text" class="form-control" placeholder="yyyy-mm-dd"
-                                           value="<?php echo $row['fundacion']?>" required>
+                                           value="<?php echo $row->fundacion?>" required>
                                 </div>
                             </div>
                         </div><br>

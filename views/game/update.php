@@ -27,34 +27,34 @@ require_once '../home/auth.php';
                                 <label for="nombre">Nombre</label>
                                 <div class="form-group">
                                     <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre"
-                                           value="<?php echo $row['nombre']?>" required>
+                                           value="<?php echo $row->nombre; ?>" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <label for="genero">Genero</label>
                                 <div class="form-group">
                                     <input id="genero" name="genero" type="text" class="form-control" placeholder="Genero"
-                                           value="<?php echo $row['genero']?>" required>
+                                           value="<?php echo $row->genero; ?>" required>
                                 </div>
                             </div>
                             <div class="col-md-12 form-group">
                                 <label for="descripcion">Descripción</label>
                                 <div class="form-group">
                                     <textarea id="descripcion" name="descripcion" type="text" class="form-control" placeholder="Escribe una descripción..." rows="4"
-                                              required><?php echo $row['descripcion']?></textarea>
+                                              required><?php echo $row->descripcion; ?></textarea>
                                 </div>
                             </div>
                             <div class="col-md-6 form-group">
                                 <label for="lazamiento">Fecha de Lanzamiento</label>
                                 <div class="form-group">
                                     <input id="lazamiento" name="lanzamiento" type="text" class="form-control" placeholder="yyyy-mm-dd"
-                                           value="<?php echo $row['lanzamiento']?>" required/>
+                                           value="<?php echo $row->lanzamiento; ?>" required/>
                                 </div>
                             </div>
                             <div class="col-md-6 form-group">
                                 <label for="estudio">Estudio</label>
                                 <div class="form-group">
-                                    <?php Utilities::select('estudio', 'estudio', $row['estudio_id']); ?>
+                                    <?php Utilities::select('estudio', 'estudio', $row->estudio_id); ?>
                                 </div>
                             </div>
                             <div class="col-md-12 form-group">
