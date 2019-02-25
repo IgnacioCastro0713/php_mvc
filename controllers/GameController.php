@@ -12,7 +12,7 @@ Configuration::controller('Game');
 class GameController implements Controller
 {
 
-    public static function instance()
+    public static function instance(): Game
     {
         return new Game($_POST['nombre'], $_POST['genero'], $_POST['descripcion'], $_POST['lanzamiento'], $_POST['estudio']);
     }

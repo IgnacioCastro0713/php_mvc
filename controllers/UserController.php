@@ -11,7 +11,7 @@ Configuration::controller('User'); // TODO: Required, Change according to the mo
 class UserController implements Controller
 {
 
-    public static function instance()
+    public static function instance(): User
     {
         return new User($_POST['usuario'], $_POST['nombre'], $_POST['apaterno'], $_POST['amaterno'], $_POST['pass'], $_POST['admin']);
     }

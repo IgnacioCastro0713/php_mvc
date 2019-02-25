@@ -13,7 +13,7 @@ Configuration::controller('Studio');
 class StudioController implements Controller
 {
 
-    public static function instance()
+    public static function instance(): Studio
     {
         return new Studio($_POST['nombre'], $_POST['propietario'], $_POST['sede'], $_POST['fundacion']);
     }

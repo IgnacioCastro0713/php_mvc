@@ -11,7 +11,7 @@ Configuration::controller('Favorite');
 class FavoriteController implements Controller
 {
 
-    public static function instance()
+    public static function instance(): Favorite
     {
         session_start();
         return new Favorite($_SESSION['id'], $_POST['id']);

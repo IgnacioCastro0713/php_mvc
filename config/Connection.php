@@ -18,6 +18,7 @@ class Connection
         try {
             $this->setConn(new PDO("mysql:host={$this->getHost()};dbname={$this->getDatabase()}", $this->getUsername(), $this->getPassword()));
             $this->getConn()->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            //PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ
         } catch (PDOException $exception) {
             echo "Conexión fallida.";
             die();

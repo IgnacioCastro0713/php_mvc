@@ -12,7 +12,7 @@ Configuration::controller('Developer');
 class DeveloperController implements Controller
 {
 
-    public static function instance()
+    public static function instance(): Developer
     {
         return new Developer($_POST['nombre'], $_POST['apaterno'], $_POST['amaterno'], $_POST['ciudad'], $_POST['estudio']);
     }

@@ -12,7 +12,7 @@ Configuration::controller('Platform');
 class PlatformController implements Controller
 {
 
-    public static function instance()
+    public static function instance(): Platform
     {
         return new Platform($_POST['nombre'], $_POST['propietario'], $_POST['website']);
     }
