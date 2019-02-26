@@ -63,6 +63,14 @@ class Favorite implements Model
 
     public static function search($search)
     {
-        // TODO: Implement search() method.
+        session_start();
+        $sql = "SELECT * FROM juego j 
+                INNER JOIN favoritos f ON j.id = f.juego_id 
+                WHERE f.usuario_id = {$_SESSION['id']} AND j.nombre 
+                LIKE '%{$search}%'";
+        return Conn::get()->query($sql);
     }
+
+
+
 }

@@ -82,6 +82,22 @@ function emptyForm() {
         );
 }
 
+function confirmDeleteFavorite(id, name, controller, event) {
+    swal.fire({
+        title: '¿Desea eliminar a '+name,
+        text: "Está apunto de eliminar este registro de favoritos.",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Eliminar',
+        cancelButtonText: 'Cancelar',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.value) {
+            setOrUnSetFavorite(id, controller, false, event);
+        }
+    });
+}
+
 function setOrUnSetFavorite(id, controller, action, event) {
     event.preventDefault();
     let func = action ? 'save' : 'destroy';

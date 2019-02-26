@@ -36,7 +36,10 @@ class FavoriteController implements Controller
 
     public static function table()
     {
-        // TODO: Implement table() method.
+        $res = Favorite::search($_POST['search']);
+        $count = $res->rowCount();
+        echo $count;
+        require_once "../views/favorite/row.php";
     }
 }
 $function = (String)$_POST['func'];

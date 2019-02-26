@@ -15,7 +15,9 @@ $row = \Utilities\Utilities::getById('usuario', $_GET['id'] ?? $_SESSION['id']);
                 <div class="col-lg-6 col-md-6">
                     <h1 class="profile-title text-left"><?php echo "{$row->nombre} {$row->apaterno} {$row->amaterno}"; ?></h1>
                     <h5 class="text-on-back"><i class="tim-icons icon-single-02"></i></h5>
-                    <p class="profile-description">Offices parties lasting outward nothing age few resolve. Impression to discretion understood to we interested he excellence. Him remarkably use projection collecting. Going about eat forty world has round miles.</p>
+                    <p class="profile-description">
+                        Aquí iría una descripción pero no puse eso en la base de datos así que lo deje así xD... perdón
+                    </p>
                     <div class="btn-wrapper profile pt-3">
                         <a target="_blank" href="https://twitter.com/creativetim" class="btn btn-icon btn-twitter btn-round" data-toggle="tooltip" data-original-title="Follow us">
                             <i class="fab fa-twitter"></i>
@@ -43,7 +45,7 @@ $row = \Utilities\Utilities::getById('usuario', $_GET['id'] ?? $_SESSION['id']);
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" data-toggle="tab" href="#linkc">
-                                        News
+                                        Información
                                     </a>
                                 </li>
                             </ul>
@@ -85,18 +87,21 @@ $row = \Utilities\Utilities::getById('usuario', $_GET['id'] ?? $_SESSION['id']);
                                         <table class="table tablesorter " id="plain-table">
                                             <thead class=" text-primary">
                                             <tr>
-                                                <th class="header">Latest Crypto News</th>
+                                                <th class="header">Información detallada</th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                             <tr>
-                                                <td>The Daily: Nexo to Pay on Stable...</td>
+                                                <td>Usuario: <?php echo $row->usuario; ?></td>
                                             </tr>
                                             <tr>
-                                                <td>Venezuela Begins Public of Nation...</td>
+                                                <td>Nombre completo: <?php echo $row->nombre; ?></td>
                                             </tr>
                                             <tr>
-                                                <td>PR: BitCanna – Dutch Blockchain...</td>
+                                                <td>Apellidos: <?php echo "$row->apaterno $row->amaterno"; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tipo de usuario: <?php echo $row->admin ? "Administrador" : "Normal"; ?></td>
                                             </tr>
                                             </tbody>
                                         </table>
@@ -115,18 +120,63 @@ $row = \Utilities\Utilities::getById('usuario', $_GET['id'] ?? $_SESSION['id']);
     <div class="section">
         <div class="container">
             <div class="row justify-content-between">
-                <div class="col-md-6">
+                <div class="col-md-5">
+                    <script type="text/javascript">
+                        let controller = 'FavoriteController';
+                    </script>
+                    <?php require_once '../layouts/search.php' ?>
                     <div class="row justify-content-between align-items-center">
-                        <!--Section 1-->
+                        <table class="table tablesorter " id="plain-table">
+                            <thead class=" text-primary">
+                            <tr>
+                                <th class="header">Nombre</th>
+                                <th class="header">Genero</th>
+                                <th class="header">Lanzamiento</th>
+                            </tr>
+                            </thead>
+                            <tbody id="response">
+
+                            </tbody>
+                        </table>
+
                     </div>
                 </div>
-                <div class="col-md-5">
-                    <!--Section 2-->
+                <div class="col-md-6" id="detail">
+                    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body" id="detail">
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <style>
+                        #exampleModalLong {
+                            top: 230px;
+                            right: 0;
+                            bottom: 0;
+                            left: 600px;
+                        }
+                    </style>
                 </div>
             </div>
         </div>
     </div>
+
 </body>
 <?php
 include_once "../layouts/footer.php";
 ?>
+<script type="text/javascript">
+    $(document).ready(loadTable(controller));
+</script>

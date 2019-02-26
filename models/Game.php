@@ -70,11 +70,11 @@ class Game implements Model
     public static function getPlatform($id, $text)
     {
         $sql = "SELECT p.nombre FROM entorno e INNER JOIN plataforma p on e.plataforma_id = p.id WHERE juego_id = {$id}";
-        $platforms = Conn::get()->query($sql)->fetchAll();
+        $platforms = Conn::get()->query($sql)->fetchAll(\PDO::FETCH_OBJ);
         if ($text){
             $response = "";
             foreach ($platforms as $platform){
-                $response.= $platform['nombre']."<br>";
+                $response.= $platform->nombre."<br>";
             }
             return $response;
         }else

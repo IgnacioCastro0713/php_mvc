@@ -86,7 +86,7 @@ require_once '../home/auth.php';
             pass: {
                 minlength: 5
             },
-            pass_conf:{
+            pass_conf: {
                 minlength: 5,
                 equalTo: '#pass'
             }
