@@ -40,21 +40,20 @@ function loadTable(controller) {
 }
 
 function sendDataDelete(id, message, controller) {
-    $.ajax({
-        data: {
-            "id" : id,
-            "func" : "destroy"
-        },
-        type: 'post',
-        url: `../../controllers/${controller}.php`,
-        success: response => {
-            if (response === '1') {
+    fetch(`../../controllers/${controller}.php`,{
+       method: 'POST',
+       body: getFormData({
+           "id" : id,
+           "func" : "destroy"
+       })
+    }).then(data => data.text())
+        .then(response => {
+            if (response === "1") {
                 loadTable(controller);
                 toast('success', message);
-            }else
-                toast('error', 'Error al eliminar este registro.')
-        }
-    });
+            } else
+                toast('error', 'Error al eliminar este registro.');
+        });
 }
 
 function confirmDelete(name, id, controller) {
@@ -104,21 +103,22 @@ function confirmDeleteFavorite(id, name, controller, event) {
 function setOrUnSetFavorite(id, controller, action, event) {
     event.preventDefault();
     let func = action ? 'save' : 'destroy';
-    $.ajax({
-        data: {
-            "id": id,
-            "func": func
-        },
-        type: 'post',
-        url: `../../controllers/FavoriteController.php`,
-        success: response => {
+    fetch(`../../controllers/FavoriteController.php`,{
+        method: 'POST',
+        body: getFormData({
+            "id" : id,
+            "func" : func
+        })
+    }).then(data => data.text())
+        .then(response => {
             if (response === "setted") {
                 loadTable(controller);
                 toast('info', 'Agregado a favoritos!');
-            } else {
+            } else if (response === "unsetted") {
                 loadTable(controller);
                 toast('info', 'Eliminado de favoritos!');
+            } else {
+                toast('error', "error al eliminar o al agregar!")
             }
-        }
-    });
+        });
 }
