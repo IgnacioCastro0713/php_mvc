@@ -18,7 +18,7 @@ function toast(type, message) {
     })
 }
 
-function getFormData(object) {
+function getData(object) {
     const formData = new FormData();
     Object.keys(object).forEach(key => formData.append(key, object[key]));
     return formData;
@@ -27,7 +27,7 @@ function getFormData(object) {
 function sendData(request, controller) {
     fetch(`../../controllers/${controller}.php`, {
         method: 'POST',
-        body: getFormData(request)
+        body: getData(request)
     }).then(data => data.text())
         .then(response => $('#response').html(response));
 }
@@ -42,7 +42,7 @@ function loadTable(controller) {
 function sendDataDelete(id, message, controller) {
     fetch(`../../controllers/${controller}.php`,{
        method: 'POST',
-       body: getFormData({
+       body: getData({
            "id" : id,
            "func" : "destroy"
        })
@@ -105,7 +105,7 @@ function setOrUnSetFavorite(id, controller, action, event) {
     let func = action ? 'save' : 'destroy';
     fetch(`../../controllers/FavoriteController.php`,{
         method: 'POST',
-        body: getFormData({
+        body: getData({
             "id" : id,
             "func" : func
         })
