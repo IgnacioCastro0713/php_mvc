@@ -41,6 +41,11 @@ class FavoriteController implements Controller
         echo $count;
         require_once "../views/favorite/row.php";
     }
+
+    public static function details()
+    {
+
+    }
 }
 $function = (String)$_POST['func'];
 FavoriteController::$function();

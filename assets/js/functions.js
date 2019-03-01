@@ -18,15 +18,18 @@ function toast(type, message) {
     })
 }
 
-function sendData(data, controller) {
-    $.ajax({
-        data: data,
-        type: 'post',
-        url: `../../controllers/${controller}.php`,
-        success: response => {
-            $('#response').html(response);
-        }
-    });
+function getFormData(object) {
+    const formData = new FormData();
+    Object.keys(object).forEach(key => formData.append(key, object[key]));
+    return formData;
+}
+
+function sendData(request, controller) {
+    fetch(`../../controllers/${controller}.php`, {
+        method: 'POST',
+        body: getFormData(request)
+    }).then(data => data.text())
+        .then(response => $('#response').html(response));
 }
 
 function loadTable(controller) {

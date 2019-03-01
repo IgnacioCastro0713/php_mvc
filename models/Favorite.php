@@ -71,6 +71,8 @@ class Favorite implements Model
         return Conn::get()->query($sql);
     }
 
+    public static function detail()
+    {
 
-
+    }
 }
