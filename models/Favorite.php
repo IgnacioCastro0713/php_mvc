@@ -73,11 +73,12 @@ class Favorite implements Model
 
     public static function getDetail($id)
     {
-        $sql = "SELECT *,
+        $sql = "SELECT 
+                j.id AS id_juego, 
+                e.id AS id_estudio,
                 j.nombre AS juego,
-                e.nombre AS estudio,
-                d.nombre AS desarrollador,
-                p.nombre AS plataforma
+                j.descripcion,
+                e.nombre AS estudio
                 FROM juego j 
                 INNER JOIN estudio e on j.estudio_id = e.id
                 INNER JOIN desarrollador d on e.id = d.estudio_id
@@ -101,12 +102,12 @@ class Favorite implements Model
             return $platforms;
     }
 
-    public static function getDevelopers($id_estudio)
+    public static function getDeveloper($id_estudio): array
     {
-        $sql = "SELECT *, CONCAT(d.nombre, d.apaterno, d.amaterno) AS nombreCompleto 
+        $sql = "SELECT d.ciudad, CONCAT(d.nombre,' ', d.apaterno, ' ', d.amaterno) AS nombreCompleto 
                 FROM estudio e 
                 INNER JOIN desarrollador d on e.id = d.estudio_id 
-                WHERE e.id = $id_estudio}";
+                WHERE e.id = {$id_estudio}";
         $developers = Conn::get()->query($sql)->fetchAll(\PDO::FETCH_OBJ);
         $data = array("name" => "", "city" => "");
         foreach ($developers as $developer) {

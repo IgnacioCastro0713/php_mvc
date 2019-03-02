@@ -46,6 +46,7 @@ class FavoriteController implements Controller
     {
         $detail = Favorite::getDetail($_POST['id']);
         $count = $detail->rowCount();
+        echo $count;
         require_once "../views/favorite/detail.php";
     }
 }
