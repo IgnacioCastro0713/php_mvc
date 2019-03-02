@@ -122,3 +122,14 @@ function setOrUnSetFavorite(id, controller, action, event) {
             }
         });
 }
+
+function detailFavorite(id) {
+    fetch(`../../controllers/FavoriteController.php`, {
+        method: 'POST',
+        body: getData({
+            "id": id,
+            "func": 'details'
+        })
+    }).then(data => data.text())
+        .then(response => $('#detail').html(response));
+}

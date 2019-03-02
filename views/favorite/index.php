@@ -141,7 +141,7 @@ $row = \Utilities\Utilities::getById('usuario', $_GET['id'] ?? $_SESSION['id']);
 
                     </div>
                 </div>
-                <div class="col-md-6" id="detail">
+                <div class="col-md-6">
                     <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">

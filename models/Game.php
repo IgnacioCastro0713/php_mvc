@@ -67,7 +67,7 @@ class Game implements Model
      * @param $text
      * @return array|string
      */
-    public static function getPlatform($id, $text)
+    public static function getPlatforms($id, $text)
     {
         $sql = "SELECT p.nombre FROM entorno e INNER JOIN plataforma p on e.plataforma_id = p.id WHERE juego_id = {$id}";
         $platforms = Conn::get()->query($sql)->fetchAll(\PDO::FETCH_OBJ);
@@ -77,7 +77,7 @@ class Game implements Model
                 $response.= $platform->nombre."<br>";
             }
             return $response;
-        }else
+        } else
             return $platforms;
     }
 

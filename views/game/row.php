@@ -10,7 +10,7 @@ if ($count != 0) {
             <td><?php echo $row->descripcion; ?></td>
             <td><?php echo $row->lanzamiento; ?></td>
             <td><?php echo $row->estudio; ?></td>
-            <td><?php echo \Game\Game::getPlatform($row->id, true); ?></td>
+            <td><?php echo \Game\Game::getPlatforms($row->id, true); ?></td>
             <td class="td-actions text-center">
                 <button type="button" rel="tooltip"
                         class="btn <?php echo \Game\Game::isFavorite($row->id, $_SESSION['id']) ? "btn-primary" : "btn-default"; ?> btn-icon btn-sm"

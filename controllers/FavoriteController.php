@@ -44,7 +44,9 @@ class FavoriteController implements Controller
 
     public static function details()
     {
-
+        $detail = Favorite::getDetail($_POST['id']);
+        $count = $detail->rowCount();
+        require_once "../views/favorite/detail.php";
     }
 }
 $function = (String)$_POST['func'];

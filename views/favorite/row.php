@@ -8,9 +8,10 @@ if ($count != 0) {
             <td><?php echo $row->lanzamiento; ?></td>
             <td class="td-actions text-center">
                 <button type="button" rel="tooltip" class="btn btn-primary btn-simple btn-icon btn-sm">
-                    <i class="tim-icons icon-heart-2" onclick="confirmDeleteFavorite(<?php echo $row->id?>, '<?php echo $row->nombre?>',controller, event);"></i>
+                    <i class="tim-icons icon-heart-2" onclick="confirmDeleteFavorite(<?php echo $row->id; ?>, '<?php echo $row->nombre; ?>',controller, event);"></i>
                 </button>
                 <button type="button" rel="tooltip" class="btn btn-info btn-simple btn-icon btn-sm"
+                        onclick="detailFavorite(<?php echo $row->id; ?>)"
                         data-toggle="modal" data-target="#exampleModalLong">
                     <i class="tim-icons icon-minimal-right"></i>
                 </button>

@@ -71,8 +71,48 @@ class Favorite implements Model
         return Conn::get()->query($sql);
     }
 
-    public static function detail()
+    public static function getDetail($id)
     {
+        $sql = "SELECT *,
+                j.nombre AS juego,
+                e.nombre AS estudio,
+                d.nombre AS desarrollador,
+                p.nombre AS plataforma
+                FROM juego j 
+                INNER JOIN estudio e on j.estudio_id = e.id
+                INNER JOIN desarrollador d on e.id = d.estudio_id
+                INNER JOIN entorno en on j.id = en.juego_id
+                INNER JOIN plataforma p on en.plataforma_id = p.id
+                WHERE j.id = {$id}";
+        return Conn::get()->query($sql);
+    }
 
+    public static function getPlatforms($id_plataforma, $text)
+    {
+        $sql = "SELECT p.nombre FROM entorno e INNER JOIN plataforma p on e.plataforma_id = p.id WHERE juego_id = {$id_plataforma}";
+        $platforms = Conn::get()->query($sql)->fetchAll(\PDO::FETCH_OBJ);
+        if ($text){
+            $response = "";
+            foreach ($platforms as $platform) {
+                $response.= $platform->nombre."<br>";
+            }
+            return $response;
+        } else
+            return $platforms;
+    }
+
+    public static function getDevelopers($id_estudio)
+    {
+        $sql = "SELECT *, CONCAT(d.nombre, d.apaterno, d.amaterno) AS nombreCompleto 
+                FROM estudio e 
+                INNER JOIN desarrollador d on e.id = d.estudio_id 
+                WHERE e.id = $id_estudio}";
+        $developers = Conn::get()->query($sql)->fetchAll(\PDO::FETCH_OBJ);
+        $data = array("name" => "", "city" => "");
+        foreach ($developers as $developer) {
+            $data['name'] .= $developer->nombreCompleto."<br>";
+            $data['city'] .= $developer->ciudad."<br>";
+        }
+        return $data;
     }
 }
