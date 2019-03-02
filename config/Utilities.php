@@ -12,7 +12,7 @@ class Utilities
         Toast.fire({
           type: '{$type}',
           title: '{$message}'
-        }).then(function() {
+        }).then(() => {
           setTimeout(\"location . href = '../$location'\", 0)
         });</script>";
     }
