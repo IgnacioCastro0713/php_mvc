@@ -1,4 +1,5 @@
 <?php
+
 namespace Auth;
 
 use Connection\Connection as Conn;

@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php
+session_start();
+$array = explode('/', $_SERVER['REQUEST_URI']);
+$path = "";
+if (count($array) > 3)
+    $path = "../";
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,9 +19,9 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <!-- Nucleo Icons -->
-    <link href="../../assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="<?php echo $path;?>../assets/css/nucleo-icons.css" rel="stylesheet" />
     <!-- CSS Files -->
-    <link href="../../assets/css/blk-design-system.css?v=1.0.0" rel="stylesheet" />
+    <link href="<?php echo $path;?>../assets/css/blk-design-system.css?v=1.0.0" rel="stylesheet" />
 
 </head>
 <!-- Navbar -->
@@ -54,10 +60,10 @@
                             <i class="tim-icons icon-controller"></i>videojuego
                         </a>
                         <div class="dropdown-menu dropdown-with-icons">
-                            <a href="../game/save.php" class="dropdown-item">
+                            <a href="../game/save" class="dropdown-item">
                                 <i class="tim-icons icon-simple-add"></i> Agregar
                             </a>
-                            <a href="../game/index.php" class="dropdown-item">
+                            <a href="../game/" class="dropdown-item">
                                 <i class="tim-icons icon-bullet-list-67"></i>Consultar
                             </a>
                         </div>
@@ -69,10 +75,10 @@
                             <i class="tim-icons icon-atom"></i>Desarrollador
                         </a>
                         <div class="dropdown-menu dropdown-with-icons">
-                            <a href="../developer/save.php" class="dropdown-item">
+                            <a href="../developer/save" class="dropdown-item">
                                 <i class="tim-icons icon-simple-add"></i> Agregar
                             </a>
-                            <a href="../developer/index.php" class="dropdown-item">
+                            <a href="../developer/" class="dropdown-item">
                                 <i class="tim-icons icon-bullet-list-67"></i>Consultar
                             </a>
                         </div>
@@ -84,10 +90,10 @@
                             <i class="tim-icons icon-molecule-40"></i>Estudio
                         </a>
                         <div class="dropdown-menu dropdown-with-icons">
-                            <a href="../studio/save.php" class="dropdown-item">
+                            <a href="../studio/save" class="dropdown-item">
                                 <i class="tim-icons icon-simple-add"></i> Agregar
                             </a>
-                            <a href="../studio/index.php" class="dropdown-item">
+                            <a href="../studio/" class="dropdown-item">
                                 <i class="tim-icons icon-bullet-list-67"></i>Consultar
                             </a>
                         </div>
@@ -99,10 +105,10 @@
                             <i class="tim-icons icon-app"></i>Plataforma
                         </a>
                         <div class="dropdown-menu dropdown-with-icons">
-                            <a href="../platform/save.php" class="dropdown-item">
+                            <a href="../platform/save" class="dropdown-item">
                                 <i class="tim-icons icon-simple-add"></i> Agregar
                             </a>
-                            <a href="../platform/index.php" class="dropdown-item">
+                            <a href="../platform/" class="dropdown-item">
                                 <i class="tim-icons icon-bullet-list-67"></i>Consultar
                             </a>
                         </div>
@@ -114,10 +120,10 @@
                             <i class="tim-icons icon-single-02"></i>Usuarios
                         </a>
                         <div class="dropdown-menu dropdown-with-icons">
-                            <a href="../user/save.php" class="dropdown-item">
+                            <a href="../user/save" class="dropdown-item">
                                 <i class="tim-icons icon-simple-add"></i> Agregar
                             </a>
-                            <a href="../user/index.php" class="dropdown-item">
+                            <a href="../user/" class="dropdown-item">
                                 <i class="tim-icons icon-bullet-list-67"></i>Consultar
                             </a>
                         </div>
@@ -141,7 +147,7 @@
             <?php } else { ?>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="../home/login.php" class="nav-link">
+                        <a href="../home/login" class="nav-link">
                             <i class="tim-icons icon-tap-02"></i> Ingresar
                         </a>
                     </li>

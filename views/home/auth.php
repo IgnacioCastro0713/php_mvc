@@ -1,3 +1,3 @@
 <?php
 if (!isset($_SESSION['valid']))
-    header("Location:../home/index.php");
+    header("Location:../home/index");

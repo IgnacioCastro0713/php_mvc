@@ -1,5 +1,7 @@
 <?php
+
 namespace User; // TODO : Change according to the class.
+
 use Configuration\Configuration; // TODO: Required, doesn't change.
 use Connection\Connection as Conn; // TODO: Required, doesn't change.
 use InterfaceModel\InterfaceModel as Model; // TODO: Required, doesn't change.

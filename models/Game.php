@@ -84,7 +84,7 @@ class Game implements Model
     /**
      * @description: Agrega las relaciones relaciones de la tabla intermedia 'entorno'.
      * @param $platform
-     * @return bool|int
+     * @return bool
      */
     public function setEnvironment($platform)
     {
@@ -99,7 +99,7 @@ class Game implements Model
     /**
      * @description: Elimina las relaciones anteriormente viculadas y agrega las nuevas.
      * @param $id
-     * @return bool|int
+     * @return bool
      */
     public static function unSetEnvironment($id)
     {

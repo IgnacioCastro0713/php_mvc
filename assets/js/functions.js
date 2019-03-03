@@ -25,7 +25,7 @@ function getData(object) {
 }
 
 function sendData(request, controller) {
-    fetch(`../../controllers/${controller}.php`, {
+    fetch(`../../controllers/${controller}`, {
         method: 'POST',
         body: getData(request)
     }).then(data => data.text())
@@ -40,7 +40,7 @@ function loadTable(controller) {
 }
 
 function sendDataDelete(id, message, controller) {
-    fetch(`../../controllers/${controller}.php`,{
+    fetch(`../../controllers/${controller}`,{
        method: 'POST',
        body: getData({
            "id" : id,
@@ -103,7 +103,7 @@ function confirmDeleteFavorite(id, name, controller, event) {
 function setOrUnSetFavorite(id, controller, action, event) {
     event.preventDefault();
     let func = action ? 'save' : 'destroy';
-    fetch(`../../controllers/FavoriteController.php`,{
+    fetch(`../../controllers/FavoriteController`,{
         method: 'POST',
         body: getData({
             "id" : id,
@@ -124,7 +124,7 @@ function setOrUnSetFavorite(id, controller, action, event) {
 }
 
 function detailFavorite(id) {
-    fetch(`../../controllers/FavoriteController.php`, {
+    fetch(`../../controllers/FavoriteController`, {
         method: 'POST',
         body: getData({
             "id": id,

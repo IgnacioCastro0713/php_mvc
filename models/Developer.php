@@ -1,4 +1,5 @@
 <?php
+
 namespace Developer;
 
 use Configuration\Configuration;
