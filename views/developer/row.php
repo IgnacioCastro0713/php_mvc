@@ -11,7 +11,7 @@ if ($count != 0) {
                 <!--button type="button" rel="tooltip" class="btn btn-info btn-simple btn-icon btn-sm">
                     <i class="tim-icons icon-single-02"></i>
                 </button-->
-                <a href="update.php?id=<?php echo $row->id; ?>" rel="tooltip"
+                <a href="update?id=<?php echo $row->id; ?>" rel="tooltip"
                    class="btn btn-success btn-simple btn-icon btn-sm" title="Editar">
                     <i class="tim-icons icon-settings-gear-63"></i>
                 </a>
