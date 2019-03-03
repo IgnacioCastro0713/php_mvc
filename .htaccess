@@ -1,6 +1,12 @@
 # Do not remove this line or mod_rewrite rules and search engine friendly URLs will stop working
-RewriteEngine On
+Options +FollowSymLinks
+RewriteBase /php_mvc/
 
+<IfModule mod_negotiation.c>
+    Options -MultiViews -Indexes
+</IfModule>
+
+RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.php -f
 RewriteRule ^(.*)$ $1.php

@@ -18,7 +18,7 @@ if ($count != 0) {
                     <i class="tim-icons icon-settings-gear-63"></i>
                 </a>
                 <button onclick="confirmDelete('<?php echo $row->usuario; ?>', '<?php echo $row->id; ?>', controller);"
-                        class="btn btn-danger btn-simple btn-icon btn-sm" title="Eliminar">
+                        class="btn btn-danger btn-simple btn-icon btn-sm" rel="tooltip" title="Eliminar">
                     <i class="tim-icons icon-simple-remove"></i>
                 </button>
             </td>
