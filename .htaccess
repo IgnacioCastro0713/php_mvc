@@ -7,12 +7,7 @@ RewriteBase /php_mvc/
 </IfModule>
 
 RewriteEngine On
+
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.php -f
 RewriteRule ^(.*)$ $1.php
-
-RewriteRule ^user/save(\d+)*$ views/user/save.php
-RewriteRule ^platform/save(\d+)*$ views/platform/save.php
-RewriteRule ^studio/save(\d+)*$ views/studio/save.php
-RewriteRule ^developer/save(\d+)*$ views/developer/save.php
-RewriteRule ^game/save(\d+)*$ views/game/save.php
