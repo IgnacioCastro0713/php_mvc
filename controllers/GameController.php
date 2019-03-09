@@ -21,15 +21,16 @@ class GameController implements Controller
     {
         $game = self::instance();
         $continue = true;
+        $platforms = explode(',', $_POST['plataformas']);
         if ($game->save()) {
-            foreach ($_POST['plataformas'] as $platform) {
+            foreach ($platforms as $platform) {
                 if (!$game->setEnvironment($platform)) {
                     $continue = false;
                     Utilities::message('No se ha podido relacionar el autor: ' . $platform, 'alert alert-danger');
                 }
             }
             if ($continue)
-                Utilities::messageToast('Guardado correctamente','success', 'game/');
+                Utilities::messageToast('Guardado correctamente','success', 'game/index');
         } else
             Utilities::message('No se ha podido guardar el juego', 'alert alert-danger');
     }
@@ -38,10 +39,11 @@ class GameController implements Controller
     {
         $game = self::instance();
         $continue = true;
+        $platforms = explode(',', $_POST['plataformas']);
         if ($game->update($_POST['id'])){
             if (Game::unSetEnvironment($_POST['id'])){
                 $game->setId($_POST['id']);
-                foreach ($_POST['plataformas'] as $platform) {
+                foreach ($platforms as $platform) {
                     if ($platform === "")
                         continue;
                     if (!$game->setEnvironment($platform)) {
@@ -50,7 +52,7 @@ class GameController implements Controller
                     }
                 }
                 if ($continue)
-                    Utilities::messageToast('Guardado correctamente','success', 'game/');
+                    Utilities::messageToast('Guardado correctamente','success', 'game/index');
             } else
                 Utilities::message('No se ha podido eliminar las relaciones de la plataforma', 'alert alert-danger');
         } else

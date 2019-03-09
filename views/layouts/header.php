@@ -3,15 +3,15 @@ session_start();
 $array = explode('/', $_SERVER['REQUEST_URI']);
 $path = "";
 if (count($array) > 3)
-    $path = "../";
+    $path = "../../";
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="apple-touch-icon" sizes="76x76" href="../../assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="../../assets/img/codigo-fuente.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="<?php echo $path;?>assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="<?php echo $path;?>assets/img/codigo-fuente.png">
     <title>
         Video Games - Proyect Web
     </title>
@@ -19,9 +19,9 @@ if (count($array) > 3)
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <!-- Nucleo Icons -->
-    <link href="<?php echo $path;?>../assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="<?php echo $path;?>assets/css/nucleo-icons.css" rel="stylesheet" />
     <!-- CSS Files -->
-    <link href="<?php echo $path;?>../assets/css/blk-design-system.css?v=1.0.0" rel="stylesheet" />
+    <link href="<?php echo $path;?>assets/css/blk-design-system.css?v=1.0.0" rel="stylesheet" />
 
 </head>
 <!-- Navbar -->
@@ -60,10 +60,10 @@ if (count($array) > 3)
                             <i class="tim-icons icon-controller"></i>videojuego
                         </a>
                         <div class="dropdown-menu dropdown-with-icons">
-                            <a href="../game/save" class="dropdown-item">
+                            <a href="<?php echo $path;?>views/game/save" class="dropdown-item">
                                 <i class="tim-icons icon-simple-add"></i> Agregar
                             </a>
-                            <a href="../game/" class="dropdown-item">
+                            <a href="<?php echo $path;?>views/game/index" class="dropdown-item">
                                 <i class="tim-icons icon-bullet-list-67"></i>Consultar
                             </a>
                         </div>
@@ -75,10 +75,10 @@ if (count($array) > 3)
                             <i class="tim-icons icon-atom"></i>Desarrollador
                         </a>
                         <div class="dropdown-menu dropdown-with-icons">
-                            <a href="../developer/save" class="dropdown-item">
+                            <a href="<?php echo $path;?>views/developer/save" class="dropdown-item">
                                 <i class="tim-icons icon-simple-add"></i> Agregar
                             </a>
-                            <a href="../developer/" class="dropdown-item">
+                            <a href="<?php echo $path;?>views/developer/index" class="dropdown-item">
                                 <i class="tim-icons icon-bullet-list-67"></i>Consultar
                             </a>
                         </div>
@@ -90,10 +90,10 @@ if (count($array) > 3)
                             <i class="tim-icons icon-molecule-40"></i>Estudio
                         </a>
                         <div class="dropdown-menu dropdown-with-icons">
-                            <a href="../studio/save" class="dropdown-item">
+                            <a href="<?php echo $path;?>views/studio/save" class="dropdown-item">
                                 <i class="tim-icons icon-simple-add"></i> Agregar
                             </a>
-                            <a href="../studio/" class="dropdown-item">
+                            <a href="<?php echo $path;?>views/studio/index" class="dropdown-item">
                                 <i class="tim-icons icon-bullet-list-67"></i>Consultar
                             </a>
                         </div>
@@ -105,10 +105,10 @@ if (count($array) > 3)
                             <i class="tim-icons icon-app"></i>Plataforma
                         </a>
                         <div class="dropdown-menu dropdown-with-icons">
-                            <a href="../platform/save" class="dropdown-item">
+                            <a href="<?php echo $path;?>views/platform/save" class="dropdown-item">
                                 <i class="tim-icons icon-simple-add"></i> Agregar
                             </a>
-                            <a href="../platform/" class="dropdown-item">
+                            <a href="<?php echo $path;?>views/platform/index" class="dropdown-item">
                                 <i class="tim-icons icon-bullet-list-67"></i>Consultar
                             </a>
                         </div>
@@ -120,10 +120,10 @@ if (count($array) > 3)
                             <i class="tim-icons icon-single-02"></i>Usuarios
                         </a>
                         <div class="dropdown-menu dropdown-with-icons">
-                            <a href="../user/save" class="dropdown-item">
+                            <a href="<?php echo $path;?>views/user/save" class="dropdown-item">
                                 <i class="tim-icons icon-simple-add"></i> Agregar
                             </a>
-                            <a href="../user/" class="dropdown-item">
+                            <a href="<?php echo $path;?>views/user/index" class="dropdown-item">
                                 <i class="tim-icons icon-bullet-list-67"></i>Consultar
                             </a>
                         </div>
@@ -135,7 +135,7 @@ if (count($array) > 3)
                             <i class="tim-icons icon-settings-gear-63"></i>
                         </a>
                         <div class="dropdown-menu dropdown-with-icons">
-                            <a href="../favorite/index?id=<?php echo $_SESSION['id']?>" class="dropdown-item">
+                            <a href="<?php echo $path;?>views/favorite/index?=<?php echo $_SESSION['id']?>" class="dropdown-item">
                                 <i class="tim-icons icon-badge"></i> <?php echo $_SESSION['user']?>
                             </a>
                             <a href="" class="dropdown-item" onclick="logout(event)">
@@ -147,7 +147,7 @@ if (count($array) > 3)
             <?php } else { ?>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="../home/login" class="nav-link">
+                        <a href="<?php echo $path;?>views/home/login" class="nav-link">
                             <i class="tim-icons icon-tap-02"></i> Ingresar
                         </a>
                     </li>

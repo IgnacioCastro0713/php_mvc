@@ -89,7 +89,7 @@ class Game implements Model
     public function setEnvironment($platform)
     {
         $sql = "SELECT * FROM entorno WHERE juego_id = '{$this->getId()}' AND plataforma_id = '{$platform}'";
-        if (!Conn::get()->query($sql)->rowCount()){
+        if (!Conn::get()->query($sql)->rowCount()) {
             $sql = "INSERT INTO entorno (plataforma_id, juego_id) VALUES (?, ?)";
             return Conn::get()->prepare($sql)->execute([$platform, $this->getId()]);
         } else

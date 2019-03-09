@@ -1,4 +1,3 @@
-# Do not remove this line or mod_rewrite rules and search engine friendly URLs will stop working
 Options +FollowSymLinks
 RewriteBase /php_mvc/
 
@@ -6,7 +5,10 @@ RewriteBase /php_mvc/
     Options -MultiViews -Indexes
 </IfModule>
 
+# Do not remove this line or mod_rewrite rules and search engine friendly URLs will stop working
 RewriteEngine On
+
+DirectoryIndex views/home/index.php
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.php -f
