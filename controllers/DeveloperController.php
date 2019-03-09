@@ -21,7 +21,7 @@ class DeveloperController implements Controller
     {
         $developer = self::instance();
         if ($developer->save())
-            Utilities::messageToast("Guardado correctamente!", "success", "developer/index");
+            Utilities::messageToast("Guardado correctamente!", "success", "developer/");
         else
             Utilities::message('No se ha podido guardar el estudio.', 'alert alert-danger');
     }
@@ -30,7 +30,7 @@ class DeveloperController implements Controller
     {
         $developer = self::instance();
         if ($developer->update($_POST['id']))
-            Utilities::messageToast("Actualizado correctamente!", "success", "developer/index");
+            Utilities::messageToast("Actualizado correctamente!", "success", "developer/");
         else
             Utilities::message('No se ha podido actualizar el estudio.', 'alert alert-danger');
     }

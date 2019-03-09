@@ -96,7 +96,7 @@
 <script src="<?php echo $path;?>assets/js/plugins/moment.min.js"></script>
 <!--<script src="../../assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>-->
 <!-- Control Center for Black UI Kit: parallax effects, scripts for the example pages etc -->
-<script src="<?php echo $path;?>assets/js/blk-design-system.min.js?v=1.0.0" type="text/javascript"></script>
+<script src="../../assets/js/blk-design-system.min.js?v=1.0.0" type="text/javascript"></script>
 <script type="text/javascript">
     function logout(event) {
         event.preventDefault();

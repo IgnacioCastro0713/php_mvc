@@ -21,7 +21,7 @@ class UserController implements Controller
         $user = self::instance();
         if (!$user->find()){
             if ($user->save()){
-                Utilities::messageToast("Guardado correctamente!", "success", "user/index");
+                Utilities::messageToast("Guardado correctamente!", "success", "user/");
             } else
                 Utilities::message('No se ha podido guardar el usuario.', 'alert alert-danger');
         } else
@@ -33,7 +33,7 @@ class UserController implements Controller
         $user = self::instance();
         if ($user->comparePassword($_POST['pass_conf'])){
             if ($user->update($_POST['id'])){
-                Utilities::messageToast("Actualizado correctamente!", "success", "user/index");
+                Utilities::messageToast("Actualizado correctamente!", "success", "user/");
             } else
                 Utilities::message('No se ha podido actualizar el usuario o no ha realizado cambios.', 'alert alert-danger');
         } else

@@ -22,7 +22,7 @@ class StudioController implements Controller
     {
         $studio = self::instance();
         if ($studio->save())
-            Utilities::messageToast("Guardado correctamente!", "success", "studio/index");
+            Utilities::messageToast("Guardado correctamente!", "success", "studio/");
         else
             Utilities::message('No se ha podido guardar el estudio.', 'alert alert-danger');
     }
@@ -31,7 +31,7 @@ class StudioController implements Controller
     {
         $studio = self::instance();
         if ($studio->update($_POST['id']))
-            Utilities::messageToast("Actualizado correctamente!", "success", "studio/index");
+            Utilities::messageToast("Actualizado correctamente!", "success", "studio/");
         else
             Utilities::message('No se ha podido actualizar el estudio.', 'alert alert-danger');
     }

@@ -30,7 +30,7 @@ class GameController implements Controller
                 }
             }
             if ($continue)
-                Utilities::messageToast('Guardado correctamente','success', 'game/index');
+                Utilities::messageToast('Guardado correctamente','success', 'game/');
         } else
             Utilities::message('No se ha podido guardar el juego', 'alert alert-danger');
     }
@@ -52,7 +52,7 @@ class GameController implements Controller
                     }
                 }
                 if ($continue)
-                    Utilities::messageToast('Guardado correctamente','success', 'game/index');
+                    Utilities::messageToast('Guardado correctamente','success', 'game/');
             } else
                 Utilities::message('No se ha podido eliminar las relaciones de la plataforma', 'alert alert-danger');
         } else

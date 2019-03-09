@@ -60,10 +60,10 @@ if (count($array) > 3)
                             <i class="tim-icons icon-controller"></i>videojuego
                         </a>
                         <div class="dropdown-menu dropdown-with-icons">
-                            <a href="<?php echo $path;?>views/game/save" class="dropdown-item">
+                            <a href="<?php echo $path;?>views/game/create" class="dropdown-item">
                                 <i class="tim-icons icon-simple-add"></i> Agregar
                             </a>
-                            <a href="<?php echo $path;?>views/game/index" class="dropdown-item">
+                            <a href="<?php echo $path;?>views/game/" class="dropdown-item">
                                 <i class="tim-icons icon-bullet-list-67"></i>Consultar
                             </a>
                         </div>
@@ -75,10 +75,10 @@ if (count($array) > 3)
                             <i class="tim-icons icon-atom"></i>Desarrollador
                         </a>
                         <div class="dropdown-menu dropdown-with-icons">
-                            <a href="<?php echo $path;?>views/developer/save" class="dropdown-item">
+                            <a href="<?php echo $path;?>views/developer/create" class="dropdown-item">
                                 <i class="tim-icons icon-simple-add"></i> Agregar
                             </a>
-                            <a href="<?php echo $path;?>views/developer/index" class="dropdown-item">
+                            <a href="<?php echo $path;?>views/developer/" class="dropdown-item">
                                 <i class="tim-icons icon-bullet-list-67"></i>Consultar
                             </a>
                         </div>
@@ -90,10 +90,10 @@ if (count($array) > 3)
                             <i class="tim-icons icon-molecule-40"></i>Estudio
                         </a>
                         <div class="dropdown-menu dropdown-with-icons">
-                            <a href="<?php echo $path;?>views/studio/save" class="dropdown-item">
+                            <a href="<?php echo $path;?>views/studio/create" class="dropdown-item">
                                 <i class="tim-icons icon-simple-add"></i> Agregar
                             </a>
-                            <a href="<?php echo $path;?>views/studio/index" class="dropdown-item">
+                            <a href="<?php echo $path;?>views/studio/" class="dropdown-item">
                                 <i class="tim-icons icon-bullet-list-67"></i>Consultar
                             </a>
                         </div>
@@ -105,10 +105,10 @@ if (count($array) > 3)
                             <i class="tim-icons icon-app"></i>Plataforma
                         </a>
                         <div class="dropdown-menu dropdown-with-icons">
-                            <a href="<?php echo $path;?>views/platform/save" class="dropdown-item">
+                            <a href="<?php echo $path;?>views/platform/create" class="dropdown-item">
                                 <i class="tim-icons icon-simple-add"></i> Agregar
                             </a>
-                            <a href="<?php echo $path;?>views/platform/index" class="dropdown-item">
+                            <a href="<?php echo $path;?>views/platform/" class="dropdown-item">
                                 <i class="tim-icons icon-bullet-list-67"></i>Consultar
                             </a>
                         </div>
@@ -120,10 +120,10 @@ if (count($array) > 3)
                             <i class="tim-icons icon-single-02"></i>Usuarios
                         </a>
                         <div class="dropdown-menu dropdown-with-icons">
-                            <a href="<?php echo $path;?>views/user/save" class="dropdown-item">
+                            <a href="<?php echo $path;?>views/user/create" class="dropdown-item">
                                 <i class="tim-icons icon-simple-add"></i> Agregar
                             </a>
-                            <a href="<?php echo $path;?>views/user/index" class="dropdown-item">
+                            <a href="<?php echo $path;?>views/user/" class="dropdown-item">
                                 <i class="tim-icons icon-bullet-list-67"></i>Consultar
                             </a>
                         </div>
@@ -138,7 +138,7 @@ if (count($array) > 3)
                             <a href="<?php echo $path;?>views/favorite/index?=<?php echo $_SESSION['id']?>" class="dropdown-item">
                                 <i class="tim-icons icon-badge"></i> <?php echo $_SESSION['user']?>
                             </a>
-                            <a href="" class="dropdown-item" onclick="logout(event)">
+                            <a href="<?php echo $path;?>" class="dropdown-item" onclick="logout(event)">
                                 <i class="tim-icons icon-simple-remove"></i>Salir
                             </a>
                         </div>

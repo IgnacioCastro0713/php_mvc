@@ -7,9 +7,6 @@ RewriteBase /php_mvc/
 
 # Do not remove this line or mod_rewrite rules and search engine friendly URLs will stop working
 RewriteEngine On
-
-DirectoryIndex views/home/index.php
-
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.php -f
 RewriteRule ^(.*)$ $1.php

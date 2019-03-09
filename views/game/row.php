@@ -17,7 +17,7 @@ if ($count != 0) {
                         onclick="setOrUnSetFavorite(<?php echo $row->id?>, controller, <?php echo !\Game\Game::isFavorite($row->id, $_SESSION['id']) ? "true" : "false"; ?>, event)">
                     <i class="tim-icons icon-heart-2"></i>
                 </button>
-                <a href="update?id=<?php echo $row->id?>" rel="tooltip"
+                <a href="edit?id=<?php echo $row->id?>" rel="tooltip"
                    class="btn btn-success btn-simple btn-icon btn-sm" title="Editar">
                     <i class="tim-icons icon-settings-gear-63"></i>
                 </a>
