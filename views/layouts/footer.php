@@ -71,7 +71,7 @@
 </footer>
 </div>
 <!--   Core JS Files   -->
-<script src="<?php echo $path;?>assets/js/core/jquery.min.js" type="text/javascript"></script>
+<script src="<?php echo $path;?>assets/js/node_modules/jquery/dist/jquery.min.js" type="text/javascript"></script>
 <!-- SweetAlert2 -->
 <script src="<?php echo $path;?>assets/js/node_modules/sweetalert2/dist/sweetalert2.all.min.js" type="text/javascript"></script>
 <!-- jquery-validation -->
