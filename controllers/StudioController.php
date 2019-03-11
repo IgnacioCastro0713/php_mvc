@@ -38,7 +38,10 @@ class StudioController implements Controller
 
     public static function destroy()
     {
-        echo Studio::delete($_POST['id']);
+        if (Studio::unSetDevelopers($_POST['id']))
+            echo Studio::delete($_POST['id']);
+        else
+            echo "false";
     }
 
     public static function table()

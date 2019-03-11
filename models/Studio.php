@@ -57,4 +57,14 @@ class Studio implements Model
                 OR sede LIKE '%{$search}%'";
         return Conn::get()->query($sql);
     }
+
+    public static function unSetDevelopers($id)
+    {
+        $sql = "SELECT * FROM desarrollador WHERE estudio_id = {$id}";
+        if (Conn::get()->query($sql)->rowCount()) {
+            $sql = "DELETE FROM desarrollador WHERE estudio_id = ?";
+            return Conn::get()->prepare($sql)->execute([$id]);
+        } else
+            return true;
+    }
 }
