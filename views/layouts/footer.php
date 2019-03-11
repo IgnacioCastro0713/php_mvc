@@ -81,7 +81,7 @@
 <script src="<?php echo $path;?>assets/js/node_modules/gijgo/js/gijgo.min.js" type="text/javascript"></script>
 <link href="<?php echo $path;?>assets/js/node_modules/gijgo/css/gijgo.min.css" rel="stylesheet" type="text/css"/>
 <!-- generic functions -->
-<script src="<?php echo $path;?>assets/js/functions.js"></script>
+<script src="<?php echo $path;?>assets/js/own/main.min.js"></script>
 <!-- Others JS  -->
 <script src="<?php echo $path;?>assets/js/core/popper.min.js" type="text/javascript"></script>
 <script src="<?php echo $path;?>assets/js/core/bootstrap.min.js" type="text/javascript"></script>
