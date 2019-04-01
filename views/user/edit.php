@@ -141,10 +141,9 @@ require_once '../home/auth.php'
                 "pass_conf": $('#pass_conf').val(),
                 "func" : 'update'
             }, 'UserController');
-            console.log(admin);
         },
         invalidHandler: function () {
-            emptyForm();
+            toast('error', 'Ingrese la información correctamente.');
         }
     });
 </script>

@@ -99,7 +99,7 @@ require_once '../home/auth.php';
             }, 'DeveloperController');
         },
         invalidHandler: function () {
-            emptyForm();
+            toast('error', 'Ingrese la información correctamente.');
         }
     });
 </script>

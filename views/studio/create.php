@@ -94,7 +94,7 @@ require_once '../home/auth.php';
             },'StudioController');
         },
         invalidHandler: function () {
-            emptyForm();
+            toast('error', 'Ingrese la información correctamente.');
         }
     });
 </script>

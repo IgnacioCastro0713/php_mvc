@@ -129,7 +129,7 @@ require_once '../home/auth.php';
             }, 'GameController');
         },
         invalidHandler: function () {
-            emptyForm();
+            toast('error', 'Ingrese la información correctamente.');
         }
     });
 </script>
