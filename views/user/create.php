@@ -134,5 +134,6 @@ require_once '../home/auth.php';
         invalidHandler: function () {
             toast('error', 'Ingrese la información correctamente.');
         }
+        
     });
 </script>
