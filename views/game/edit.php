@@ -4,7 +4,7 @@ require '../../config/Utilities.php';
 use Utilities\Utilities;
 if ($_GET['id']!="")
     $row = Utilities::getById('juego', $_GET['id']);
-require_once '../layouts/header.php';
+require_once '../layouts/navbar.php';
 require_once '../home/auth.php';
 ?>
 <body class="landing-page">

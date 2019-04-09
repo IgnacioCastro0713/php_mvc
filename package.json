@@ -1,0 +1,37 @@
+{
+  "name": "php_mvc",
+  "version": "1.0.0",
+  "site": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IgnacioCastro0713/php_mvc.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IgnacioCastro0713/php_mvc/issues"
+  },
+  "homepage": "https://github.com/IgnacioCastro0713/php_mvc#readme",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "gijgo": "^1.9.12",
+    "jquery": "^3.3.1",
+    "jquery-validation": "^1.19.0",
+    "moment": "^2.24.0",
+    "nouislider": "^13.1.4",
+    "perfect-scrollbar": "^1.4.0",
+    "popper": "^1.0.1",
+    "popper.js": "^1.15.0",
+    "sweetalert2": "^8.2.6",
+    "webpack": "^4.29.6"
+  },
+  "main": "assets/js/blk-design-system.js",
+  "devDependencies": {
+    "webpack-cli": "^3.3.0"
+  },
+  "keywords": [],
+  "description": ""
+}

@@ -1,4 +1,4 @@
-<?php require_once '../layouts/header.php'; ?>
+<?php require_once '../layouts/navbar.php'; ?>
 <body class="index-page">
 <div class="wrapper" id="response">
     <div class="page-header header-filter">

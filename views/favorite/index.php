@@ -1,7 +1,7 @@
 <?php
 require '../../config/Connection.php';
 require '../../config/Utilities.php';
-include_once "../layouts/header.php";
+include_once "../layouts/navbar.php";
 require_once '../home/auth.php';
 $row = \Utilities\Utilities::getById('usuario', $_GET['id'] ?? $_SESSION['id']);
 ?>
