@@ -1,5 +1,9 @@
-window.$ = window.jQuery = require('jquery');
-window.Swal = require('sweetalert2');
+import $ from 'jquery';
+import Swal  from 'sweetalert2';
+
+window.$ = window.jQuery = $;
+window.Swal = Swal;
+
 require('../blk-design-system');
 require('../../../node_modules/sweetalert2/dist/sweetalert2');
 require('../../../node_modules/jquery-validation/dist/jquery.validate');
