@@ -9,7 +9,7 @@ class Utilities
     public static function messageToast($message, $type, $location)
     {
         echo "<script type='text/javascript'>
-        Toast.fire({
+        appVue.Toast.fire({
           type: '{$type}',
           title: '{$message}'
         }).then(() => {

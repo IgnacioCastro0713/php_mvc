@@ -14,14 +14,14 @@ if ($count != 0) {
             <td class="td-actions text-center">
                 <button type="button" rel="tooltip"
                         class="btn <?php echo \Game\Game::isFavorite($row->id, $_SESSION['id']) ? "btn-primary" : "btn-default"; ?> btn-icon btn-sm"
-                        onclick="setOrUnSetFavorite(<?php echo $row->id?>, controller, <?php echo !\Game\Game::isFavorite($row->id, $_SESSION['id']) ? "true" : "false"; ?>, event)">
+                        onclick="appVue.setOrUnSetFavorite(<?php echo $row->id?>, controller, <?php echo !\Game\Game::isFavorite($row->id, $_SESSION['id']) ? "true" : "false"; ?>, event)">
                     <i class="tim-icons icon-heart-2"></i>
                 </button>
                 <a href="edit?id=<?php echo $row->id?>" rel="tooltip"
                    class="btn btn-success btn-simple btn-icon btn-sm" title="Editar">
                     <i class="tim-icons icon-settings-gear-63"></i>
                 </a>
-                <button onclick="confirmDelete('<?php echo $row->nombre?>', '<?php echo $row->id; ?>', controller);"
+                <button onclick="appVue.confirmDelete('<?php echo $row->nombre?>', '<?php echo $row->id; ?>', controller);"
                         class="btn btn-danger btn-simple btn-icon btn-sm" title="Eliminar">
                     <i class="tim-icons icon-simple-remove"></i>
                 </button>

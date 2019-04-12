@@ -2,6 +2,7 @@
 require '../../config/Connection.php';
 require '../../config/Utilities.php';
 use Utilities\Utilities;
+require_once '../layouts/head.php';
 require_once '../layouts/navbar.php';
 require_once '../home/auth.php';
 ?>
@@ -89,7 +90,7 @@ require_once '../home/auth.php';
                 .addClass('has-success');
         },
         submitHandler: function () {
-            sendData({
+            appVue.sendData({
                 "nombre": $('#nombre').val(),
                 "apaterno": $('#apaterno').val(),
                 "amaterno": $('#amaterno').val(),
@@ -99,7 +100,7 @@ require_once '../home/auth.php';
             }, 'DeveloperController');
         },
         invalidHandler: function () {
-            toast('error', 'Ingrese la información correctamente.');
+            appVue.toast('error', 'Ingrese la información correctamente.');
         }
     });
 </script>

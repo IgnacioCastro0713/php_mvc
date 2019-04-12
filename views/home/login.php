@@ -1,3 +1,4 @@
+<?php require_once '../layouts/head.php'; ?>
 <?php require_once '../layouts/navbar.php'; ?>
 <!--login-->
 <body class="register-page">
@@ -66,14 +67,14 @@
                 .addClass('has-success');
         },
         submitHandler: function () {
-            sendData({
+            appVue.sendData({
                 "user" : $("#user").val(),
                 "pass" : $("#pass").val(),
                 "func" : "signin"
             }, 'LoginController');
         },
         invalidHandler: function () {
-            emptyForm();
+            appVue.emptyForm();
         }
     });
 </script>

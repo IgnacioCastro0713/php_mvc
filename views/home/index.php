@@ -1,4 +1,6 @@
-<?php require_once '../layouts/navbar.php'; ?>
+<?php
+require_once '../layouts/head.php';
+require_once '../layouts/navbar.php'; ?>
 <body class="index-page">
 <div class="wrapper" id="response">
     <div class="page-header header-filter">
@@ -12,7 +14,7 @@
         <div class="container">
             <div class="content-center brand">
                 <h1 class="h1-seo">PHP MVC•</h1>
-                <h3>PROYECTO REALIZADO EN PHP POO CON EL PATRON DE DISEÑO MVC.</h3>
+                <h3>{{title}}</h3>
             </div>
         </div>
     </div>

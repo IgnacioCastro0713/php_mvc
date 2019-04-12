@@ -1,6 +1,11 @@
 <?php
 require '../../config/Connection.php';
 require '../../config/Utilities.php';
+require_once '../layouts/head.php'; ?>
+<script type="text/javascript">
+    let controller = 'FavoriteController';
+</script>
+<?php
 include_once "../layouts/navbar.php";
 require_once '../home/auth.php';
 $row = \Utilities\Utilities::getById('usuario', $_GET['id'] ?? $_SESSION['id']);
@@ -121,9 +126,6 @@ $row = \Utilities\Utilities::getById('usuario', $_GET['id'] ?? $_SESSION['id']);
         <div class="container">
             <div class="row justify-content-between">
                 <div class="col-md-5">
-                    <script type="text/javascript">
-                        let controller = 'FavoriteController';
-                    </script>
                     <?php require_once '../layouts/search.php' ?>
                     <div class="row justify-content-between align-items-center">
                         <table class="table tablesorter " id="plain-table">
@@ -160,23 +162,22 @@ $row = \Utilities\Utilities::getById('usuario', $_GET['id'] ?? $_SESSION['id']);
                             </div>
                         </div>
                     </div>
-                    <style>
-                        #exampleModalLong {
-                            top: 230px;
-                            right: 0;
-                            bottom: 0;
-                            left: 600px;
-                        }
-                    </style>
                 </div>
             </div>
         </div>
     </div>
-
 </body>
 <?php
 include_once "../layouts/footer.php";
 ?>
+<style>
+    #exampleModalLong {
+        top: 230px;
+        right: 0;
+        bottom: 0;
+        left: 600px;
+    }
+</style>
 <script type="text/javascript">
-    $(document).ready(loadTable(controller));
+    $(document).ready(appVue.loadTable(controller));
 </script>

@@ -1,10 +1,13 @@
 <?php
-require_once '../layouts/navbar.php';
-require_once '../home/auth.php';
+require_once '../layouts/head.php';
 ?>
 <script type="text/javascript">
     let controller = "DeveloperController";
 </script>
+<?php
+require_once '../layouts/navbar.php';
+require_once '../home/auth.php';
+?>
 <body class="landing-page">
 <div class="wrapper">
     <div class="page-header">
@@ -40,5 +43,5 @@ require_once '../home/auth.php';
 </body>
 <?php require_once '../layouts/footer.php'; ?>
 <script type="text/javascript">
-    $(document).ready(loadTable(controller));
+    $(document).ready(appVue.loadTable(controller));
 </script>

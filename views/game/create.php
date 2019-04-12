@@ -2,6 +2,7 @@
 require '../../config/Connection.php';
 require '../../config/Utilities.php';
 use Utilities\Utilities;
+require_once '../layouts/head.php';
 require_once '../layouts/navbar.php';
 require_once '../home/auth.php';
 ?>
@@ -118,7 +119,7 @@ require_once '../home/auth.php';
             $('#plataforma-parent input:checked').each(function() {
                 platforms.push($(this).val());
             });
-            sendData({
+            appVue.sendData({
                 "nombre": $('#nombre').val(),
                 "genero": $('#genero').val(),
                 "descripcion": $('#descripcion').val(),
@@ -129,7 +130,7 @@ require_once '../home/auth.php';
             }, 'GameController');
         },
         invalidHandler: function () {
-            toast('error', 'Ingrese la información correctamente.');
+            appVue.toast('error', 'Ingrese la información correctamente.');
         }
     });
 </script>

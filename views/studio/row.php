@@ -16,7 +16,7 @@ if ($count != 0) {
                    class="btn btn-success btn-simple btn-icon btn-sm" title="Editar">
                     <i class="tim-icons icon-settings-gear-63"></i>
                 </a>
-                <button onclick="confirmDelete('<?php echo $row->nombre?>', '<?php echo $row->id; ?>', controller);"
+                <button onclick="appVue.confirmDelete('<?php echo $row->nombre?>', '<?php echo $row->id; ?>', controller);"
                         class="btn btn-danger btn-simple btn-icon btn-sm" title="Eliminar">
                     <i class="tim-icons icon-simple-remove"></i>
                 </button>

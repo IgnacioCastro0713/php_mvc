@@ -1,4 +1,5 @@
 <?php
+require_once '../layouts/head.php';
 require '../../config/Connection.php';
 require '../../config/Utilities.php';
 
@@ -95,7 +96,7 @@ require_once '../home/auth.php';
                 .addClass('has-success');
         },
         submitHandler: function () {
-            sendData({
+            appVue.sendData({
                 "id": <?php echo $_GET['id']; ?>,
                 "nombre": $('#nombre').val(),
                 "propietario": $('#propietario').val(),
@@ -105,7 +106,7 @@ require_once '../home/auth.php';
             },'StudioController');
         },
         invalidHandler: function () {
-            toast('error', 'Ingrese la información correctamente.');
+            appVue.toast('error', 'Ingrese la información correctamente.');
         }
     });
 </script>

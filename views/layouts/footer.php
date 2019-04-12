@@ -1,3 +1,4 @@
+</div>
 <footer class="footer">
     <div class="container">
         <div class="row">
@@ -71,15 +72,6 @@
 </footer>
 </div>
 <script src="<?php echo $path;?>assets/js/build/app.js"></script>
-<script src="<?php echo $path;?>assets/js/own_files/main.js"></script>
-<script type="text/javascript">
-    function logout(event) {
-        event.preventDefault();
-        sendData({
-            'func' : 'logout'
-        }, 'LoginController');
-    }
-</script>
 </html>
 <?php
 require_once '../../config/Connection.php';

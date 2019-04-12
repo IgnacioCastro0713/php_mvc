@@ -4,6 +4,7 @@ require '../../config/Utilities.php';
 use Utilities\Utilities;
 if ($_GET['id']!="")
     $row = Utilities::getById('juego', $_GET['id']);
+require_once '../layouts/head.php';
 require_once '../layouts/navbar.php';
 require_once '../home/auth.php';
 ?>
@@ -124,7 +125,7 @@ require_once '../home/auth.php';
             $('#plataforma-parent input:checked').each(function() {
                 platforms.push($(this).val());
             });
-            sendData({
+            appVue.sendData({
                 "id": <?php echo $_GET['id']; ?>,
                 "nombre": $('#nombre').val(),
                 "genero": $('#genero').val(),
@@ -136,7 +137,7 @@ require_once '../home/auth.php';
             }, 'GameController');
         },
         invalidHandler: function () {
-            toast('error', 'Ingrese la información correctamente.');
+            appVue.toast('error', 'Ingrese la información correctamente.');
         }
     });
 </script>
