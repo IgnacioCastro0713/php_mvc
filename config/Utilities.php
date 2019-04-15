@@ -17,6 +17,11 @@ class Utilities
         });</script>";
     }
 
+    public static function redirect($location)
+    {
+        header('Location:../'.$location);
+    }
+
     public static function message($message, $type)
     {
         echo "<div class=\"{$type} alert-with-icon\">
@@ -29,11 +34,18 @@ class Utilities
           </div>";
     }
 
+    /**
+     * @param $table
+     * @param $id
+     * @return bool
+     */
     public static function getById($table, $id)
     {
-        return Conn::get()
-            ->query("SELECT * FROM {$table} WHERE id = {$id}")
-            ->fetchAll(\PDO::FETCH_OBJ)[0];
+        $response =  Conn::get()->query("SELECT * FROM {$table} WHERE id = {$id}");
+        if ($response->rowCount())
+            return $response->fetchAll(\PDO::FETCH_OBJ)[0];
+        else
+            return false;
     }
 
     public static function select($table, $identifier, $default)

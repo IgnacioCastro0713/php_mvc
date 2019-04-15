@@ -3,7 +3,8 @@ require '../../config/Connection.php';
 require '../../config/Utilities.php';
 use Utilities\Utilities;
 if ($_GET['id'] !== "")
-    $row = Utilities::getById('desarrollador', $_GET['id']) ;
+    $row = Utilities::getById('desarrollador', $_GET['id']);
+if (!$row)\Utilities\Utilities::redirect('developer');
 require_once '../layouts/head.php';
 require_once '../layouts/navbar.php';
 require_once '../home/auth.php';

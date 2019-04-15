@@ -18,20 +18,6 @@ require('../../../node_modules/moment/moment');
 
 //vue configuration
 import Vue from 'vue';
-import VueRouter from 'vue-router';
-Vue.use(VueRouter);
-
-//routes TODO: pending implementation
-const router = new VueRouter({
-    mode: 'history',
-    routes: [
-        {
-            name:'home',
-            path: '/'
-        }
-    ]
-});
-
 //application vue
 const app = new Vue({
     el: '#app',
@@ -39,7 +25,8 @@ const app = new Vue({
         console.log('working...');
     },
     data: {
-        title: 'PROYECTO REALIZADO EN PHP POO CON EL PATRON DE DISEÑO MVC.',
+        title: 'PHP MVC•',
+        subtitle: 'PROYECTO REALIZADO EN PHP POO CON EL PATRON DE DISEÑO MVC.',
         swal : Swal.mixin({
             confirmButtonClass: 'btn btn-success',
             cancelButtonClass: 'btn btn-danger',
@@ -51,7 +38,6 @@ const app = new Vue({
             showConfirmButton: false,
             timer: 2000
         }),
-
     },
     methods: {
         toast(type, message){
@@ -173,5 +159,4 @@ const app = new Vue({
         }
     },
 });
-
 window.appVue = app;
