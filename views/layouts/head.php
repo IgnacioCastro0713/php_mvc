@@ -22,6 +22,5 @@ if (count($array) > 3)
     <link href="<?php echo $path;?>assets/css/nucleo-icons.css" rel="stylesheet" />
     <!-- CSS Files -->
     <link href="<?php echo $path;?>assets/css/blk-design-system.css?v=1.0.0" rel="stylesheet" />
-    <link href="<?php echo $path;?>node_modules/gijgo/css/gijgo.min.css" rel="stylesheet" type="text/css"/>
-
+    <link href="<?php echo $path;?>assets/css/gijgo.css" rel="stylesheet" />
 </head>
