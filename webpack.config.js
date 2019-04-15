@@ -1,4 +1,5 @@
 const path = require('path');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
     mode: 'development',
@@ -10,9 +11,25 @@ module.exports = {
     //vue configuration
     resolve: {
         alias: {
-            vue: 'vue/dist/vue.js'
-        }
+            vue: 'vue/dist/vue.js',
+            'vue$': 'vue/dist/vue.common.js'
+        },
+        extensions: ['.ts', '.js', '.vue', '.json']
     },
+    module: {
+        rules: [
+            // ... other rules
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader',
+            }
+        ]
+    },
+    plugins: [
+        // make sure to include the plugin!
+        new VueLoaderPlugin()
+    ],
+
     //compilation constant run command: webpack --watch
     watch: true
 };

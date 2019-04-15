@@ -166,13 +166,12 @@ const app = new Vue({
             }).then(data => data.text())
                 .then(response => $('#detail').html(response));
         },
-        logout(event) {
-            event.preventDefault();
+        logout() {
             this.sendData({
                 'func' : 'logout'
             }, 'LoginController');
         }
-    }
+    },
 });
 
 window.appVue = app;
