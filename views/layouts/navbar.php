@@ -112,7 +112,7 @@
                             <a href="<?php echo $path;?>views/favorite/index?id=<?php echo $_SESSION['id']?>" class="dropdown-item">
                                 <i class="tim-icons icon-badge"></i> <?php echo $_SESSION['user']?>
                             </a>
-                            <a href="<?php echo $path;?>" class="dropdown-item" @click="logout()">
+                            <a href="<?php echo $path;?>" class="dropdown-item" @click.prevent="logout()">
                                 <i class="tim-icons icon-simple-remove"></i>Salir
                             </a>
                         </div>

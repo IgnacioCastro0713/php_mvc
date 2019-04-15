@@ -49,7 +49,7 @@ const app = new Vue({
             toast: true,
             position: 'top',
             showConfirmButton: false,
-            timer: 1700
+            timer: 2000
         }),
 
     },
