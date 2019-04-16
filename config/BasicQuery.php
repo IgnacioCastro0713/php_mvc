@@ -10,7 +10,7 @@ use PDOStatement;
 class BasicQuery
 {
     /**
-     * @var $table
+     * @var $table: hace referencia a la tabla con la que estará interactuando.
      */
     protected $table;
 
@@ -56,9 +56,11 @@ class BasicQuery
     }
 
     /**
-     * @param $id
-     * @param string $reference
-     * @return bool
+     * @Funtion : Genera la consulta delete de manero automatica.
+     * @param $id: identificador del registro que se actualizará.
+     * @param string $reference: si la referencia despues del where cambia donde se indica(opcional) esta como id por
+     * default
+     * @return bool: retorna un verdadero o false según el exito de la consulta.
      */
     public function destroyed($id, $reference = 'id')
     {
@@ -67,11 +69,13 @@ class BasicQuery
     }
 
     /**
-     * @param string $search
-     * @param array $array
-     * @param string $conditions
+     * @Funtion: Funcion para traer los registros de cualquier tabla generando una consulta select.
+     * @use: la funcion traera un simple select o con los campo que desea buscar durante la consulta.
+     * @param string $search: la variable que viene desde el buscador.
+     * @param array $array: los campos que desea o que permita que busque de la tabla.
+     * @param string $conditions: los campos que desea traer a traves de la consulta.
      * @return false|PDOStatement
-     * @note: No aplicar en consultas con inner join de tablas
+     * @note: No aplicar en consultas con inner join de tablas. | Posible actualización...no lo creo.
      */
     public function getAll(string $search = '', array $array = [], string $conditions = '*')
     {
@@ -96,7 +100,7 @@ class BasicQuery
     /**
      * @Funtion: Función para borrar las relaciones de las tablas.
      * @param $id
-     * @param $reference
+     * @param $reference: si la referencia despues del where cambia donde se indica.
      * @return bool
      */
     public function unset($id, $reference)

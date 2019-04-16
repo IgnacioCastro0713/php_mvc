@@ -1,13 +1,13 @@
 <?php
 
-namespace User; // TODO : Change according to the class.
+namespace User;
 
 use BaseGeneric\BasicQuery;
-use Configuration\Configuration; // TODO: Required, doesn't change.
-use Connection\Connection as Conn; // TODO: Required, doesn't change.
+use Configuration\Configuration;
+use Connection\Connection as Conn;
 use InterfaceModel\InterfaceModel as Model;
-use PDOStatement; // TODO: Required, doesn't change.
-Configuration::model();// TODO: Required, doesn't change.
+use PDOStatement;
+Configuration::model();
 
 class User extends BasicQuery implements Model
 {
@@ -75,7 +75,6 @@ class User extends BasicQuery implements Model
     }
 
     /**
-     * TODO: Function to search a record, change the query according to the table.
      * @param $search
      * @return false|PDOStatement
      */
@@ -83,8 +82,13 @@ class User extends BasicQuery implements Model
     {
         $query = new BasicQuery();
         $query->table = 'usuario';
-        return $query->getAll($search, ['usuario', "CONCAT(nombre, ' ', apaterno, ' ', amaterno)"],
-            "id, usuario, CONCAT(nombre, ' ', apaterno, ' ', amaterno) as nombreCompleto, admin");
+        return $query->getAll($search,
+            [
+                'usuario',
+                "CONCAT(nombre, ' ', apaterno, ' ', amaterno)"
+            ],
+            "id, usuario, CONCAT(nombre, ' ', apaterno, ' ', amaterno) as nombreCompleto, admin"
+        );
     }
 
     public function find()
