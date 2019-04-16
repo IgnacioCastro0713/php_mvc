@@ -51,5 +51,5 @@ class PlatformController implements Controller
         require_once "../views/platform/row.php";
     }
 }
-$function = (String)$_POST['func'];
+$function = (string)$_POST['func'];
 PlatformController::$function();

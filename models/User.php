@@ -2,13 +2,16 @@
 
 namespace User; // TODO : Change according to the class.
 
+use BaseGeneric\BasicQuery;
 use Configuration\Configuration; // TODO: Required, doesn't change.
 use Connection\Connection as Conn; // TODO: Required, doesn't change.
-use InterfaceModel\InterfaceModel as Model; // TODO: Required, doesn't change.
+use InterfaceModel\InterfaceModel as Model;
+use PDOStatement; // TODO: Required, doesn't change.
 Configuration::model();// TODO: Required, doesn't change.
 
-class User implements Model
+class User extends BasicQuery implements Model
 {
+    protected $table = 'usuario';
     private $usuario, $nombre, $apaterno, $amaterno, $pass, $admin;
     /**
      * User constructor.
@@ -21,20 +24,12 @@ class User implements Model
      */
     public function __construct($usuario, $nombre, $apaterno, $amaterno, $pass, $admin)
     {
-        $this->usuario = (String)$usuario;
-        $this->nombre = (String)$nombre;
-        $this->apaterno = (String)$apaterno;
-        $this->amaterno = (String)$amaterno;
-        $this->pass = (String)md5($pass);
+        $this->usuario = (string)$usuario;
+        $this->nombre = (string)$nombre;
+        $this->apaterno = (string)$apaterno;
+        $this->amaterno = (string)$amaterno;
+        $this->pass = (string)md5($pass);
         $this->admin = (int)$admin;
-    }
-
-    /**
-     * @return array
-     */
-    public function fillable():array
-    {
-        return [$this->usuario, $this->pass, $this->nombre, $this->apaterno, $this->amaterno, $this->admin];
     }
 
     /**
@@ -42,8 +37,14 @@ class User implements Model
      */
     public function save()
     {
-        $sql = "INSERT INTO usuario (usuario, pass, nombre, apaterno, amaterno, admin) VALUES (?, ?, ?, ?, ?, ?)";
-        return Conn::get()->prepare($sql)->execute($this->fillable());
+        return $this->created([
+           'usuario' => $this->usuario,
+           'pass' => $this->pass,
+           'nombre' => $this->nombre,
+           'apaterno' => $this->apaterno,
+           'amaterno' => $this->amaterno,
+           'admin' => $this->admin
+        ]);
     }
 
     /**
@@ -52,8 +53,14 @@ class User implements Model
      */
     public function update($id)
     {
-        $sql = "UPDATE usuario SET usuario = ?, pass = ?, nombre = ?, apaterno = ?, amaterno = ?, admin = ? WHERE id = {$id}";
-        return Conn::get()->prepare($sql)->execute($this->fillable());
+        return $this->updated($id, [
+            'usuario' => $this->usuario,
+            'pass' => $this->pass,
+            'nombre' => $this->nombre,
+            'apaterno' => $this->apaterno,
+            'amaterno' => $this->amaterno,
+            'admin' => $this->admin
+        ]);
     }
 
     /**
@@ -62,21 +69,22 @@ class User implements Model
      */
     public static function delete($id)
     {
-        $sql = "DELETE FROM usuario WHERE id = ?";
-        return Conn::get()->prepare($sql)->execute([$id]);
+        $query = new BasicQuery();
+        $query->table = 'usuario';
+        return $query->destroyed($id);
     }
 
     /**
      * TODO: Function to search a record, change the query according to the table.
      * @param $search
-     * @return false|\PDOStatement
+     * @return false|PDOStatement
      */
     public static function search($search)
     {
-        $sql = "SELECT id, usuario, CONCAT(nombre, ' ', apaterno, ' ', amaterno) as nombreCompleto, admin 
-                FROM usuario WHERE usuario LIKE '%{$search}%' OR CONCAT(nombre, ' ', apaterno, ' ', amaterno) 
-                LIKE '%{$search}%'";
-        return Conn::get()->query($sql);
+        $query = new BasicQuery();
+        $query->table = 'usuario';
+        return $query->getAll($search, ['usuario', "CONCAT(nombre, ' ', apaterno, ' ', amaterno)"],
+            "id, usuario, CONCAT(nombre, ' ', apaterno, ' ', amaterno) as nombreCompleto, admin");
     }
 
     public function find()
@@ -92,11 +100,8 @@ class User implements Model
 
     public static function unSetFavorite($id)
     {
-        $sql = "SELECT * FROM favoritos WHERE usuario_id = {$id}";
-        if (Conn::get()->query($sql)->rowCount()) {
-            $sql = "DELETE FROM favoritos WHERE usuario_id = ?";
-            return Conn::get()->prepare($sql)->execute([$id]);
-        } else
-            return true;
+        $query = new BasicQuery();
+        $query->table = 'favoritos';
+        return $query->unset($id, 'usuario_id');
     }
 }

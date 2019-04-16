@@ -52,5 +52,5 @@ class StudioController implements Controller
         require_once "../views/studio/row.php";
     }
 }
-$function = (String)$_POST['func'];
+$function = (string)$_POST['func'];
 StudioController::$function();

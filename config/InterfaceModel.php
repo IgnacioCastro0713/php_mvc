@@ -3,8 +3,6 @@ namespace InterfaceModel;
 
 interface InterfaceModel
 {
-    public function fillable(): array;
-
     public function save();
 
     public function update($id);

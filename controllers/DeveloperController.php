@@ -48,5 +48,5 @@ class DeveloperController implements Controller
         require_once "../views/developer/row.php";
     }
 }
-$function = (String)$_POST['func'];
+$function = (string)$_POST['func'];
 DeveloperController::$function();

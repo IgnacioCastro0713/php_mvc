@@ -16,8 +16,8 @@ class Auth
      */
     public function __construct($user, $password)
     {
-        $this->user = (String)$user;
-        $this->password = (String)md5($password);
+        $this->user = (string)$user;
+        $this->password = (string)md5($password);
     }
 
     /**

@@ -2,14 +2,16 @@
 
 namespace Game;
 
+use BaseGeneric\BasicQuery;
 use Configuration\Configuration;
 use Connection\Connection as Conn;
 use InterfaceModel\InterfaceModel as Model;
 Configuration::model();
 
 
-class Game implements Model
+class Game extends BasicQuery implements Model
 {
+    protected $table = 'juego';
     private $nombre, $genero, $descripcion, $lanzamiento, $estudio, $id;
 
     /**
@@ -22,36 +24,42 @@ class Game implements Model
      */
     public function __construct($nombre, $genero, $descripcion, $lanzamiento, $estudio)
     {
-        $this->nombre = (String)$nombre;
-        $this->genero = (String)$genero;
-        $this->descripcion = (String)$descripcion;
-        $this->lanzamiento = (String)$lanzamiento;
+        $this->nombre = (string)$nombre;
+        $this->genero = (string)$genero;
+        $this->descripcion = (string)$descripcion;
+        $this->lanzamiento = (string)$lanzamiento;
         $this->estudio = (int)$estudio;
-    }
-
-    public function fillable():array
-    {
-        return [$this->nombre, $this->genero, $this->descripcion, $this->lanzamiento, $this->estudio];
     }
 
     public function save()
     {
-        $sql = "INSERT INTO juego (nombre, genero, descripcion, lanzamiento, estudio_id) VALUES (?, ?, ?, ?, ?)";
-        $response = Conn::get()->prepare($sql)->execute($this->fillable());
+        $response = $this->created([
+            'nombre' => $this->nombre,
+            'genero' => $this->genero,
+            'descripcion' => $this->descripcion,
+            'lanzamiento' => $this->lanzamiento,
+            'estudio_id' => $this->estudio
+        ]);
         $this->setId(Conn::get()->lastInsertId());
         return $response;
     }
 
     public function update($id)
     {
-        $sql = "UPDATE juego SET nombre = ?, genero = ?, descripcion = ?, lanzamiento = ?, estudio_id = ? WHERE id = {$id}";
-        return Conn::get()->prepare($sql)->execute($this->fillable());
+        return $this->updated($id, [
+            'nombre' => $this->nombre,
+            'genero' => $this->genero,
+            'descripcion' => $this->descripcion,
+            'lanzamiento' => $this->lanzamiento,
+            'estudio_id' => $this->estudio
+        ]);
     }
 
     public static function delete($id)
     {
-        $sql = "DELETE FROM juego WHERE id = ?";
-        return Conn::get()->prepare($sql)->execute([$id]);
+        $query = new BasicQuery();
+        $query->table = 'juego';
+        return $query->destroyed($id);
     }
 
     public static function search($search)
@@ -103,12 +111,9 @@ class Game implements Model
      */
     public static function unSetEnvironment($id)
     {
-        $sql = "SELECT * FROM entorno WHERE juego_id = {$id}";
-        if (Conn::get()->query($sql)->rowCount()){
-            $sql = "DELETE FROM entorno WHERE juego_id = ?";
-            return Conn::get()->prepare($sql)->execute([$id]);
-        } else
-            return true;
+        $query = new BasicQuery();
+        $query->table = 'entorno';
+        return $query->unset($id, 'juego_id');
     }
 
     /**
@@ -130,12 +135,9 @@ class Game implements Model
      */
     public static function unSetFavorite($id)
     {
-        $sql = "SELECT * FROM favoritos WHERE juego_id = {$id}";
-        if (Conn::get()->query($sql)->rowCount()) {
-            $sql = "DELETE FROM favoritos WHERE juego_id = ?";
-            return Conn::get()->prepare($sql)->execute([$id]);
-        } else
-            return true;
+        $query = new BasicQuery();
+        $query->table = 'favoritos';
+        return $query->unset($id, 'juego_id');
     }
 
     /**

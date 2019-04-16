@@ -78,5 +78,5 @@ class GameController implements Controller
         require_once "../views/game/row.php";
     }
 }
-$function = (String)$_POST['func'];
+$function = (string)$_POST['func'];
 GameController::$function();

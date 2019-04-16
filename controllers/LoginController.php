@@ -37,5 +37,5 @@ class LoginController
     }
 }
 
-$function = (String)$_POST['func'];
+$function = (string)$_POST['func'];
 LoginController::$function();

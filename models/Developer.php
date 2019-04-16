@@ -2,14 +2,16 @@
 
 namespace Developer;
 
+use BaseGeneric\BasicQuery;
 use Configuration\Configuration;
 use Connection\Connection as Conn;
 use InterfaceModel\InterfaceModel as Model;
 Configuration::model();
 
 
-class Developer implements Model
+class Developer extends BasicQuery implements Model
 {
+    protected $table = 'desarrollador';
     private $nombre, $apaterno, $amaterno, $ciudad, $estudio;
     /**
      * Developer constructor.
@@ -21,34 +23,40 @@ class Developer implements Model
      */
     public function __construct($nombre, $apaterno, $amaterno, $ciudad, $estudio)
     {
-        $this->nombre = (String)$nombre;
-        $this->apaterno = (String)$apaterno;
-        $this->amaterno = (String)$amaterno;
-        $this->ciudad = (String)$ciudad;
+        $this->nombre = (string)$nombre;
+        $this->apaterno = (string)$apaterno;
+        $this->amaterno = (string)$amaterno;
+        $this->ciudad = (string)$ciudad;
         $this->estudio = (int)$estudio;
-    }
-
-    public function fillable():array
-    {
-        return [$this->nombre, $this->apaterno, $this->amaterno, $this->ciudad, $this->estudio];
     }
 
     public function save()
     {
-        $sql = "INSERT INTO desarrollador(nombre, apaterno, amaterno, ciudad, estudio_id) VALUES (?, ?, ?, ?, ?)";
-        return Conn::get()->prepare($sql)->execute($this->fillable());
+        return $this->created([
+            'nombre' => $this->nombre,
+            'apaterno' => $this->apaterno,
+            'amaterno' => $this->amaterno,
+            'ciudad' => $this->ciudad,
+            'estudio_id' => $this->estudio
+        ]);
     }
 
     public function update($id)
     {
-        $sql = "UPDATE desarrollador SET nombre = ?, apaterno = ?, amaterno = ?, ciudad = ?, estudio_id = ? WHERE id = {$id}";
-        return Conn::get()->prepare($sql)->execute($this->fillable());
+        return $this->updated($id, [
+            'nombre' => $this->nombre,
+            'apaterno' => $this->apaterno,
+            'amaterno' => $this->amaterno,
+            'ciudad' => $this->ciudad,
+            'estudio_id' => $this->estudio
+        ]);
     }
 
     public static function delete($id)
     {
-        $sql = "DELETE FROM desarrollador WHERE id = ?";
-        return Conn::get()->prepare($sql)->execute([$id]);
+        $query = new BasicQuery();
+        $query->table = 'desarrollador';
+        return $query->destroyed($id);
     }
 
     public static function search($search)

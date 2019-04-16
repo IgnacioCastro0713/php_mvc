@@ -2,15 +2,15 @@
 
 namespace Studio;
 
+use BaseGeneric\BasicQuery;
 use Configuration\Configuration;
-use Connection\Connection as Conn;
 use InterfaceModel\InterfaceModel as Model;
 Configuration::model();
 
 
-class Studio implements Model
+class Studio extends BasicQuery implements Model
 {
-
+    protected $table = 'estudio';
     private $nombre, $propietario, $sede, $fundacion;
 
     /**
@@ -22,49 +22,50 @@ class Studio implements Model
      */
     public function __construct($nombre, $propietario, $sede, $fundacion)
     {
-        $this->nombre = (String)$nombre;
-        $this->propietario = (String)$propietario;
-        $this->sede = (String)$sede;
-        $this->fundacion = (String)$fundacion;
-    }
-
-    public function fillable():array
-    {
-        return [$this->nombre, $this->propietario, $this->sede, $this->fundacion];
+        $this->nombre = (string)$nombre;
+        $this->propietario = (string)$propietario;
+        $this->sede = (string)$sede;
+        $this->fundacion = (string)$fundacion;
     }
 
     public function save()
     {
-        $sql = "INSERT INTO estudio (nombre, propietario, sede, fundacion) VALUES (?, ?, ?, ?)";
-        return Conn::get()->prepare($sql)->execute($this->fillable());
+        return $this->created([
+            'nombre' => $this->nombre,
+            'propietario' => $this->propietario,
+            'sede' => $this->sede,
+            'fundacion' => $this->fundacion
+        ]);
     }
 
     public function update($id)
     {
-        $sql = "UPDATE estudio SET nombre = ?, propietario = ?, sede = ?, fundacion = ? WHERE id = {$id}";
-        return Conn::get()->prepare($sql)->execute($this->fillable());
+        return $this->updated($id, [
+            'nombre' => $this->nombre,
+            'propietario' => $this->propietario,
+            'sede' => $this->sede,
+            'fundacion' => $this->fundacion
+        ]);
     }
 
     public static function delete($id)
     {
-        $sql = "DELETE FROM estudio WHERE id = ?";
-        return Conn::get()->prepare($sql)->execute([$id]);
+        $query = new BasicQuery();
+        $query->table = 'estudio';
+        return $query->destroyed($id);
     }
 
     public static function search($search)
     {
-        $sql = "SELECT * FROM estudio WHERE nombre LIKE '%{$search}%' OR propietario LIKE '%{$search}%'
-                OR sede LIKE '%{$search}%'";
-        return Conn::get()->query($sql);
+        $query = new BasicQuery();
+        $query->table = 'estudio';
+        return $query->getAll($search, ['nombre', 'propietario']);
     }
 
     public static function unSetDevelopers($id)
     {
-        $sql = "SELECT * FROM desarrollador WHERE estudio_id = {$id}";
-        if (Conn::get()->query($sql)->rowCount()) {
-            $sql = "DELETE FROM desarrollador WHERE estudio_id = ?";
-            return Conn::get()->prepare($sql)->execute([$id]);
-        } else
-            return true;
+        $query = new BasicQuery();
+        $query->table = 'desarrolldor';
+        return $query->unset($id, 'estudio_id');
     }
 }

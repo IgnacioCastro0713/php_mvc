@@ -50,5 +50,5 @@ class FavoriteController implements Controller
         require_once "../views/favorite/detail.php";
     }
 }
-$function = (String)$_POST['func'];
+$function = (string)$_POST['func'];
 FavoriteController::$function();

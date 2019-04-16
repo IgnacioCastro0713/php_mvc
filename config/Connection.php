@@ -47,7 +47,7 @@ class Connection
     /**
      * @param PDO $conn
      */
-    public function setConn($conn)
+    public function setConn(PDO $conn)
     {
         $this->conn = $conn;
     }
@@ -55,7 +55,7 @@ class Connection
     /**
      * @return PDO
      */
-    public function getConn()
+    public function getConn():PDO
     {
         return $this->conn;
     }

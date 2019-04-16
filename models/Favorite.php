@@ -2,13 +2,15 @@
 
 namespace Favorite;
 
+use BaseGeneric\BasicQuery;
 use Configuration\Configuration;
 use Connection\Connection as Conn;
 use InterfaceModel\InterfaceModel as Model;
 Configuration::model();
 
-class Favorite implements Model
+class Favorite extends BasicQuery implements Model
 {
+    protected $table = 'favoritos';
     private $usuario, $game;
 
     /**
@@ -22,31 +24,13 @@ class Favorite implements Model
         $this->game = (int)$game;
     }
 
-    /**
-     * @return int
-     */
-    public function getUsuario()
-    {
-        return $this->usuario;
-    }
-
-    /**
-     * @return int
-     */
-    public function getGame()
-    {
-        return $this->game;
-    }
-
-    public function fillable():array
-    {
-        return [$this->getUsuario(), $this->getGame()];
-    }
 
     public function save()
     {
-        $sql = "INSERT INTO favoritos(usuario_id, juego_id) VALUES (?, ?)";
-        return Conn::get()->prepare($sql)->execute($this->fillable());
+        return $this->created([
+            'usuario_id' => $this->getUsuario(),
+            'juego_id' => $this->getGame()
+        ]);
     }
 
     public function update($id)
@@ -115,5 +99,21 @@ class Favorite implements Model
             $data['city'] .= $developer->ciudad."<br>";
         }
         return $data;
+    }
+
+    /**
+     * @return int
+     */
+    public function getUsuario()
+    {
+        return $this->usuario;
+    }
+
+    /**
+     * @return int
+     */
+    public function getGame()
+    {
+        return $this->game;
     }
 }

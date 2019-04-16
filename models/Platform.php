@@ -2,13 +2,15 @@
 
 namespace Platform;
 
+
+use BaseGeneric\BasicQuery;
 use Configuration\Configuration;
-use Connection\Connection as Conn;
 use InterfaceModel\InterfaceModel as Model;
 Configuration::model();
 
-class Platform implements Model
+class Platform extends BasicQuery implements Model
 {
+    protected $table = 'plataforma';
     private $nombre, $propietario, $website;
 
     /**
@@ -19,49 +21,47 @@ class Platform implements Model
      */
     public function __construct($nombre, $propietario, $website)
     {
-        $this->nombre = (String)$nombre;
-        $this->propietario = (String)$propietario;
-        $this->website = (String)$website;
-    }
-
-    public function fillable():array
-    {
-        return [$this->nombre, $this->propietario, $this->website];
+        $this->nombre = (string)$nombre;
+        $this->propietario = (string)$propietario;
+        $this->website = (string)$website;
     }
 
     public function save()
     {
-        $sql = "INSERT INTO plataforma (nombre, propietario, website) VALUES (?, ?, ?)";
-        return Conn::get()->prepare($sql)->execute($this->fillable());
+        return $this->created([
+            'nombre' => $this->nombre,
+            'propietario' => $this->propietario,
+            'website' => $this->website
+        ]);
     }
 
     public function update($id)
     {
-        $sql = "UPDATE plataforma SET nombre = ?, propietario = ?, website = ? WHERE id = {$id}";
-        return Conn::get()->prepare($sql)->execute($this->fillable());
+        return $this->updated($id, [
+            'nombre' => $this->nombre,
+            'propietario' => $this->propietario,
+            'website' => $this->website
+        ]);
     }
 
     public static function delete($id)
     {
-        $sql = "DELETE FROM plataforma WHERE id = ?";
-        return Conn::get()->prepare($sql)->execute([$id]);
+        $query = new BasicQuery();
+        $query->table = 'plataforma';
+        return $query->destroyed($id);
     }
 
     public static function search($search)
     {
-        $sql = "SELECT id, nombre, propietario, website 
-                FROM plataforma WHERE nombre 
-                LIKE '%{$search}%' OR  propietario LIKE '%{$search}%'";
-        return Conn::get()->query($sql);
+        $query = new BasicQuery();
+        $query->table = 'plataforma';
+        return $query->getAll($search, ['nombre', 'propietario']);
     }
 
     public static function unSetEnviroment($id)
     {
-        $sql = "SELECT * FROM entorno WHERE plataforma_id = {$id}";
-        if (Conn::get()->query($sql)->rowCount()){
-            $sql = "DELETE FROM entorno WHERE plataforma_id = ?";
-            return Conn::get()->prepare($sql)->execute([$id]);
-        } else
-            return true;
+        $query = new BasicQuery();
+        $query->table = 'entorno';
+        return $query->unset($id, 'plataforma_id');
     }
 }

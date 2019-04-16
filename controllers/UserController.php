@@ -56,5 +56,5 @@ class UserController implements Controller
         require_once "../views/user/row.php";
     }
 }
-$function = (String)$_POST['func'];
+$function = (string)$_POST['func'];
 UserController::$function();
