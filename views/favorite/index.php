@@ -148,7 +148,7 @@ $row = \Utilities\Utilities::getById('usuario', $_GET['id'] ?? $_SESSION['id']);
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">Detalles</h5>
+                                    <h5 class="modal-title text-info" id="exampleModalLongTitle"><strong>Detalles Generales</strong></h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -172,7 +172,7 @@ include_once "../layouts/footer.php";
 ?>
 <style>
     #exampleModalLong {
-        top: 230px;
+        top: 100px;
         right: 0;
         bottom: 0;
         left: 600px;

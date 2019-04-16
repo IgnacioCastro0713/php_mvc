@@ -57,7 +57,7 @@ class Favorite extends BasicQuery implements Model
 
     public static function getDetail($id)
     {
-        $sql = "SELECT 
+        $sql = "SELECT *,
                 j.id AS id_juego, 
                 e.id AS id_estudio,
                 j.nombre AS juego,
