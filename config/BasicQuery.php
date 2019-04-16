@@ -99,7 +99,7 @@ class BasicQuery
 
     /**
      * @Funtion: Función para borrar las relaciones de las tablas.
-     * @param $id
+     * @param $id: identificador del registro a eliminar.
      * @param $reference: si la referencia despues del where cambia donde se indica.
      * @return bool
      */
