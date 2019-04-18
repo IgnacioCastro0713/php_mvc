@@ -70,7 +70,7 @@
             appVue.sendData({
                 "user" : $("#user").val(),
                 "pass" : $("#pass").val(),
-                "func" : "signin"
+                "func" : "signIn"
             }, 'LoginController');
         },
         invalidHandler: function () {

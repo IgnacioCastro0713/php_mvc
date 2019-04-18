@@ -9,7 +9,7 @@ include '../models/Auth.php';
 
 class LoginController
 {
-    public static function signin()
+    public static function signIn()
     {
         $session = new Auth($_POST['user'], $_POST['pass']);
         if ($session->check())
