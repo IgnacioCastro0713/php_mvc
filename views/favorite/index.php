@@ -1,6 +1,9 @@
 <?php
+
+use Utilities\Utilities;
+
 require '../../config/Connection.php';
-require '../../config/Utilities.php';
+require '../../config/core/Utilities.php';
 require_once '../layouts/head.php'; ?>
 <script type="text/javascript">
     let controller = 'FavoriteController';
@@ -8,7 +11,7 @@ require_once '../layouts/head.php'; ?>
 <?php
 include_once "../layouts/navbar.php";
 require_once '../home/auth.php';
-$row = \Utilities\Utilities::getById('usuario', $_GET['id'] ?? $_SESSION['id']);
+$row = Utilities::getById('usuario', $_GET['id'] ?? $_SESSION['id']);
 ?>
 <body class="profile-page">
 <div class="wrapper">

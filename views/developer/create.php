@@ -1,6 +1,6 @@
 <?php
 require '../../config/Connection.php';
-require '../../config/Utilities.php';
+require '../../config/core/Utilities.php';
 use Utilities\Utilities;
 require_once '../layouts/head.php';
 require_once '../layouts/navbar.php';

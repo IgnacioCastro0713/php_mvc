@@ -1,10 +1,13 @@
 <?php
+
+use Utilities\Utilities;
+
 require_once '../layouts/head.php';
 require '../../config/Connection.php';
-require '../../config/Utilities.php';
+require '../../config/core/Utilities.php';
 
-if ($_GET['id'] !== "")$row = \Utilities\Utilities::getById('estudio', $_GET['id']);
-if (!$row)\Utilities\Utilities::redirect('studio');
+if ($_GET['id'] !== "")$row = Utilities::getById('estudio', $_GET['id']);
+if (!$row) Utilities::redirect('studio');
 
 require_once '../layouts/navbar.php';
 require_once '../home/auth.php';

@@ -4,7 +4,7 @@ namespace LoginController;
 use Utilities\Utilities;
 use Auth\Auth;
 
-include '../config/Utilities.php';
+include '../config/core/Utilities.php';
 include '../models/Auth.php';
 
 class LoginController

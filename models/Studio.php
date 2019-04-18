@@ -65,7 +65,7 @@ class Studio extends BaseModel implements Model
     public static function unSetDevelopers($id)
     {
         $query = new BaseModel();
-        $query->table = 'desarrolldor';
+        $query->table = 'desarrollador';
         return $query->unset($id, 'estudio_id');
     }
 }
