@@ -7,25 +7,25 @@ namespace BaseGeneric;
 use Connection\Connection as Conn;
 use PDOStatement;
 
-class BasicQuery
+class BaseModel
 {
     /**
-     * @var $table: hace referencia a la tabla con la que estará interactuando.
+     * @var $table : hace referencia a la tabla con la que estará interactuando.
      */
     protected $table;
 
     /**
      * @Función: Generar la consulta insert de manera automatica.
-     * @param array $array: se envía un arreglo asociativo según la tabla a la que se insertaran los datos.
+     * @param array $array : se envía un arreglo asociativo según la tabla a la que se insertaran los datos.
      * @return bool: retorna un verdadero o falso dependiendo el exito de la consulta insert.
      */
     public function created(array $array)
     {
         $sql_keys = '';
         $sql_values = '';
-        $data =[];
+        $data = [];
         foreach ($array as $key => $value) {
-            $sql_keys .= "`".addslashes($key)."`,";
+            $sql_keys .= "`" . addslashes($key) . "`,";
             $sql_values .= "?,";
             $data[] = $value;
         }
@@ -37,8 +37,8 @@ class BasicQuery
 
     /**
      * @Función: Generar la consulta update de manera automatica.
-     * @param $id: referancia al cualse le aplicará el update.
-     * @param array $array: se envia un array con los datos que modificarán el registro.
+     * @param $id : referancia al cualse le aplicará el update.
+     * @param array $array : se envia un array con los datos que modificarán el registro.
      * @return bool: retorna un verdadero o false según el exito de la consulta.
      */
     public function updated($id, array $array)
@@ -46,7 +46,7 @@ class BasicQuery
         $sql_set = '';
         $data = [];
         foreach ($array as $key => $value) {
-            $sql_set .= "`".addslashes($key)."`=";
+            $sql_set .= "`" . addslashes($key) . "`=";
             $sql_set .= "?,";
             $data[] = $value;
         }
@@ -57,8 +57,8 @@ class BasicQuery
 
     /**
      * @Funtion : Genera la consulta delete de manero automatica.
-     * @param $id: identificador del registro que se actualizará.
-     * @param string $reference: si la referencia despues del where cambia donde se indica(opcional) esta como id por
+     * @param $id : identificador del registro que se actualizará.
+     * @param string $reference : si la referencia despues del where cambia donde se indica(opcional) esta como id por
      * default
      * @return bool: retorna un verdadero o false según el exito de la consulta.
      */
@@ -71,9 +71,9 @@ class BasicQuery
     /**
      * @Funtion: Funcion para traer los registros de cualquier tabla generando una consulta select.
      * @use: la funcion traera un simple select o con los campo que desea buscar durante la consulta.
-     * @param string $search: la variable que viene desde el buscador.
-     * @param array $array: los campos que desea o que permita que busque de la tabla.
-     * @param string $conditions: los campos que desea traer a traves de la consulta.
+     * @param string $search : la variable que viene desde el buscador.
+     * @param array $array : los campos que desea o que permita que busque de la tabla.
+     * @param string $conditions : los campos que desea traer a traves de la consulta.
      * @return false|PDOStatement
      * @note: No aplicar en consultas con inner join de tablas. | Posible actualización...no lo creo.
      */
@@ -99,8 +99,8 @@ class BasicQuery
 
     /**
      * @Funtion: Función para borrar las relaciones de las tablas.
-     * @param $id: identificador del registro a eliminar.
-     * @param $reference: si la referencia despues del where cambia donde se indica.
+     * @param $id : identificador del registro a eliminar.
+     * @param $reference : si la referencia despues del where cambia donde se indica.
      * @return bool
      */
     public function unset($id, $reference)

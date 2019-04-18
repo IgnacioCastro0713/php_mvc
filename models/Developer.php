@@ -2,14 +2,14 @@
 
 namespace Developer;
 
-use BaseGeneric\BasicQuery;
+use BaseGeneric\BaseModel;
 use Configuration\Configuration;
 use Connection\Connection as Conn;
 use InterfaceModel\InterfaceModel as Model;
 Configuration::model();
 
 
-class Developer extends BasicQuery implements Model
+class Developer extends BaseModel implements Model
 {
     protected $table = 'desarrollador';
     private $nombre, $apaterno, $amaterno, $ciudad, $estudio;
@@ -54,7 +54,7 @@ class Developer extends BasicQuery implements Model
 
     public static function delete($id)
     {
-        $query = new BasicQuery();
+        $query = new BaseModel();
         $query->table = 'desarrollador';
         return $query->destroyed($id);
     }

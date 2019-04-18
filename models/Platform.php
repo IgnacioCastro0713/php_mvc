@@ -3,12 +3,12 @@
 namespace Platform;
 
 
-use BaseGeneric\BasicQuery;
+use BaseGeneric\BaseModel;
 use Configuration\Configuration;
 use InterfaceModel\InterfaceModel as Model;
 Configuration::model();
 
-class Platform extends BasicQuery implements Model
+class Platform extends BaseModel implements Model
 {
     protected $table = 'plataforma';
     private $nombre, $propietario, $website;
@@ -46,21 +46,21 @@ class Platform extends BasicQuery implements Model
 
     public static function delete($id)
     {
-        $query = new BasicQuery();
+        $query = new BaseModel();
         $query->table = 'plataforma';
         return $query->destroyed($id);
     }
 
     public static function search($search)
     {
-        $query = new BasicQuery();
+        $query = new BaseModel();
         $query->table = 'plataforma';
         return $query->getAll($search, ['nombre', 'propietario']);
     }
 
     public static function unSetEnviroment($id)
     {
-        $query = new BasicQuery();
+        $query = new BaseModel();
         $query->table = 'entorno';
         return $query->unset($id, 'plataforma_id');
     }

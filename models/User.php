@@ -2,14 +2,14 @@
 
 namespace User;
 
-use BaseGeneric\BasicQuery;
+use BaseGeneric\BaseModel;
 use Configuration\Configuration;
 use Connection\Connection as Conn;
 use InterfaceModel\InterfaceModel as Model;
 use PDOStatement;
 Configuration::model();
 
-class User extends BasicQuery implements Model
+class User extends BaseModel implements Model
 {
     protected $table = 'usuario';
     private $usuario, $nombre, $apaterno, $amaterno, $pass, $admin;
@@ -69,7 +69,7 @@ class User extends BasicQuery implements Model
      */
     public static function delete($id)
     {
-        $query = new BasicQuery();
+        $query = new BaseModel();
         $query->table = 'usuario';
         return $query->destroyed($id);
     }
@@ -80,7 +80,7 @@ class User extends BasicQuery implements Model
      */
     public static function search($search)
     {
-        $query = new BasicQuery();
+        $query = new BaseModel();
         $query->table = 'usuario';
         return $query->getAll($search,
             [
@@ -104,7 +104,7 @@ class User extends BasicQuery implements Model
 
     public static function unSetFavorite($id)
     {
-        $query = new BasicQuery();
+        $query = new BaseModel();
         $query->table = 'favoritos';
         return $query->unset($id, 'usuario_id');
     }

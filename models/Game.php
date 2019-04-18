@@ -2,14 +2,14 @@
 
 namespace Game;
 
-use BaseGeneric\BasicQuery;
+use BaseGeneric\BaseModel;
 use Configuration\Configuration;
 use Connection\Connection as Conn;
 use InterfaceModel\InterfaceModel as Model;
 Configuration::model();
 
 
-class Game extends BasicQuery implements Model
+class Game extends BaseModel implements Model
 {
     protected $table = 'juego';
     private $nombre, $genero, $descripcion, $lanzamiento, $estudio, $id;
@@ -57,7 +57,7 @@ class Game extends BasicQuery implements Model
 
     public static function delete($id)
     {
-        $query = new BasicQuery();
+        $query = new BaseModel();
         $query->table = 'juego';
         return $query->destroyed($id);
     }
@@ -111,7 +111,7 @@ class Game extends BasicQuery implements Model
      */
     public static function unSetEnvironment($id)
     {
-        $query = new BasicQuery();
+        $query = new BaseModel();
         $query->table = 'entorno';
         return $query->unset($id, 'juego_id');
     }
@@ -135,7 +135,7 @@ class Game extends BasicQuery implements Model
      */
     public static function unSetFavorite($id)
     {
-        $query = new BasicQuery();
+        $query = new BaseModel();
         $query->table = 'favoritos';
         return $query->unset($id, 'juego_id');
     }

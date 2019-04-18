@@ -2,13 +2,13 @@
 
 namespace Favorite;
 
-use BaseGeneric\BasicQuery;
+use BaseGeneric\BaseModel;
 use Configuration\Configuration;
 use Connection\Connection as Conn;
 use InterfaceModel\InterfaceModel as Model;
 Configuration::model();
 
-class Favorite extends BasicQuery implements Model
+class Favorite extends BaseModel implements Model
 {
     protected $table = 'favoritos';
     private $usuario, $game;
