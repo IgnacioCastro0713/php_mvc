@@ -7,10 +7,19 @@ namespace BaseGeneric;
 use Connection\Connection as Conn;
 use PDOStatement;
 
+
+/**
+ * Class BaseModel
+ * @package BaseGeneric
+ * @copyright: DinaDev's team 🧨.
+ * @author: José Ignacio menchaca Castro.
+ */
 class BaseModel
 {
     /**
      * @var $table : hace referencia a la tabla con la que estará interactuando.
+     * @note: Para funciones estaticas es necesario instancias un nuevo objeto de esta clase e inicializar nuevamente
+     * esta variable de lo contrario no funcionara.
      */
     protected $table;
 

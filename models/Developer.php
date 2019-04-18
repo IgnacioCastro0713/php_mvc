@@ -61,7 +61,8 @@ class Developer extends BaseModel implements Model
 
     public static function search($search)
     {
-        $sql = "SELECT d.id, CONCAT(d.nombre, ' ', d.apaterno, ' ', d.amaterno) as nombreCompleto, d.ciudad, d.estudio_id , e.nombre 
+        $sql = "SELECT d.id, CONCAT(d.nombre, ' ', d.apaterno, ' ', d.amaterno) 
+                as nombreCompleto, d.ciudad, d.estudio_id , e.nombre 
                 FROM desarrollador d INNER JOIN estudio e on d.estudio_id = e.id 
                 WHERE CONCAT(d.nombre, ' ', d.apaterno, ' ', d.amaterno) LIKE '%{$search}%' 
                 OR e.nombre LIKE '%{$search}%'";
