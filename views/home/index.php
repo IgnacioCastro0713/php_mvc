@@ -14,8 +14,8 @@ require_once '../layouts/navbar.php'; ?>
         <div class="squares square7"></div>
         <div class="container">
             <div class="content-center brand">
-                <h1 class="h1-seo">{{title}}</h1>
-                <h3>{{subtitle}}</h3>
+                <h1 class="h1-seo">PHP MVC•</h1>
+                <h3>PROYECTO REALIZADO EN PHP POO CON EL PATRON DE DISEÑO MVC.</h3>
             </div>
         </div>
     </div>
