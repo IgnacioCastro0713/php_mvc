@@ -1,10 +1,24 @@
 <?php
 
 use Favorite\Favorite;
-$row = $detail->fetchAll(PDO::FETCH_OBJ)[0];
-$developer = Favorite::getDeveloper($row->id_estudio);
-$platforms = Favorite::getPlatforms($row->id_juego, true);
-if ($count != 0) {
+$message = '';
+$row = $detail->fetchAll(PDO::FETCH_OBJ)[0] ?? 0;
+
+if (isset($row->id_estudio)) {
+    $developer = Favorite::getDeveloper($row->id_estudio);
+} else {
+    $message = "No existe una relación de datos no se puede mostras los detalles generales correctamete. <br><br>
+                <strong class='text-warning'>verifique los resgistro relacionados.</strong>";
+}
+
+if (isset($row->id_juego)){
+    $platforms = Favorite::getPlatforms($row->id_juego, true);
+} else {
+    $message = "No existe una relación de datos no se puede mostras los detalles generales correctamete. <br><br>
+                <strong class='text-warning'>verifique los resgistro relacionados.</strong>";
+}
+
+if ($count != 0  && $developer && $platforms) {
      echo "
      <h6 align='center'>Información de videojuego</h6>
      <div class='row container' style='border-bottom: 1px solid #a8a8a8; margin: auto'>
@@ -56,4 +70,4 @@ if ($count != 0) {
           </div>
      </div>";
 } else
-    echo "<tr><td colspan='4'>No se obtuvieron resultados.</td></tr>";
+    echo "<tr><td colspan='4'>{$message}</td></tr>";
