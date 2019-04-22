@@ -1,6 +1,7 @@
 <?php
 
 use Utilities\Utilities;
+require_once '../home/auth.php';
 
 require '../../config/Connection.php';
 require '../../config/core/Utilities.php';
@@ -10,7 +11,6 @@ require_once '../layouts/head.php'; ?>
 </script>
 <?php
 include_once "../layouts/navbar.php";
-require_once '../home/auth.php';
 $row = Utilities::getById('usuario', $_GET['id'] ?? $_SESSION['id']);
 ?>
 <body class="profile-page">

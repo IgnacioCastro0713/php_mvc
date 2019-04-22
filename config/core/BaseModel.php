@@ -18,13 +18,13 @@ class BaseModel
 {
     /**
      * @var $table : hace referencia a la tabla con la que estará interactuando.
-     * @note: Para funciones estaticas es necesario instancias un nuevo objeto de esta clase e inicializar nuevamente
+     * @note: Para funciones estaticas es necesario instancias un nuevo objeto de esta clase e inicializar nuevamente.
      * esta variable de lo contrario no funcionara.
      */
     protected $table;
 
     /**
-     * @Función: Generar la consulta insert de manera automatica.
+     * @Function: Generar la consulta insert de manera automatica.
      * @param array $array : se envía un arreglo asociativo según la tabla a la que se insertaran los datos.
      * @return bool: retorna un verdadero o falso dependiendo el exito de la consulta insert.
      */
@@ -45,7 +45,7 @@ class BaseModel
     }
 
     /**
-     * @Función: Generar la consulta update de manera automatica.
+     * @Function: Generar la consulta update de manera automatica.
      * @param $id : referancia al cualse le aplicará el update.
      * @param array $array : se envia un array con los datos que modificarán el registro.
      * @return bool: retorna un verdadero o false según el exito de la consulta.

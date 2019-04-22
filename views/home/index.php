@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once '../layouts/head.php';
 require_once '../layouts/navbar.php'; ?>
 <body class="index-page">

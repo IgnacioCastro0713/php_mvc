@@ -71,7 +71,7 @@
     </div>
 </footer>
 </div>
-<script src="<?php echo $path;?>assets/js/build/app.js"></script>
+<script src="<?php echo $path; ?>assets/js/build/app.js"></script>
 </html>
 <?php
 require_once '../../config/Connection.php';

@@ -1,4 +1,6 @@
 <?php
+require_once '../home/auth.php';
+
 require '../../config/Connection.php';
 require '../../config/core/Utilities.php';
 use Utilities\Utilities;
@@ -7,7 +9,6 @@ if ($_GET['id']!="")
 if (!$row) Utilities::redirect('game');
 require_once '../layouts/head.php';
 require_once '../layouts/navbar.php';
-require_once '../home/auth.php';
 ?>
 <body class="landing-page">
 <div class="wrapper">

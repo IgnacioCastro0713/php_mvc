@@ -55,7 +55,7 @@ class Connection
     /**
      * @return PDO
      */
-    public function getConn():PDO
+    public function getConn(): PDO
     {
         return $this->conn;
     }

@@ -26,18 +26,17 @@
                     </div>
                 </div>
             </div>
-            <?php
-            if (isset($_SESSION['valid'])){ ?>
+            <?php if (isset($_SESSION['valid'])) {?>
                 <ul class="navbar-nav">
                     <li class="dropdown nav-item">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                             <i class="tim-icons icon-controller"></i>videojuego
                         </a>
                         <div class="dropdown-menu dropdown-with-icons">
-                            <a href="<?php echo $path;?>views/game/create" class="dropdown-item">
+                            <a href="<?php echo $path; ?>views/game/create" class="dropdown-item">
                                 <i class="tim-icons icon-simple-add"></i> Agregar
                             </a>
-                            <a href="<?php echo $path;?>views/game/" class="dropdown-item">
+                            <a href="<?php echo $path; ?>views/game/" class="dropdown-item">
                                 <i class="tim-icons icon-bullet-list-67"></i>Consultar
                             </a>
                         </div>
@@ -49,10 +48,10 @@
                             <i class="tim-icons icon-atom"></i>Desarrollador
                         </a>
                         <div class="dropdown-menu dropdown-with-icons">
-                            <a href="<?php echo $path;?>views/developer/create" class="dropdown-item">
+                            <a href="<?php echo $path; ?>views/developer/create" class="dropdown-item">
                                 <i class="tim-icons icon-simple-add"></i> Agregar
                             </a>
-                            <a href="<?php echo $path;?>views/developer/" class="dropdown-item">
+                            <a href="<?php echo $path; ?>views/developer/" class="dropdown-item">
                                 <i class="tim-icons icon-bullet-list-67"></i>Consultar
                             </a>
                         </div>
@@ -64,10 +63,10 @@
                             <i class="tim-icons icon-molecule-40"></i>Estudio
                         </a>
                         <div class="dropdown-menu dropdown-with-icons">
-                            <a href="<?php echo $path;?>views/studio/create" class="dropdown-item">
+                            <a href="<?php echo $path; ?>views/studio/create" class="dropdown-item">
                                 <i class="tim-icons icon-simple-add"></i> Agregar
                             </a>
-                            <a href="<?php echo $path;?>views/studio/" class="dropdown-item">
+                            <a href="<?php echo $path; ?>views/studio/" class="dropdown-item">
                                 <i class="tim-icons icon-bullet-list-67"></i>Consultar
                             </a>
                         </div>
@@ -79,10 +78,10 @@
                             <i class="tim-icons icon-app"></i>Plataforma
                         </a>
                         <div class="dropdown-menu dropdown-with-icons">
-                            <a href="<?php echo $path;?>views/platform/create" class="dropdown-item">
+                            <a href="<?php echo $path; ?>views/platform/create" class="dropdown-item">
                                 <i class="tim-icons icon-simple-add"></i> Agregar
                             </a>
-                            <a href="<?php echo $path;?>views/platform/" class="dropdown-item">
+                            <a href="<?php echo $path; ?>views/platform/" class="dropdown-item">
                                 <i class="tim-icons icon-bullet-list-67"></i>Consultar
                             </a>
                         </div>
@@ -94,10 +93,10 @@
                             <i class="tim-icons icon-single-02"></i>Usuarios
                         </a>
                         <div class="dropdown-menu dropdown-with-icons">
-                            <a href="<?php echo $path;?>views/user/create" class="dropdown-item">
+                            <a href="<?php echo $path; ?>views/user/create" class="dropdown-item">
                                 <i class="tim-icons icon-simple-add"></i> Agregar
                             </a>
-                            <a href="<?php echo $path;?>views/user/" class="dropdown-item">
+                            <a href="<?php echo $path; ?>views/user/" class="dropdown-item">
                                 <i class="tim-icons icon-bullet-list-67"></i>Consultar
                             </a>
                         </div>
@@ -109,24 +108,24 @@
                             <i class="tim-icons icon-settings-gear-63"></i>
                         </a>
                         <div class="dropdown-menu dropdown-with-icons">
-                            <a href="<?php echo $path;?>views/favorite/index?id=<?php echo $_SESSION['id']?>" class="dropdown-item">
-                                <i class="tim-icons icon-badge"></i> <?php echo $_SESSION['user']?>
+                            <a href="<?php echo $path; ?>views/favorite/index?id=<?php echo $_SESSION['id'] ?>" class="dropdown-item">
+                                <i class="tim-icons icon-badge"></i> <?php echo $_SESSION['user'] ?>
                             </a>
-                            <a href="<?php echo $path;?>" class="dropdown-item" @click.prevent="logout()">
+                            <a href="<?php echo $path; ?>" class="dropdown-item" @click.prevent="logout()">
                                 <i class="tim-icons icon-simple-remove"></i>Salir
                             </a>
                         </div>
                     </li>
                 </ul>
-            <?php } else { ?>
+            <?php } else {?>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="<?php echo $path;?>views/home/login" class="nav-link">
+                        <a href="<?php echo $path; ?>views/home/login" class="nav-link">
                             <i class="tim-icons icon-tap-02"></i> Ingresar
                         </a>
                     </li>
                 </ul>
-            <?php } ?>
+            <?php }?>
         </div>
     </div>
 </nav>

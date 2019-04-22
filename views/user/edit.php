@@ -1,7 +1,7 @@
 <?php
 
 use Utilities\Utilities;
-
+require_once '../home/auth.php';
 require '../../config/Connection.php';
 require '../../config/core/Utilities.php';
 if ($_GET['id'] !== "")
@@ -9,7 +9,6 @@ if ($_GET['id'] !== "")
 if (!$row) Utilities::redirect('user');
 require_once '../layouts/head.php';
 require_once '../layouts/navbar.php';
-require_once '../home/auth.php'
 ?>
 <body class="landing-page">
 <div class="wrapper">

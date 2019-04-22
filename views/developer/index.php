@@ -1,4 +1,5 @@
 <?php
+require_once '../home/auth.php';
 require_once '../layouts/head.php';
 ?>
 <script type="text/javascript">
@@ -6,7 +7,6 @@ require_once '../layouts/head.php';
 </script>
 <?php
 require_once '../layouts/navbar.php';
-require_once '../home/auth.php';
 ?>
 <body class="landing-page">
 <div class="wrapper">

@@ -18,6 +18,7 @@ require('../../../node_modules/moment/moment');
 
 //vue configuration
 import Vue from 'vue';
+Vue.config.productionTip = false;
 //application vue
 const app = new Vue({
     el: '#app',
