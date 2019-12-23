@@ -1,3 +1,2 @@
-# php_mvc
--6to Semestre
+# PHP PROYECT: java-5to-semestre
 PHP project in Model - View - Controller (school project)
