@@ -30,7 +30,9 @@ class Connection
      */
     public static function get()
     {
-        self::$inst = new Connection();
+        if(self::$inst == null) {
+           self::$inst = new Connection();
+        }
         return self::$inst->conn;
     }
 
